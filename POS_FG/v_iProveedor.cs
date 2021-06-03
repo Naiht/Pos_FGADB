@@ -11,7 +11,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 namespace POS_FG
 {
-    public partial class v_proveedor : Form
+    public partial class v_iProveedor : Form
     {
         #region MouseDragger
         //Activa el movimiento de la ventana con el panel
@@ -34,7 +34,7 @@ namespace POS_FG
         }
         #endregion
 
-        public v_proveedor()
+        public v_iProveedor()
         {
             InitializeComponent();
         }

@@ -62,11 +62,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v_proveedor.cs">
+    <Compile Include="v_iProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="v_proveedor.Designer.cs">
-      <DependentUpon>v_proveedor.cs</DependentUpon>
+    <Compile Include="v_iProveedor.Designer.cs">
+      <DependentUpon>v_iProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="v_Ventas.cs">
       <SubType>Form</SubType>
@@ -90,8 +90,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="v_proveedor.resx">
-      <DependentUpon>v_proveedor.cs</DependentUpon>
+    <EmbeddedResource Include="v_iProveedor.resx">
+      <DependentUpon>v_iProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_Ventas.resx">
       <DependentUpon>v_Ventas.cs</DependentUpon>
