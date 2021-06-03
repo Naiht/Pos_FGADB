@@ -17,6 +17,7 @@ namespace POS_FG
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new v_Principal());
+            //Application.Run(new v_VentasCli());
         }
     }
 }

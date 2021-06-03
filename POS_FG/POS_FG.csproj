@@ -80,6 +80,12 @@
     <Compile Include="v_Ventas.Designer.cs">
       <DependentUpon>v_Ventas.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_VentasCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_VentasCli.Designer.cs">
+      <DependentUpon>v_VentasCli.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="v_EditProv.resx">
       <DependentUpon>v_EditProv.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_Ventas.resx">
       <DependentUpon>v_Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_VentasCli.resx">
+      <DependentUpon>v_VentasCli.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

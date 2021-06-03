@@ -51,7 +51,7 @@ namespace POS_FG
 
 
             DataTable dt;
-            dt = sql.tablas("productos","select * from productos");
+            dt = sql.tablas("productos","select IDProducto,nombreproducto,P_venta from productos");
             if (dt.Rows.Count > 0)
             {
                 dtgv_ProductosV.DataSource = dt;
@@ -80,5 +80,10 @@ namespace POS_FG
             }
         }
 
+        private void btn_BsCliente_Click(object sender, EventArgs e)
+        {
+            v_VentasCli mensaje = new v_VentasCli();
+            mensaje.ShowDialog();
+        }
     }
 }

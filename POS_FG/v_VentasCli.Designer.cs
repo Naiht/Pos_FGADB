@@ -74,7 +74,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 46);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 342);
+            this.panel1.Size = new System.Drawing.Size(5, 297);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -84,14 +84,14 @@
             this.panel2.Location = new System.Drawing.Point(691, 46);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 342);
+            this.panel2.Size = new System.Drawing.Size(5, 297);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(5, 383);
+            this.panel3.Location = new System.Drawing.Point(5, 338);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(686, 5);
@@ -119,7 +119,7 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(110, 279);
+            this.btn_Cancelar.Location = new System.Drawing.Point(60, 279);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
@@ -137,7 +137,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(453, 279);
+            this.btn_Registrar.Location = new System.Drawing.Point(471, 279);
             this.btn_Registrar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(157, 40);
@@ -145,6 +145,7 @@
             this.btn_Registrar.Text = "Aceptar";
             this.btn_Registrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
             // pb_Cerrar
             // 
@@ -164,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(696, 388);
+            this.ClientSize = new System.Drawing.Size(696, 343);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.dtgv_Clientes);
             this.Controls.Add(this.btn_Registrar);

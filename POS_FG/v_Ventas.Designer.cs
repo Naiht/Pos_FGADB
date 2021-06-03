@@ -47,10 +47,10 @@
             this.btn_Finalizar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chb_Credito = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_BsCliente = new System.Windows.Forms.Button();
             this.txt_NomCliente = new System.Windows.Forms.TextBox();
-            this.chb_Credito = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
@@ -70,7 +70,7 @@
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(909, 45);
+            this.pan_Sup.Size = new System.Drawing.Size(928, 45);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -90,7 +90,7 @@
             // 
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(817, 3);
+            this.pb_Minimizar.Location = new System.Drawing.Point(836, 3);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(31, 35);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +102,7 @@
             // 
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(866, 3);
+            this.pb_Cerrar.Location = new System.Drawing.Point(885, 3);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,9 +123,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(904, 45);
+            this.panel2.Location = new System.Drawing.Point(918, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 716);
+            this.panel2.Size = new System.Drawing.Size(10, 716);
             this.panel2.TabIndex = 2;
             // 
             // panel3
@@ -134,7 +134,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(5, 756);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(899, 5);
+            this.panel3.Size = new System.Drawing.Size(913, 5);
             this.panel3.TabIndex = 2;
             // 
             // pan_Producto
@@ -147,9 +147,9 @@
             this.pan_Producto.Controls.Add(this.textBox1);
             this.pan_Producto.Controls.Add(this.dtgv_ProductosV);
             this.pan_Producto.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pan_Producto.Location = new System.Drawing.Point(496, 45);
+            this.pan_Producto.Location = new System.Drawing.Point(492, 45);
             this.pan_Producto.Name = "pan_Producto";
-            this.pan_Producto.Size = new System.Drawing.Size(408, 711);
+            this.pan_Producto.Size = new System.Drawing.Size(426, 711);
             this.pan_Producto.TabIndex = 3;
             // 
             // lbl_buscar
@@ -211,13 +211,13 @@
             // 
             this.dtgv_ProductosV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_ProductosV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_ProductosV.Location = new System.Drawing.Point(16, 123);
+            this.dtgv_ProductosV.Location = new System.Drawing.Point(11, 117);
             this.dtgv_ProductosV.Name = "dtgv_ProductosV";
             this.dtgv_ProductosV.RowHeadersVisible = false;
             this.dtgv_ProductosV.RowHeadersWidth = 51;
             this.dtgv_ProductosV.RowTemplate.Height = 24;
             this.dtgv_ProductosV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_ProductosV.Size = new System.Drawing.Size(377, 569);
+            this.dtgv_ProductosV.Size = new System.Drawing.Size(404, 569);
             this.dtgv_ProductosV.TabIndex = 0;
             // 
             // btn_Remover
@@ -295,6 +295,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Venta al Credito";
             // 
+            // chb_Credito
+            // 
+            this.chb_Credito.AutoSize = true;
+            this.chb_Credito.Location = new System.Drawing.Point(120, 36);
+            this.chb_Credito.Name = "chb_Credito";
+            this.chb_Credito.Size = new System.Drawing.Size(221, 24);
+            this.chb_Credito.TabIndex = 9;
+            this.chb_Credito.Text = "¿Es una venta al credito?";
+            this.chb_Credito.UseVisualStyleBackColor = true;
+            this.chb_Credito.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -318,6 +329,7 @@
             this.btn_BsCliente.Size = new System.Drawing.Size(38, 30);
             this.btn_BsCliente.TabIndex = 7;
             this.btn_BsCliente.UseVisualStyleBackColor = false;
+            this.btn_BsCliente.Click += new System.EventHandler(this.btn_BsCliente_Click);
             // 
             // txt_NomCliente
             // 
@@ -327,17 +339,6 @@
             this.txt_NomCliente.ReadOnly = true;
             this.txt_NomCliente.Size = new System.Drawing.Size(231, 30);
             this.txt_NomCliente.TabIndex = 6;
-            // 
-            // chb_Credito
-            // 
-            this.chb_Credito.AutoSize = true;
-            this.chb_Credito.Location = new System.Drawing.Point(120, 36);
-            this.chb_Credito.Name = "chb_Credito";
-            this.chb_Credito.Size = new System.Drawing.Size(221, 24);
-            this.chb_Credito.TabIndex = 9;
-            this.chb_Credito.Text = "¿Es una venta al credito?";
-            this.chb_Credito.UseVisualStyleBackColor = true;
-            this.chb_Credito.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label2
             // 
@@ -355,7 +356,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(909, 761);
+            this.ClientSize = new System.Drawing.Size(928, 761);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);

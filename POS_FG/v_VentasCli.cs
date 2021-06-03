@@ -51,10 +51,25 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
 
+        sqlcon2 sql = new sqlcon2();
         private void v_proveedor_Load(object sender, EventArgs e)
         {
 
+            dtgv_Clientes.ReadOnly = true;
+            dtgv_Clientes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Clientes.AllowUserToResizeRows = false;
+
+
+            DataTable dt;
+            dt = sql.tablas("credito", "select * from credito");
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_Clientes.DataSource = dt;
+            }
         }
 
+        private void btn_Registrar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
