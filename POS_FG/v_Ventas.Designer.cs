@@ -34,22 +34,25 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pan_Producto = new System.Windows.Forms.Panel();
-            this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.rb_Id = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.btn_Finalizar = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_Id = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
             this.btn_Remover = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Finalizar = new System.Windows.Forms.Button();
+            this.btn_Buscar = new System.Windows.Forms.Button();
             this.pb_Minimizar = new System.Windows.Forms.PictureBox();
             this.pb_Cerrar = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pan_Sup.SuspendLayout();
             this.pan_Producto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -110,7 +113,7 @@
             this.pan_Producto.Controls.Add(this.lbl_buscar);
             this.pan_Producto.Controls.Add(this.radioButton1);
             this.pan_Producto.Controls.Add(this.rb_Id);
-            this.pan_Producto.Controls.Add(this.button1);
+            this.pan_Producto.Controls.Add(this.btn_Buscar);
             this.pan_Producto.Controls.Add(this.textBox1);
             this.pan_Producto.Controls.Add(this.dtgv_ProductosV);
             this.pan_Producto.Dock = System.Windows.Forms.DockStyle.Right;
@@ -118,6 +121,48 @@
             this.pan_Producto.Name = "pan_Producto";
             this.pan_Producto.Size = new System.Drawing.Size(408, 711);
             this.pan_Producto.TabIndex = 3;
+            // 
+            // lbl_buscar
+            // 
+            this.lbl_buscar.AutoSize = true;
+            this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl_buscar.Location = new System.Drawing.Point(21, 39);
+            this.lbl_buscar.Name = "lbl_buscar";
+            this.lbl_buscar.Size = new System.Drawing.Size(63, 20);
+            this.lbl_buscar.TabIndex = 5;
+            this.lbl_buscar.Text = "Buscar";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioButton1.Location = new System.Drawing.Point(204, 71);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(89, 24);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Nombre";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // rb_Id
+            // 
+            this.rb_Id.AutoSize = true;
+            this.rb_Id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rb_Id.Location = new System.Drawing.Point(125, 71);
+            this.rb_Id.Name = "rb_Id";
+            this.rb_Id.Size = new System.Drawing.Size(43, 24);
+            this.rb_Id.TabIndex = 3;
+            this.rb_Id.TabStop = true;
+            this.rb_Id.Text = "Id";
+            this.rb_Id.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(90, 35);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(231, 30);
+            this.textBox1.TabIndex = 1;
             // 
             // dtgv_ProductosV
             // 
@@ -132,74 +177,6 @@
             this.dtgv_ProductosV.Size = new System.Drawing.Size(377, 569);
             this.dtgv_ProductosV.TabIndex = 0;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(90, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 30);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(339, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 30);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // rb_Id
-            // 
-            this.rb_Id.AutoSize = true;
-            this.rb_Id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rb_Id.Location = new System.Drawing.Point(125, 71);
-            this.rb_Id.Name = "rb_Id";
-            this.rb_Id.Size = new System.Drawing.Size(43, 24);
-            this.rb_Id.TabIndex = 3;
-            this.rb_Id.TabStop = true;
-            this.rb_Id.Text = "Id";
-            this.rb_Id.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioButton1.Location = new System.Drawing.Point(204, 71);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(89, 24);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nombre";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // lbl_buscar
-            // 
-            this.lbl_buscar.AutoSize = true;
-            this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl_buscar.Location = new System.Drawing.Point(21, 39);
-            this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(63, 20);
-            this.lbl_buscar.TabIndex = 5;
-            this.lbl_buscar.Text = "Buscar";
-            // 
-            // btn_Finalizar
-            // 
-            this.btn_Finalizar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_Finalizar.FlatAppearance.BorderSize = 0;
-            this.btn_Finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Finalizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Finalizar.Location = new System.Drawing.Point(281, 691);
-            this.btn_Finalizar.Name = "btn_Finalizar";
-            this.btn_Finalizar.Size = new System.Drawing.Size(142, 40);
-            this.btn_Finalizar.TabIndex = 6;
-            this.btn_Finalizar.Text = "Finalizar";
-            this.btn_Finalizar.UseVisualStyleBackColor = false;
-            // 
             // btn_Remover
             // 
             this.btn_Remover.BackColor = System.Drawing.Color.DimGray;
@@ -207,11 +184,13 @@
             this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
-            this.btn_Remover.Location = new System.Drawing.Point(331, 64);
+            this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
+            this.btn_Remover.Location = new System.Drawing.Point(344, 410);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(142, 40);
             this.btn_Remover.TabIndex = 8;
-            this.btn_Remover.Text = "Finalizar";
+            this.btn_Remover.Text = "Remover";
+            this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Remover.UseVisualStyleBackColor = false;
             // 
             // btn_Cancelar
@@ -229,6 +208,35 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Finalizar
+            // 
+            this.btn_Finalizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Finalizar.FlatAppearance.BorderSize = 0;
+            this.btn_Finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Finalizar.ForeColor = System.Drawing.Color.White;
+            this.btn_Finalizar.Image = global::POS_FG.Properties.Resources.carro;
+            this.btn_Finalizar.Location = new System.Drawing.Point(281, 691);
+            this.btn_Finalizar.Name = "btn_Finalizar";
+            this.btn_Finalizar.Size = new System.Drawing.Size(142, 40);
+            this.btn_Finalizar.TabIndex = 6;
+            this.btn_Finalizar.Text = "Finalizar";
+            this.btn_Finalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Finalizar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Buscar.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_Buscar.Location = new System.Drawing.Point(327, 30);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
+            this.btn_Buscar.TabIndex = 2;
+            this.btn_Buscar.UseVisualStyleBackColor = false;
             // 
             // pb_Minimizar
             // 
@@ -254,12 +262,37 @@
             this.pb_Cerrar.TabStop = false;
             this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 98);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(473, 295);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox1.Location = new System.Drawing.Point(17, 479);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(469, 166);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Venta al Credito";
+            // 
             // v_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(909, 761);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Remover);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Finalizar);
@@ -279,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -297,10 +331,12 @@
         private System.Windows.Forms.Label lbl_buscar;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rb_Id;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_Finalizar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Remover;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

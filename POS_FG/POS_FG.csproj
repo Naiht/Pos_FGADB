@@ -105,5 +105,14 @@
   <ItemGroup>
     <None Include="Resources\minimizar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
