@@ -30,5 +30,12 @@ namespace POS_FG
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_proveedor ventana = new v_proveedor();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }

@@ -93,6 +93,16 @@ namespace POS_FG.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap compartir_datos {
+            get {
+                object obj = ResourceManager.GetObject("compartir-datos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eliminar__1_ {
             get {
                 object obj = ResourceManager.GetObject("eliminar (1)", resourceCulture);
@@ -126,6 +136,16 @@ namespace POS_FG.Properties {
         internal static System.Drawing.Bitmap minimizar {
             get {
                 object obj = ResourceManager.GetObject("minimizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap productos {
+            get {
+                object obj = ResourceManager.GetObject("productos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
