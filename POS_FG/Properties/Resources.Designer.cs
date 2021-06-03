@@ -63,6 +63,26 @@ namespace POS_FG.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cerrar_el_simbolo_de_la_cruz_en_un_circulo {
+            get {
+                object obj = ResourceManager.GetObject("cerrar-el-simbolo-de-la-cruz-en-un-circulo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cerrar_el_simbolo_de_la_cruz_en_un_circulo__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cerrar-el-simbolo-de-la-cruz-en-un-circulo (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap letra_x {
             get {
                 object obj = ResourceManager.GetObject("letra-x", resourceCulture);

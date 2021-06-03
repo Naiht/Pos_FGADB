@@ -14,6 +14,8 @@ namespace POS_FG
 {
     public partial class v_Ventas : Form
     {
+        sqlcon2 sql = new sqlcon2();
+
         #region MouseDragger
         //Activa el movimiento de la ventana con el panel
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -38,6 +40,16 @@ namespace POS_FG
         public v_Ventas()
         {
             InitializeComponent();
+        }
+
+        private void v_Ventas_Load(object sender, EventArgs e)
+        {
+            DataTable dt;
+            dt = sql.tablas("productos","select * from productos");
+            if (dt.Rows.Count > 0)
+            {
+                dtg_ProductosV.DataSource = dt;
+            }
         }
 
         private void pb_Cerrar_Click(object sender, EventArgs e)
