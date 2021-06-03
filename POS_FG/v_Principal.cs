@@ -33,14 +33,9 @@ namespace POS_FG
 
         private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirprov();
-        }
-
-        public void abrirprov() {
             v_iProveedor ventana = new v_iProveedor();
             ventana.MdiParent = this;
             ventana.Show();
         }
-
     }
 }

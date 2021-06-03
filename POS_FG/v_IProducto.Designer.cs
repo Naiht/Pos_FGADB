@@ -388,11 +388,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(145, 511);
+            this.button1.Location = new System.Drawing.Point(91, 526);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 46);
             this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
+            this.button1.Text = "Prueba proveedor";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
