@@ -72,8 +72,10 @@ namespace POS_FG
         {
             if (chb_Credito.Checked){
                 btn_BsCliente.Enabled = true;
+                btn_BsCliente.BackColor = Color.DimGray;
             }
             else {
+                btn_BsCliente.BackColor = Color.White;
                 btn_BsCliente.Enabled = false;
             }
         }
