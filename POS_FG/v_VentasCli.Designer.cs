@@ -101,7 +101,7 @@
             // 
             this.dtgv_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_Clientes.Location = new System.Drawing.Point(28, 82);
+            this.dtgv_Clientes.Location = new System.Drawing.Point(25, 67);
             this.dtgv_Clientes.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_Clientes.Name = "dtgv_Clientes";
             this.dtgv_Clientes.RowHeadersVisible = false;
@@ -119,7 +119,7 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(140, 302);
+            this.btn_Cancelar.Location = new System.Drawing.Point(110, 279);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
@@ -137,7 +137,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(409, 302);
+            this.btn_Registrar.Location = new System.Drawing.Point(453, 279);
             this.btn_Registrar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(157, 40);
