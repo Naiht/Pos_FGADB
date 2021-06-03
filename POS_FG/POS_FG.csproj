@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sqlcon.cs" />
-< HEAD
+<HEAD
     <Compile Include="v_IProducto.cs">
       <SubType>Form</SubType>
     </Compile>
