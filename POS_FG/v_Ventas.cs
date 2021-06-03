@@ -68,5 +68,15 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_Credito.Checked){
+                btn_BsCliente.Enabled = true;
+            }
+            else {
+                btn_BsCliente.Enabled = false;
+            }
+        }
+
     }
 }

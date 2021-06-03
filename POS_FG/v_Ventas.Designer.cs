@@ -30,6 +30,8 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -37,22 +39,26 @@
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rb_Id = new System.Windows.Forms.RadioButton();
+            this.btn_Buscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
             this.btn_Remover = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Finalizar = new System.Windows.Forms.Button();
-            this.btn_Buscar = new System.Windows.Forms.Button();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_BsCliente = new System.Windows.Forms.Button();
+            this.txt_NomCliente = new System.Windows.Forms.TextBox();
+            this.chb_Credito = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pan_Sup.SuspendLayout();
-            this.pan_Producto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            this.pan_Producto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -79,6 +85,30 @@
             this.lbl_NombreV.TabIndex = 2;
             this.lbl_NombreV.Text = "Ventas";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
+            // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(817, 3);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(31, 35);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(866, 3);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // panel1
             // 
@@ -156,6 +186,19 @@
             this.rb_Id.Text = "Id";
             this.rb_Id.UseVisualStyleBackColor = true;
             // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Buscar.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_Buscar.Location = new System.Drawing.Point(327, 30);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
+            this.btn_Buscar.TabIndex = 2;
+            this.btn_Buscar.UseVisualStyleBackColor = false;
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -185,7 +228,7 @@
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
             this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
-            this.btn_Remover.Location = new System.Drawing.Point(344, 410);
+            this.btn_Remover.Location = new System.Drawing.Point(344, 431);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(142, 40);
             this.btn_Remover.TabIndex = 8;
@@ -225,43 +268,6 @@
             this.btn_Finalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Finalizar.UseVisualStyleBackColor = false;
             // 
-            // btn_Buscar
-            // 
-            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
-            this.btn_Buscar.FlatAppearance.BorderSize = 0;
-            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buscar.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
-            this.btn_Buscar.Location = new System.Drawing.Point(327, 30);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
-            this.btn_Buscar.TabIndex = 2;
-            this.btn_Buscar.UseVisualStyleBackColor = false;
-            // 
-            // pb_Minimizar
-            // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(817, 3);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(31, 35);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(866, 3);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -272,18 +278,77 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(473, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(473, 319);
             this.dataGridView1.TabIndex = 6;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chb_Credito);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btn_BsCliente);
+            this.groupBox1.Controls.Add(this.txt_NomCliente);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(17, 479);
+            this.groupBox1.Location = new System.Drawing.Point(17, 491);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(469, 166);
+            this.groupBox1.Size = new System.Drawing.Size(469, 156);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Venta al Credito";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(43, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Cliente";
+            // 
+            // btn_BsCliente
+            // 
+            this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.Enabled = false;
+            this.btn_BsCliente.FlatAppearance.BorderSize = 0;
+            this.btn_BsCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BsCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_BsCliente.Location = new System.Drawing.Point(353, 83);
+            this.btn_BsCliente.Name = "btn_BsCliente";
+            this.btn_BsCliente.Size = new System.Drawing.Size(38, 30);
+            this.btn_BsCliente.TabIndex = 7;
+            this.btn_BsCliente.UseVisualStyleBackColor = false;
+            // 
+            // txt_NomCliente
+            // 
+            this.txt_NomCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_NomCliente.Location = new System.Drawing.Point(113, 83);
+            this.txt_NomCliente.Name = "txt_NomCliente";
+            this.txt_NomCliente.ReadOnly = true;
+            this.txt_NomCliente.Size = new System.Drawing.Size(231, 30);
+            this.txt_NomCliente.TabIndex = 6;
+            // 
+            // chb_Credito
+            // 
+            this.chb_Credito.AutoSize = true;
+            this.chb_Credito.Location = new System.Drawing.Point(120, 36);
+            this.chb_Credito.Name = "chb_Credito";
+            this.chb_Credito.Size = new System.Drawing.Size(221, 24);
+            this.chb_Credito.TabIndex = 9;
+            this.chb_Credito.Text = "¿Es una venta al credito?";
+            this.chb_Credito.UseVisualStyleBackColor = true;
+            this.chb_Credito.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 29);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Factura";
             // 
             // v_Ventas
             // 
@@ -291,6 +356,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(909, 761);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Remover);
@@ -307,13 +373,16 @@
             this.Load += new System.EventHandler(this.v_Ventas_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             this.pan_Producto.ResumeLayout(false);
             this.pan_Producto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -338,5 +407,10 @@
         private System.Windows.Forms.Button btn_Remover;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chb_Credito;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_BsCliente;
+        private System.Windows.Forms.TextBox txt_NomCliente;
+        private System.Windows.Forms.Label label2;
     }
 }
