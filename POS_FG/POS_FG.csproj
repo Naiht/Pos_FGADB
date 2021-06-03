@@ -46,12 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="prueba2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="prueba2.Designer.cs">
-      <DependentUpon>prueba2.cs</DependentUpon>
-    </Compile>
+    <Compile Include="sqlcon.cs" />
     <Compile Include="v_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +55,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="prueba2.resx">
-      <DependentUpon>prueba2.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="v_Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_Ventas.Designer.cs">
+      <DependentUpon>v_Ventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="v_Principal.resx">
       <DependentUpon>v_Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,7 +72,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="v_Ventas.resx">
+      <DependentUpon>v_Ventas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letra-x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

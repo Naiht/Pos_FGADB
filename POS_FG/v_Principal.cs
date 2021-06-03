@@ -16,5 +16,12 @@ namespace POS_FG
         {
             InitializeComponent();
         }
+
+        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_Ventas ventana = new v_Ventas();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
