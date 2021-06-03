@@ -63,6 +63,36 @@ namespace POS_FG.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_agregar {
+            get {
+                object obj = ResourceManager.GetObject("boton-agregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_agregar_2 {
+            get {
+                object obj = ResourceManager.GetObject("boton-agregar 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_marcado {
+            get {
+                object obj = ResourceManager.GetObject("boton-marcado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carro {
             get {
                 object obj = ResourceManager.GetObject("carro", resourceCulture);
@@ -146,6 +176,16 @@ namespace POS_FG.Properties {
         internal static System.Drawing.Bitmap productos {
             get {
                 object obj = ResourceManager.GetObject("productos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap telefono {
+            get {
+                object obj = ResourceManager.GetObject("telefono", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

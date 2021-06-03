@@ -130,5 +130,17 @@
   <ItemGroup>
     <None Include="Resources\productos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telefono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-agregar 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-marcado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
