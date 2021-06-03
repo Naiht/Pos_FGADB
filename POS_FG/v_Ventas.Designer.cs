@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pan_Producto = new System.Windows.Forms.Panel();
-            this.dtg_ProductosV = new System.Windows.Forms.DataGridView();
+            this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.rb_Id = new System.Windows.Forms.RadioButton();
@@ -47,7 +47,7 @@
             this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.pan_Sup.SuspendLayout();
             this.pan_Producto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ProductosV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             this.SuspendLayout();
@@ -112,25 +112,25 @@
             this.pan_Producto.Controls.Add(this.rb_Id);
             this.pan_Producto.Controls.Add(this.button1);
             this.pan_Producto.Controls.Add(this.textBox1);
-            this.pan_Producto.Controls.Add(this.dtg_ProductosV);
+            this.pan_Producto.Controls.Add(this.dtgv_ProductosV);
             this.pan_Producto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pan_Producto.Location = new System.Drawing.Point(496, 45);
             this.pan_Producto.Name = "pan_Producto";
             this.pan_Producto.Size = new System.Drawing.Size(408, 711);
             this.pan_Producto.TabIndex = 3;
             // 
-            // dtg_ProductosV
+            // dtgv_ProductosV
             // 
-            this.dtg_ProductosV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtg_ProductosV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_ProductosV.Location = new System.Drawing.Point(16, 123);
-            this.dtg_ProductosV.Name = "dtg_ProductosV";
-            this.dtg_ProductosV.RowHeadersVisible = false;
-            this.dtg_ProductosV.RowHeadersWidth = 51;
-            this.dtg_ProductosV.RowTemplate.Height = 24;
-            this.dtg_ProductosV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_ProductosV.Size = new System.Drawing.Size(377, 569);
-            this.dtg_ProductosV.TabIndex = 0;
+            this.dtgv_ProductosV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_ProductosV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_ProductosV.Location = new System.Drawing.Point(16, 123);
+            this.dtgv_ProductosV.Name = "dtgv_ProductosV";
+            this.dtgv_ProductosV.RowHeadersVisible = false;
+            this.dtgv_ProductosV.RowHeadersWidth = 51;
+            this.dtgv_ProductosV.RowTemplate.Height = 24;
+            this.dtgv_ProductosV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_ProductosV.Size = new System.Drawing.Size(377, 569);
+            this.dtgv_ProductosV.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -193,7 +193,7 @@
             this.btn_Finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Finalizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Finalizar.Location = new System.Drawing.Point(348, 691);
+            this.btn_Finalizar.Location = new System.Drawing.Point(281, 691);
             this.btn_Finalizar.Name = "btn_Finalizar";
             this.btn_Finalizar.Size = new System.Drawing.Size(142, 40);
             this.btn_Finalizar.TabIndex = 6;
@@ -207,7 +207,7 @@
             this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
-            this.btn_Remover.Location = new System.Drawing.Point(17, 691);
+            this.btn_Remover.Location = new System.Drawing.Point(331, 64);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(142, 40);
             this.btn_Remover.TabIndex = 8;
@@ -222,7 +222,7 @@
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
-            this.btn_Cancelar.Location = new System.Drawing.Point(179, 691);
+            this.btn_Cancelar.Location = new System.Drawing.Point(68, 691);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(142, 40);
             this.btn_Cancelar.TabIndex = 7;
@@ -276,7 +276,7 @@
             this.pan_Sup.PerformLayout();
             this.pan_Producto.ResumeLayout(false);
             this.pan_Producto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ProductosV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             this.ResumeLayout(false);
@@ -293,7 +293,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pan_Producto;
-        private System.Windows.Forms.DataGridView dtg_ProductosV;
+        private System.Windows.Forms.DataGridView dtgv_ProductosV;
         private System.Windows.Forms.Label lbl_buscar;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rb_Id;

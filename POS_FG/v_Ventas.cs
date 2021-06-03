@@ -44,11 +44,17 @@ namespace POS_FG
 
         private void v_Ventas_Load(object sender, EventArgs e)
         {
+
+            dtgv_ProductosV.ReadOnly = true;
+            dtgv_ProductosV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_ProductosV.AllowUserToResizeRows = false;
+
+
             DataTable dt;
             dt = sql.tablas("productos","select * from productos");
             if (dt.Rows.Count > 0)
             {
-                dtg_ProductosV.DataSource = dt;
+                dtgv_ProductosV.DataSource = dt;
             }
         }
 
