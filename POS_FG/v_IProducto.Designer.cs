@@ -56,6 +56,7 @@
             this.btn_Registrar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -385,12 +386,23 @@
             this.btn_Agregar.Text = "Agregar ";
             this.btn_Agregar.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(145, 511);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 46);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // v_IProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(901, 602);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_ID_Proveedor);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Registrar);
@@ -419,7 +431,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "v_IProducto";
-            this.Text = "v_Ventas";
+            this.Text = "*";
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
@@ -460,5 +472,6 @@
         private System.Windows.Forms.Button btn_Registrar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_ID_Proveedor;
+        private System.Windows.Forms.Button button1;
     }
 }

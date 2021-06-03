@@ -34,6 +34,12 @@ namespace POS_FG
         }
         #endregion
 
+        public v_iProveedor(string nombre)
+        {
+            InitializeComponent();
+            txt_NomProveedor.Text = nombre;
+        }
+
         public v_iProveedor()
         {
             InitializeComponent();

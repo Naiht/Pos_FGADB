@@ -50,5 +50,14 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*v_Principal prov = new v_Principal();
+            prov.abrirprov();*/
+
+            v_iProveedor ventana = new v_iProveedor();
+            ventana.MdiParent = this.ParentForm;
+            ventana.Show();
+        }
     }
 }
