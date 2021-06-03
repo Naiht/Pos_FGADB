@@ -97,19 +97,20 @@
             // productoToolStripMenuItem
             // 
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productoToolStripMenuItem.Text = "Producto";
             // 
             // proveedorToolStripMenuItem1
             // 
             this.proveedorToolStripMenuItem1.Name = "proveedorToolStripMenuItem1";
-            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.proveedorToolStripMenuItem1.Text = "Proveedor";
+            this.proveedorToolStripMenuItem1.Click += new System.EventHandler(this.proveedorToolStripMenuItem1_Click);
             // 
             // ventaAlCreditoToolStripMenuItem
             // 
             this.ventaAlCreditoToolStripMenuItem.Name = "ventaAlCreditoToolStripMenuItem";
-            this.ventaAlCreditoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ventaAlCreditoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ventaAlCreditoToolStripMenuItem.Text = "Venta al credito";
             // 
             // v_Principal

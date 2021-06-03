@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace POS_FG
 {
-    public partial class v_iProveedor : Form
+    public partial class v_EditProv : Form
     {
         #region MouseDragger
         //Activa el movimiento de la ventana con el panel

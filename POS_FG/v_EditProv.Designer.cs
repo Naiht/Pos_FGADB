@@ -1,6 +1,6 @@
 ﻿namespace POS_FG
 {
-    partial class v_iProveedor
+    partial class v_EditProv
     {
         /// <summary>
         /// Required designer variable.

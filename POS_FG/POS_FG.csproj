@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="sqlcon.cs" />
     <Compile Include="sqlcon2.cs" />
+    <Compile Include="v_EditProv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_EditProv.Designer.cs">
+      <DependentUpon>v_EditProv.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_IProducto.cs">
       <SubType>Form</SubType>
     </Compile>
