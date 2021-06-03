@@ -40,7 +40,9 @@ namespace POS_FG
 
         private void proveedorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            v_EditProv ventana = new v_EditProv();
+            ventana.MdiParent = this;
+            ventana.Show();
         }
     }
 }

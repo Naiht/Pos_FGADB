@@ -80,6 +80,9 @@
     <Compile Include="v_Ventas.Designer.cs">
       <DependentUpon>v_Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="v_EditProv.resx">
+      <DependentUpon>v_EditProv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="v_IProducto.resx">
       <DependentUpon>v_IProducto.cs</DependentUpon>
     </EmbeddedResource>
