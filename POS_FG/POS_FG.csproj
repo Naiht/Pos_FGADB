@@ -47,7 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sqlcon.cs" />
+<<<<<<< HEAD
+    <Compile Include="v_IProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_IProducto.Designer.cs">
+      <DependentUpon>v_IProducto.cs</DependentUpon>
+    </Compile>
+=======
     <Compile Include="sqlcon2.cs" />
+>>>>>>> 2f2fb6535f91f47ec0335987b20d5fa709684f03
     <Compile Include="v_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +71,9 @@
     <Compile Include="v_Ventas.Designer.cs">
       <DependentUpon>v_Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="v_IProducto.resx">
+      <DependentUpon>v_IProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="v_Principal.resx">
       <DependentUpon>v_Principal.cs</DependentUpon>
     </EmbeddedResource>
