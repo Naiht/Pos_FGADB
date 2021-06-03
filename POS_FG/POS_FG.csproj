@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sqlcon.cs" />
+    <Compile Include="sqlcon2.cs" />
     <Compile Include="v_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-el-simbolo-de-la-cruz-en-un-circulo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-el-simbolo-de-la-cruz-en-un-circulo %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
