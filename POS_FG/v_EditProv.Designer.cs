@@ -30,6 +30,8 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -43,8 +45,6 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.btn_Remover = new System.Windows.Forms.Button();
             this.dtgv_proveedores = new System.Windows.Forms.DataGridView();
             this.rb_id = new System.Windows.Forms.RadioButton();
@@ -53,9 +53,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Telefonos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Telefonos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_proveedores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +85,32 @@
             this.lbl_NombreV.TabIndex = 2;
             this.lbl_NombreV.Text = "Editar Proveedor";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
+            // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(716, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(752, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // panel1
             // 
@@ -209,7 +235,7 @@
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.Image = global::POS_FG.Properties.Resources.telefono;
             this.btn_Agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Agregar.Location = new System.Drawing.Point(291, 217);
+            this.btn_Agregar.Location = new System.Drawing.Point(289, 160);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(118, 32);
             this.btn_Agregar.TabIndex = 27;
@@ -233,32 +259,6 @@
             this.btn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Modificar.UseVisualStyleBackColor = false;
             // 
-            // pb_Minimizar
-            // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(716, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(752, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // btn_Remover
             // 
             this.btn_Remover.BackColor = System.Drawing.Color.OrangeRed;
@@ -267,7 +267,7 @@
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
             this.btn_Remover.Image = global::POS_FG.Properties.Resources.telefono;
-            this.btn_Remover.Location = new System.Drawing.Point(291, 255);
+            this.btn_Remover.Location = new System.Drawing.Point(291, 217);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(118, 32);
             this.btn_Remover.TabIndex = 29;
@@ -373,9 +373,9 @@
             this.Load += new System.EventHandler(this.v_proveedor_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Telefonos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Telefonos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_proveedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
