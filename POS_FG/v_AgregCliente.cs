@@ -41,13 +41,28 @@ namespace POS_FG
         #endregion
 
 
-        public string nombrec { get; set; }
-        public string cedulacli { get; set; }
-        public float monto { get; set; }
+        public string nombreca { get; set; }
+        public string cedulaclia { get; set; }
+        public float montoa { get; set; }
 
         public v_AgregCliente()
         {
             InitializeComponent();
+        }
+
+        private void btn_Agregar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Son correctos los datos del cliente?", "Nuevo Cliente", MessageBoxButtons.OKCancel);
+
+            if (resultado == DialogResult.OK) {
+                DialogResult = DialogResult.OK;
+
+                nombreca = txt_NomCliente.Text;
+                cedulaclia = txt_CedCliente.Text;
+                montoa = 0;
+
+                this.Close();
+            }
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -56,10 +71,6 @@ namespace POS_FG
             this.Close();
         }
 
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            this.Close();
-        }
+
     }
 }

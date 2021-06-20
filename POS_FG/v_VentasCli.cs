@@ -58,7 +58,7 @@ namespace POS_FG
 
 
             DataTable dt;
-            dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, telefono, estadocredito from credito");
+            dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, telefono, estadocredito from credito where estadocredito = 1");
             if (dt.Rows.Count > 0)
             {
                 dtgv_Clientes.DataSource = dt;
@@ -67,6 +67,7 @@ namespace POS_FG
                 dtgv_Clientes.Columns[2].HeaderText = "Monto";
                 dtgv_Clientes.Columns[3].HeaderText = "Dirección";
                 dtgv_Clientes.Columns[4].HeaderText = "Telefono";
+
 
                 dtgv_Clientes.Columns.Remove("estadocredito");
             }
@@ -97,14 +98,16 @@ namespace POS_FG
 
         private void btn_AgrCliente_Click(object sender, EventArgs e)
         {
-            v_AgregCliente mensaje = new v_AgregCliente();
-            mensaje.ShowDialog();
+            v_AgregCliente mensaje2 = new v_AgregCliente();
+            mensaje2.ShowDialog();
 
-            if (mensaje.DialogResult == DialogResult.OK)
+            if (mensaje2.DialogResult == DialogResult.OK)
             {
-                nombrec = mensaje.nombrec;
-                cedulacli = mensaje.cedulacli;
-                monto = mensaje.monto;
+                nombrec = mensaje2.nombreca;
+                cedulacli = mensaje2.cedulaclia;
+                this.DialogResult = DialogResult.OK;
+
+                this.Close();
             }
         }
     }

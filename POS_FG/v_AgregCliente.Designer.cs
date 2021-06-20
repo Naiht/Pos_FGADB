@@ -116,11 +116,11 @@
             // txt_NomCliente
             // 
             this.txt_NomCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NomCliente.Location = new System.Drawing.Point(170, 131);
+            this.txt_NomCliente.Location = new System.Drawing.Point(182, 131);
             this.txt_NomCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_NomCliente.Name = "txt_NomCliente";
             this.txt_NomCliente.Size = new System.Drawing.Size(295, 26);
-            this.txt_NomCliente.TabIndex = 20;
+            this.txt_NomCliente.TabIndex = 1;
             // 
             // label1
             // 
@@ -136,11 +136,11 @@
             // txt_CedCliente
             // 
             this.txt_CedCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_CedCliente.Location = new System.Drawing.Point(170, 80);
+            this.txt_CedCliente.Location = new System.Drawing.Point(182, 80);
             this.txt_CedCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CedCliente.Name = "txt_CedCliente";
             this.txt_CedCliente.Size = new System.Drawing.Size(213, 26);
-            this.txt_CedCliente.TabIndex = 23;
+            this.txt_CedCliente.TabIndex = 0;
             // 
             // label2
             // 
@@ -156,11 +156,11 @@
             // txt_DireccionCliente
             // 
             this.txt_DireccionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_DireccionCliente.Location = new System.Drawing.Point(171, 185);
+            this.txt_DireccionCliente.Location = new System.Drawing.Point(183, 185);
             this.txt_DireccionCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DireccionCliente.Name = "txt_DireccionCliente";
-            this.txt_DireccionCliente.Size = new System.Drawing.Size(455, 26);
-            this.txt_DireccionCliente.TabIndex = 25;
+            this.txt_DireccionCliente.Size = new System.Drawing.Size(424, 26);
+            this.txt_DireccionCliente.TabIndex = 2;
             // 
             // label3
             // 
@@ -187,11 +187,11 @@
             // txt_TelefonoCliente
             // 
             this.txt_TelefonoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TelefonoCliente.Location = new System.Drawing.Point(171, 239);
+            this.txt_TelefonoCliente.Location = new System.Drawing.Point(183, 239);
             this.txt_TelefonoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TelefonoCliente.Name = "txt_TelefonoCliente";
             this.txt_TelefonoCliente.Size = new System.Drawing.Size(174, 26);
-            this.txt_TelefonoCliente.TabIndex = 25;
+            this.txt_TelefonoCliente.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -216,7 +216,7 @@
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
-            this.btn_Cancelar.TabIndex = 30;
+            this.btn_Cancelar.TabIndex = 5;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
@@ -235,7 +235,7 @@
             this.btn_Agregar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(157, 40);
-            this.btn_Agregar.TabIndex = 29;
+            this.btn_Agregar.TabIndex = 4;
             this.btn_Agregar.Text = "Agregar";
             this.btn_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Agregar.UseVisualStyleBackColor = false;
