@@ -49,6 +49,7 @@ namespace POS_FG
             dtgv_ProductosV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_ProductosV.AllowUserToResizeRows = false;
 
+            rb_Nombre.Checked = true;
 
             DataTable dt;
             dt = sql.tablas("productos","select IDProducto,nombreproducto,P_venta from productos");

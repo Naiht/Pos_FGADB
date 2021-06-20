@@ -37,7 +37,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pan_Producto = new System.Windows.Forms.Panel();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_Nombre = new System.Windows.Forms.RadioButton();
             this.rb_Id = new System.Windows.Forms.RadioButton();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -141,7 +141,7 @@
             // 
             this.pan_Producto.BackColor = System.Drawing.Color.LightGray;
             this.pan_Producto.Controls.Add(this.lbl_buscar);
-            this.pan_Producto.Controls.Add(this.radioButton1);
+            this.pan_Producto.Controls.Add(this.rb_Nombre);
             this.pan_Producto.Controls.Add(this.rb_Id);
             this.pan_Producto.Controls.Add(this.btn_Buscar);
             this.pan_Producto.Controls.Add(this.textBox1);
@@ -162,23 +162,23 @@
             this.lbl_buscar.TabIndex = 5;
             this.lbl_buscar.Text = "Buscar";
             // 
-            // radioButton1
+            // rb_Nombre
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioButton1.Location = new System.Drawing.Point(204, 71);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(89, 24);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nombre";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_Nombre.AutoSize = true;
+            this.rb_Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rb_Nombre.Location = new System.Drawing.Point(121, 71);
+            this.rb_Nombre.Name = "rb_Nombre";
+            this.rb_Nombre.Size = new System.Drawing.Size(89, 24);
+            this.rb_Nombre.TabIndex = 4;
+            this.rb_Nombre.TabStop = true;
+            this.rb_Nombre.Text = "Nombre";
+            this.rb_Nombre.UseVisualStyleBackColor = true;
             // 
             // rb_Id
             // 
             this.rb_Id.AutoSize = true;
             this.rb_Id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rb_Id.Location = new System.Drawing.Point(125, 71);
+            this.rb_Id.Location = new System.Drawing.Point(235, 71);
             this.rb_Id.Name = "rb_Id";
             this.rb_Id.Size = new System.Drawing.Size(43, 24);
             this.rb_Id.TabIndex = 3;
@@ -298,7 +298,7 @@
             // chb_Credito
             // 
             this.chb_Credito.AutoSize = true;
-            this.chb_Credito.Location = new System.Drawing.Point(112, 25);
+            this.chb_Credito.Location = new System.Drawing.Point(115, 26);
             this.chb_Credito.Name = "chb_Credito";
             this.chb_Credito.Size = new System.Drawing.Size(221, 24);
             this.chb_Credito.TabIndex = 9;
@@ -399,7 +399,7 @@
         private System.Windows.Forms.Panel pan_Producto;
         private System.Windows.Forms.DataGridView dtgv_ProductosV;
         private System.Windows.Forms.Label lbl_buscar;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rb_Nombre;
         private System.Windows.Forms.RadioButton rb_Id;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox textBox1;
