@@ -1,6 +1,6 @@
 ﻿namespace POS_FG
 {
-    partial class VentanaBase
+    partial class v_AgrCliente
     {
         /// <summary>
         /// Required designer variable.
