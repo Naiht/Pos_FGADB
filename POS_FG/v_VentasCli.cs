@@ -27,7 +27,11 @@ namespace POS_FG
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        private void pb_Cerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
         private void lbl_NombreV_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -36,19 +40,12 @@ namespace POS_FG
         #endregion
 
 
+        public string nombrec {get; set;}
+        public string cedulacli { get; set; }
+        public float monto { get; set; }
         public v_VentasCli()
         {
             InitializeComponent();
-        }
-
-        private void pb_Cerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pb_Minimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         sqlcon2 sql = new sqlcon2();
@@ -61,15 +58,54 @@ namespace POS_FG
 
 
             DataTable dt;
-            dt = sql.tablas("credito", "select * from credito");
+            dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, telefono, estadocredito from credito");
             if (dt.Rows.Count > 0)
             {
                 dtgv_Clientes.DataSource = dt;
+                dtgv_Clientes.Columns[0].HeaderText = "Nombre";
+                dtgv_Clientes.Columns[1].HeaderText = "Cedula";
+                dtgv_Clientes.Columns[2].HeaderText = "Monto";
+                dtgv_Clientes.Columns[3].HeaderText = "Dirección";
+                dtgv_Clientes.Columns[4].HeaderText = "Telefono";
+
+                dtgv_Clientes.Columns.Remove("estadocredito");
             }
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
+            if (dtgv_Clientes.SelectedRows != null)
+            {
+                DialogResult = DialogResult.OK;
+
+                nombrec = dtgv_Clientes.CurrentRow.Cells[0].Value.ToString();
+                cedulacli = dtgv_Clientes.CurrentRow.Cells[1].Value.ToString();
+                monto = float.Parse(dtgv_Clientes.CurrentRow.Cells[2].Value.ToString());
+
+                this.Close();
+            }
+            else {
+                MessageBox.Show("Seleccione un cliente o precione canclear","Seleccoine un cliente",MessageBoxButtons.OK);
+            }
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btn_AgrCliente_Click(object sender, EventArgs e)
+        {
+            v_AgregCliente mensaje = new v_AgregCliente();
+            mensaje.ShowDialog();
+
+            if (mensaje.DialogResult == DialogResult.OK)
+            {
+                nombrec = mensaje.nombrec;
+                cedulacli = mensaje.cedulacli;
+                monto = mensaje.monto;
+            }
         }
     }
 }

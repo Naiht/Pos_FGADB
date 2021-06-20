@@ -84,10 +84,18 @@ namespace POS_FG
             }
         }
 
+        private float monto = 0;
+        private string cedula = "";
         private void btn_BsCliente_Click(object sender, EventArgs e)
         {
             v_VentasCli mensaje = new v_VentasCli();
             mensaje.ShowDialog();
+
+            if (mensaje.DialogResult == DialogResult.OK) {
+                txt_NomCliente.Text = mensaje.nombrec;
+                cedula = mensaje.cedulacli;
+                monto = mensaje.monto;
+            }
         }
     }
 }

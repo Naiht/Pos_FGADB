@@ -30,16 +30,17 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgv_Clientes = new System.Windows.Forms.DataGridView();
+            this.btn_AgrCliente = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Registrar = new System.Windows.Forms.Button();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.pan_Sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -51,7 +52,7 @@
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
             this.pan_Sup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(696, 46);
+            this.pan_Sup.Size = new System.Drawing.Size(772, 46);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -67,6 +68,19 @@
             this.lbl_NombreV.Text = "Clientes";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
             // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(729, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(31, 34);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
@@ -74,41 +88,60 @@
             this.panel1.Location = new System.Drawing.Point(0, 46);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 297);
+            this.panel1.Size = new System.Drawing.Size(5, 334);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(691, 46);
+            this.panel2.Location = new System.Drawing.Point(767, 46);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 297);
+            this.panel2.Size = new System.Drawing.Size(5, 334);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(5, 338);
+            this.panel3.Location = new System.Drawing.Point(5, 375);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(686, 5);
+            this.panel3.Size = new System.Drawing.Size(762, 5);
             this.panel3.TabIndex = 2;
             // 
             // dtgv_Clientes
             // 
             this.dtgv_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_Clientes.Location = new System.Drawing.Point(25, 67);
+            this.dtgv_Clientes.Location = new System.Drawing.Point(27, 112);
             this.dtgv_Clientes.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_Clientes.Name = "dtgv_Clientes";
             this.dtgv_Clientes.RowHeadersVisible = false;
             this.dtgv_Clientes.RowHeadersWidth = 51;
             this.dtgv_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_Clientes.Size = new System.Drawing.Size(638, 185);
+            this.dtgv_Clientes.Size = new System.Drawing.Size(712, 185);
             this.dtgv_Clientes.TabIndex = 24;
+            // 
+            // btn_AgrCliente
+            // 
+            this.btn_AgrCliente.BackColor = System.Drawing.Color.DimGray;
+            this.btn_AgrCliente.FlatAppearance.BorderSize = 0;
+            this.btn_AgrCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AgrCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AgrCliente.ForeColor = System.Drawing.Color.White;
+            this.btn_AgrCliente.Image = global::POS_FG.Properties.Resources.cliente;
+            this.btn_AgrCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_AgrCliente.Location = new System.Drawing.Point(527, 56);
+            this.btn_AgrCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_AgrCliente.Name = "btn_AgrCliente";
+            this.btn_AgrCliente.Size = new System.Drawing.Size(212, 40);
+            this.btn_AgrCliente.TabIndex = 29;
+            this.btn_AgrCliente.Text = "Agregar cliente";
+            this.btn_AgrCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_AgrCliente.UseVisualStyleBackColor = false;
+            this.btn_AgrCliente.Click += new System.EventHandler(this.btn_AgrCliente_Click);
             // 
             // btn_Cancelar
             // 
@@ -119,7 +152,7 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(60, 279);
+            this.btn_Cancelar.Location = new System.Drawing.Point(45, 319);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
@@ -127,6 +160,7 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Registrar
             // 
@@ -137,7 +171,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(471, 279);
+            this.btn_Registrar.Location = new System.Drawing.Point(565, 319);
             this.btn_Registrar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(157, 40);
@@ -147,25 +181,13 @@
             this.btn_Registrar.UseVisualStyleBackColor = false;
             this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(653, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(31, 34);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // v_VentasCli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(696, 343);
+            this.ClientSize = new System.Drawing.Size(772, 380);
+            this.Controls.Add(this.btn_AgrCliente);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.dtgv_Clientes);
             this.Controls.Add(this.btn_Registrar);
@@ -180,8 +202,8 @@
             this.Load += new System.EventHandler(this.v_proveedor_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Clientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,5 +219,6 @@
         private System.Windows.Forms.Button btn_Registrar;
         private System.Windows.Forms.DataGridView dtgv_Clientes;
         private System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.Button btn_AgrCliente;
     }
 }
