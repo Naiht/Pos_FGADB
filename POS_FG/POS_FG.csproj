@@ -110,7 +110,7 @@
     <Compile Include="v_VentasCli.Designer.cs">
       <DependentUpon>v_VentasCli.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+<HEAD
     <Compile Include="v_VGastos.cs">
       <SubType>Form</SubType>
     </Compile>
