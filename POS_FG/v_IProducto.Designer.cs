@@ -30,6 +30,8 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -55,12 +57,12 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Remover = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
+            this.txt_numfactura = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.pan_Sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -71,7 +73,7 @@
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(676, 37);
             this.pan_Sup.TabIndex = 0;
@@ -90,12 +92,38 @@
             this.lbl_NombreV.Text = "Ingresar Productos";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
             // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(608, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(644, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 452);
             this.panel1.TabIndex = 1;
@@ -105,7 +133,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(672, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4, 452);
             this.panel2.TabIndex = 2;
@@ -115,7 +143,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 485);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(668, 4);
             this.panel3.TabIndex = 2;
@@ -279,7 +307,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(68, 427);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 37);
             this.button1.TabIndex = 24;
@@ -344,38 +372,30 @@
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.Image = global::POS_FG.Properties.Resources.boton_agregar_2;
             this.btn_Agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Agregar.Location = new System.Drawing.Point(68, 358);
+            this.btn_Agregar.Location = new System.Drawing.Point(68, 390);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(118, 32);
             this.btn_Agregar.TabIndex = 18;
             this.btn_Agregar.Text = "Agregar ";
             this.btn_Agregar.UseVisualStyleBackColor = false;
             // 
-            // pb_Minimizar
+            // txt_numfactura
             // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(608, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            this.txt_numfactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_numfactura.Location = new System.Drawing.Point(160, 343);
+            this.txt_numfactura.Name = "txt_numfactura";
+            this.txt_numfactura.Size = new System.Drawing.Size(100, 23);
+            this.txt_numfactura.TabIndex = 26;
             // 
-            // pb_Cerrar
+            // label9
             // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(644, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 346);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 17);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Numero Factura";
             // 
             // v_IProducto
             // 
@@ -383,6 +403,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(676, 489);
+            this.Controls.Add(this.txt_numfactura);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_ID_Proveedor);
             this.Controls.Add(this.label8);
@@ -410,14 +432,14 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_IProducto";
             this.Text = "*";
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,5 +476,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_ID_Proveedor;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_numfactura;
+        private System.Windows.Forms.Label label9;
     }
 }

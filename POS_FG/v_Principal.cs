@@ -49,5 +49,26 @@ namespace POS_FG
         {
             Application.Exit();
         }
+
+        private void gatosExternosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_VGastos ventana = new v_VGastos();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void productosSuministradosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_VSuministro ventana = new v_VSuministro();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void gastosExternoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_IGasto ventana = new v_IGasto();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
