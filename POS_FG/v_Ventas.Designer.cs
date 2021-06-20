@@ -298,7 +298,7 @@
             // chb_Credito
             // 
             this.chb_Credito.AutoSize = true;
-            this.chb_Credito.Location = new System.Drawing.Point(120, 36);
+            this.chb_Credito.Location = new System.Drawing.Point(112, 25);
             this.chb_Credito.Name = "chb_Credito";
             this.chb_Credito.Size = new System.Drawing.Size(221, 24);
             this.chb_Credito.TabIndex = 9;
@@ -310,7 +310,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(43, 87);
+            this.label1.Location = new System.Drawing.Point(42, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 8;
@@ -324,7 +324,7 @@
             this.btn_BsCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_BsCliente.ForeColor = System.Drawing.Color.DimGray;
             this.btn_BsCliente.Image = global::POS_FG.Properties.Resources.lupa;
-            this.btn_BsCliente.Location = new System.Drawing.Point(353, 83);
+            this.btn_BsCliente.Location = new System.Drawing.Point(352, 69);
             this.btn_BsCliente.Name = "btn_BsCliente";
             this.btn_BsCliente.Size = new System.Drawing.Size(38, 30);
             this.btn_BsCliente.TabIndex = 7;
@@ -334,7 +334,7 @@
             // txt_NomCliente
             // 
             this.txt_NomCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_NomCliente.Location = new System.Drawing.Point(113, 83);
+            this.txt_NomCliente.Location = new System.Drawing.Point(112, 69);
             this.txt_NomCliente.Name = "txt_NomCliente";
             this.txt_NomCliente.ReadOnly = true;
             this.txt_NomCliente.Size = new System.Drawing.Size(231, 30);

@@ -55,6 +55,9 @@ namespace POS_FG
             if (dt.Rows.Count > 0)
             {
                 dtgv_ProductosV.DataSource = dt;
+                dtgv_ProductosV.Columns[0].HeaderText = "Codigo";
+                dtgv_ProductosV.Columns[1].HeaderText = "Nombre";
+                dtgv_ProductosV.Columns[2].HeaderText = "Precio";
             }
         }
 
