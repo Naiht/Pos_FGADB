@@ -51,5 +51,12 @@ namespace POS_FG
         {
             InitializeComponent();
         }
+
+        private void btn_BsCliente_Click(object sender, EventArgs e)
+        {
+            v_VentasCli mensaje = new v_VentasCli();
+            mensaje.funcion = true;
+            mensaje.ShowDialog();
+        }
     }
 }
