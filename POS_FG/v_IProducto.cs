@@ -95,8 +95,11 @@ namespace POS_FG
 =======
                 MessageBox.Show("Tu mama es puta");
             }        
+<<<<<<< HEAD
 >>>>>>> d227e1df12274882cad4cc62543e7598b7e93b68
 
+=======
+>>>>>>> a7447f0f6993734c5bcd3d2fe1ba1ef1f38c2623
         }
 
         private void v_IProducto_Load(object sender, EventArgs e)//carga el nombre de las columnas del datagridview 
