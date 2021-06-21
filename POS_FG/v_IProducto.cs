@@ -87,7 +87,6 @@ namespace POS_FG
             {
                 MessageBox.Show("Tu mama es puta");
             }        
-
         }
 
         private void v_IProducto_Load(object sender, EventArgs e)//carga el nombre de las columnas del datagridview 
