@@ -59,8 +59,36 @@ namespace POS_FG
             ventana.Show();
         }
 
+        public void limpiar()// funcion para limpiar los valores de los controles. esta funcin se llama desde el boton cancelar
+        {
+            txt_ID_Producto.Clear();
+            txt_NomProducto.Clear();
+            txt_Inv_Max.Clear();
+            txt_Inv_min.Clear();
+            txt_Existencia.Clear();
+            txt_Precio_Compra.Clear();
+            txt_Precio_Venta.Clear();
+            txt_ID_Proveedor.Clear();
+            txt_numfactura.Clear();
+            dtgv_Producto.Rows.Clear();
+        }
+
         private void btn_Agregar_Click(object sender, EventArgs e)//agrega un producto al datagridview para preparar el ingreso del producto, proveedor y suministro 
         {
+            DataTable dt;
+            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text +"'");
+            if (dt.Rows.Count > 0)
+            {
+                txt_ID_Proveedor.Enabled = false;
+                dtgv_Producto.DataSource = dt;
+
+            }
+            else
+            {
+                v_iProveedor ventana = new v_iProveedor();
+                ventana.MdiParent = this.ParentForm;
+                ventana.Show();
+            }
             dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
                 txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
 
@@ -81,16 +109,7 @@ namespace POS_FG
 
         private void btn_Cancelar_Click(object sender, EventArgs e)//limpia todos los registro 
         {
-            txt_ID_Producto.Clear();
-            txt_NomProducto.Clear();
-            txt_Inv_Max.Clear();
-            txt_Inv_min.Clear();
-            txt_Existencia.Clear();
-            txt_Precio_Compra.Clear();
-            txt_Precio_Venta.Clear();
-            txt_ID_Proveedor.Clear();
-            txt_numfactura.Clear();
-            dtgv_Producto.Rows.Clear();
+            limpiar();
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)// borra la fila seleccionada en el datagridview

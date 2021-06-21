@@ -45,6 +45,7 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.btn_Registrar = new System.Windows.Forms.Button();
+            this.btn_Remover = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -151,6 +152,7 @@
             this.txt_ID_Proveedor.Name = "txt_ID_Proveedor";
             this.txt_ID_Proveedor.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Proveedor.TabIndex = 4;
+            this.txt_ID_Proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ID_Proveedor_KeyPress);
             // 
             // label2
             // 
@@ -174,13 +176,14 @@
             // 
             this.dtgv_Telefonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Telefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_Telefonos.Location = new System.Drawing.Point(29, 280);
+            this.dtgv_Telefonos.Location = new System.Drawing.Point(29, 205);
             this.dtgv_Telefonos.Name = "dtgv_Telefonos";
             this.dtgv_Telefonos.RowHeadersVisible = false;
             this.dtgv_Telefonos.RowHeadersWidth = 51;
             this.dtgv_Telefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_Telefonos.Size = new System.Drawing.Size(436, 150);
+            this.dtgv_Telefonos.Size = new System.Drawing.Size(148, 150);
             this.dtgv_Telefonos.TabIndex = 24;
+            this.dtgv_Telefonos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Telefonos_CellClick);
             // 
             // label3
             // 
@@ -210,13 +213,14 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(29, 233);
+            this.btn_Cancelar.Location = new System.Drawing.Point(29, 386);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
             this.btn_Cancelar.TabIndex = 28;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Agregar
             // 
@@ -244,13 +248,31 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(183, 233);
+            this.btn_Registrar.Location = new System.Drawing.Point(153, 386);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(118, 32);
             this.btn_Registrar.TabIndex = 21;
             this.btn_Registrar.Text = "Registrar";
             this.btn_Registrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
+            // 
+            // btn_Remover
+            // 
+            this.btn_Remover.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Remover.FlatAppearance.BorderSize = 0;
+            this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remover.ForeColor = System.Drawing.Color.White;
+            this.btn_Remover.Image = global::POS_FG.Properties.Resources.telefono;
+            this.btn_Remover.Location = new System.Drawing.Point(183, 323);
+            this.btn_Remover.Name = "btn_Remover";
+            this.btn_Remover.Size = new System.Drawing.Size(118, 32);
+            this.btn_Remover.TabIndex = 30;
+            this.btn_Remover.Text = "Remover";
+            this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // v_iProveedor
             // 
@@ -258,6 +280,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(495, 457);
+            this.Controls.Add(this.btn_Remover);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Agregar);
             this.Controls.Add(this.txt_Telefono);
@@ -306,5 +329,6 @@
         private System.Windows.Forms.TextBox txt_Telefono;
         private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.Button btn_Remover;
     }
 }

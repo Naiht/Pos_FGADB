@@ -64,9 +64,10 @@ namespace POS_FG
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
             dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+            txt_Telefono.Clear();
         }
 
-        private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)//evita el usode letras en el campo del numero de telefono del proveedor
         {
             if (Char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
             {
@@ -77,6 +78,44 @@ namespace POS_FG
             {
                 e.Handled = true;//desactiva el resto de teclas pulsadas
             }
+        }
+
+        private void txt_ID_Proveedor_KeyPress(object sender, KeyPressEventArgs e)//permite el uso de numeros y letras en el id del proveedor
+        {
+            if (char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+        }
+
+        public void limpiar()//funcion para limpiar todos los controles
+        {
+            txt_ID_Proveedor.Clear();
+            txt_NomProveedor.Clear();
+            txt_Telefono.Clear();
+            dtgv_Telefonos.Rows.Clear();
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e) //llama a la funcin que limpiar los controles
+        {
+            limpiar();
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)//borra la fila seleccionada en el dgv
+        {
+            dtgv_Telefonos.Rows.RemoveAt(fila);
+        }
+
+        private void btn_Registrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int fila;
+        private void dtgv_Telefonos_CellClick(object sender, DataGridViewCellEventArgs e)//obriene el numero de fila selecciona al clickear sobre ella 
+        {
+            fila = 0;
+            fila = int.Parse(dtgv_Telefonos.CurrentCell.RowIndex.ToString());
         }
     }
 }

@@ -82,6 +82,7 @@ namespace POS_FG
                         dtgv_vgastos.DataSource = dt;
 
                     }
+                    
                 }
                 else
                 {
