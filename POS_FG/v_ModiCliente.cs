@@ -57,6 +57,23 @@ namespace POS_FG
             v_VentasCli mensaje = new v_VentasCli();
             mensaje.funcion = true;
             mensaje.ShowDialog();
+
+
+            if (mensaje.DialogResult == DialogResult.OK)
+            {
+                txt_CedCliente.Text = mensaje.ecedulacli;
+                txt_NomCliente.Text = mensaje.enombrec;
+                txt_Monto.Text = mensaje.emonto.ToString();
+                txt_TelefonoCliente.Text = mensaje.etelefono.ToString();
+                txt_DireccionCliente.Text = mensaje.edireccion;
+            }
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            ValidarV validar = new ValidarV();
+
+            validar.limpiarfrm(this);
         }
     }
 }
