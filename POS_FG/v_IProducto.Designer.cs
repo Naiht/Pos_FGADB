@@ -285,6 +285,7 @@
             this.dtgv_Producto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_Producto.Size = new System.Drawing.Size(330, 303);
             this.dtgv_Producto.TabIndex = 17;
+            this.dtgv_Producto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Producto_CellClick);
             // 
             // label8
             // 
@@ -330,6 +331,7 @@
             this.btn_Registrar.TabIndex = 21;
             this.btn_Registrar.Text = "Registrar   ";
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
             // btn_Cancelar
             // 
@@ -346,6 +348,7 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Remover
             // 
@@ -362,6 +365,7 @@
             this.btn_Remover.Text = "Remover ";
             this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // btn_Agregar
             // 
@@ -378,6 +382,7 @@
             this.btn_Agregar.TabIndex = 18;
             this.btn_Agregar.Text = "Agregar ";
             this.btn_Agregar.UseVisualStyleBackColor = false;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // txt_numfactura
             // 
@@ -435,6 +440,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_IProducto";
             this.Text = "*";
+            this.Load += new System.EventHandler(this.v_IProducto_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();

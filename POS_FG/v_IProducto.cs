@@ -14,6 +14,8 @@ namespace POS_FG
 {
     public partial class v_IProducto : Form
     {
+        sqlcon2 sql = new sqlcon2();
+
         #region MouseDragger
         //Activa el movimiento de la ventana con el panel
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -55,6 +57,57 @@ namespace POS_FG
             v_iProveedor ventana = new v_iProveedor();
             ventana.MdiParent = this.ParentForm;
             ventana.Show();
+        }
+
+        private void btn_Agregar_Click(object sender, EventArgs e)//agrega un producto al datagridview para preparar el ingreso del producto, proveedor y suministro 
+        {
+            dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
+
+        }
+
+        private void v_IProducto_Load(object sender, EventArgs e)//carga el nombre de las columnas del datagridview 
+        {
+            dtgv_Producto.Columns.Add("id", "ID");
+            dtgv_Producto.Columns.Add("nombre", "Nombre");
+            dtgv_Producto.Columns.Add("invmax", "Inventario Max");
+            dtgv_Producto.Columns.Add("invmin", "Inventario Min");
+            dtgv_Producto.Columns.Add("existencia", "Existencia");
+            dtgv_Producto.Columns.Add("pcompra", "Precio Compra");
+            dtgv_Producto.Columns.Add("pventa", "Precio Venta");
+            dtgv_Producto.Columns.Add("idprov", "ID Proveedor");
+            dtgv_Producto.Columns.Add("numfactura", "Numero Factura");
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)//limpia todos los registro 
+        {
+            txt_ID_Producto.Clear();
+            txt_NomProducto.Clear();
+            txt_Inv_Max.Clear();
+            txt_Inv_min.Clear();
+            txt_Existencia.Clear();
+            txt_Precio_Compra.Clear();
+            txt_Precio_Venta.Clear();
+            txt_ID_Proveedor.Clear();
+            txt_numfactura.Clear();
+            dtgv_Producto.Rows.Clear();
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)// borra la fila seleccionada en el datagridview
+        {
+            dtgv_Producto.Rows.RemoveAt(fila);
+        }
+
+        private void btn_Registrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int fila;
+        private void dtgv_Producto_CellClick(object sender, DataGridViewCellEventArgs e)//obriene el numero de fila selecciona al clickear sobre ella 
+        {
+            fila = 0;
+            fila = int.Parse(dtgv_Producto.CurrentCell.RowIndex.ToString());
         }
     }
 }

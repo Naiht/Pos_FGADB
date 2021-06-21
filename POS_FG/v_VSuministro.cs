@@ -14,6 +14,8 @@ namespace POS_FG
 {
     public partial class v_VSuministro : Form
     {
+        sqlcon2 sql = new sqlcon2();
+
         #region MouseDragger
         //Activa el movimiento de la ventana con el panel
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -55,6 +57,38 @@ namespace POS_FG
             dtgv_suministro.ReadOnly = true;
             dtgv_suministro.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_suministro.AllowUserToResizeRows = false;
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            DataTable dt;
+            dt = sql.tablas("productos", "SELECT DISTINCT p.nombreproducto,p.P_venta,d.cantidadcompra FROM productos p INNER JOIN " +
+                "detalle d ON p.IDproducto=d.IDproducto INNER JOIN factura f ON d.IDfactura = f.IDfactura AND f.IDfactura = " + int.Parse(txt_numfactura.Text));
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_suministro.DataSource = dt;
+            }
+        }
+
+        private void txt_numfactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                //permite solo introducir numeros
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    //permite teclas de control
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;//desactiva el resto de teclas pulsadas
+                }
+            }
         }
     }
 }

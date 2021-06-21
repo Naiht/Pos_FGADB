@@ -163,6 +163,7 @@
             this.btn_Buscar.TabIndex = 12;
             this.btn_Buscar.Text = "Buscar";
             this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // txt_numfactura
             // 
@@ -172,6 +173,7 @@
             this.txt_numfactura.Name = "txt_numfactura";
             this.txt_numfactura.Size = new System.Drawing.Size(203, 26);
             this.txt_numfactura.TabIndex = 11;
+            this.txt_numfactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numfactura_KeyPress);
             // 
             // v_VSuministro
             // 

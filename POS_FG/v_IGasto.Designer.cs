@@ -159,6 +159,7 @@
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(292, 23);
             this.txt_descripcion.TabIndex = 5;
+            this.txt_descripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_descripcion_KeyPress);
             // 
             // label2
             // 
@@ -177,6 +178,7 @@
             this.txt_total.Name = "txt_total";
             this.txt_total.Size = new System.Drawing.Size(100, 23);
             this.txt_total.TabIndex = 7;
+            this.txt_total.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_total_KeyPress);
             // 
             // dtp_fechalimite
             // 
@@ -210,6 +212,7 @@
             this.btn_Agregar.TabIndex = 19;
             this.btn_Agregar.Text = "Agregar ";
             this.btn_Agregar.UseVisualStyleBackColor = false;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // btn_Registrar
             // 
@@ -226,6 +229,7 @@
             this.btn_Registrar.TabIndex = 22;
             this.btn_Registrar.Text = "Registrar   ";
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
             // v_IGasto
             // 

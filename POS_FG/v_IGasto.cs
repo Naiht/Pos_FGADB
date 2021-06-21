@@ -55,7 +55,66 @@ namespace POS_FG
             dtgv_gastos.ReadOnly = true;
             dtgv_gastos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_gastos.AllowUserToAddRows = false;
+            dtgv_gastos.Columns.Add("descripcion", "Descripcion");
+            dtgv_gastos.Columns.Add("total", "Total");
+            dtgv_gastos.Columns.Add("fecha", "Fecha");
+        }
 
+        private void btn_Agregar_Click(object sender, EventArgs e)//ingesa datos al datagridview 
+        {
+            dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text,string.Format("{0: MM-dd-yyyy}",dtp_fechalimite.Value));
+        }
+
+        private void btn_Registrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_descripcion_KeyPress(object sender, KeyPressEventArgs e)//valida caracteres permitidos en el textbox de la descripcion
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;//permite solo introducir numeros
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;//permite teclas de control
+                }
+                else
+                {
+                    if(char.IsSeparator(e.KeyChar))
+                    {
+                        e.Handled = false;//permite usar la barra espaciadora
+                    }
+                    else
+                    {
+                        e.Handled = true;//desactiva el resto de teclas pulsadas
+                    }
+                }
+            }
+        }
+
+        private void txt_total_KeyPress(object sender, KeyPressEventArgs e)//valida caracteres permitidos en el textbox del total
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                //permite solo introducir numeros
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    //permite teclas de control
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;//desactiva el resto de teclas pulsadas
+                }
+            }
         }
     }
 }

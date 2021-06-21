@@ -58,17 +58,25 @@ namespace POS_FG
 
         private void v_proveedor_Load(object sender, EventArgs e)
         {
-
+            dtgv_Telefonos.Columns.Add("telefonos", "Telefonos");
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btn_Agregar_Click(object sender, EventArgs e)
         {
-
+            dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (Char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                //permite solo introducir numeros y teclas de control
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;//desactiva el resto de teclas pulsadas
+            }
         }
     }
 }
