@@ -167,6 +167,7 @@
             this.btn_Listo.Text = "Listo";
             this.btn_Listo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Listo.UseVisualStyleBackColor = false;
+            this.btn_Listo.Click += new System.EventHandler(this.btn_Listo_Click);
             // 
             // pictureBox1
             // 

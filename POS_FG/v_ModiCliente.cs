@@ -69,11 +69,21 @@ namespace POS_FG
             }
         }
 
+        ValidarV validar = new ValidarV();
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            ValidarV validar = new ValidarV();
-
             validar.limpiarfrm(this);
+        }
+
+        private void btn_Listo_Click(object sender, EventArgs e)
+        {
+            if (validar.validarfrm(this) == false)
+            {
+
+            }
+            else {
+                MessageBox.Show("No puede dejar ningun campo vacío","Campos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
     }
 }
