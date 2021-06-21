@@ -85,23 +85,16 @@ namespace POS_FG
             }
             else
             {
-<<<<<<< HEAD
+
                 v_iProveedor ventana = new v_iProveedor();
                 ventana.MdiParent = this.ParentForm;
                 ventana.Show();
             }
            /* dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
                 txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);*/
-=======
-                MessageBox.Show("Tu mama es puta");
-            }        
-<<<<<<< HEAD
->>>>>>> d227e1df12274882cad4cc62543e7598b7e93b68
+        }        
 
-=======
->>>>>>> a7447f0f6993734c5bcd3d2fe1ba1ef1f38c2623
-        }
-
+    
         private void v_IProducto_Load(object sender, EventArgs e)//carga el nombre de las columnas del datagridview 
         {
             dtgv_Producto.Columns.Add("id", "ID");
@@ -138,3 +131,4 @@ namespace POS_FG
         }
     }
 }
+
