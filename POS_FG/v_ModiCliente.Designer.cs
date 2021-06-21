@@ -30,11 +30,11 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Listo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Monto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_BsCliente = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -79,6 +80,30 @@
             this.lbl_NombreV.Text = "Editar Cliente/Credito";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
             // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(584, 3);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(31, 35);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(633, 3);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
@@ -106,30 +131,6 @@
             this.panel3.Size = new System.Drawing.Size(661, 5);
             this.panel3.TabIndex = 2;
             // 
-            // pb_Minimizar
-            // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(584, 3);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(31, 35);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(633, 3);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // btn_Cancelar
             // 
             this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
@@ -139,7 +140,7 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(53, 430);
+            this.btn_Cancelar.Location = new System.Drawing.Point(108, 430);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
@@ -147,6 +148,7 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Listo
             // 
@@ -157,7 +159,7 @@
             this.btn_Listo.ForeColor = System.Drawing.Color.White;
             this.btn_Listo.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Listo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Listo.Location = new System.Drawing.Point(495, 430);
+            this.btn_Listo.Location = new System.Drawing.Point(399, 430);
             this.btn_Listo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Listo.Name = "btn_Listo";
             this.btn_Listo.Size = new System.Drawing.Size(157, 40);
@@ -165,6 +167,7 @@
             this.btn_Listo.Text = "Listo";
             this.btn_Listo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Listo.UseVisualStyleBackColor = false;
+            this.btn_Listo.Click += new System.EventHandler(this.btn_Listo_Click);
             // 
             // pictureBox1
             // 
@@ -276,12 +279,27 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "Monto";
             // 
+            // btn_BsCliente
+            // 
+            this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.FlatAppearance.BorderSize = 0;
+            this.btn_BsCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BsCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_BsCliente.Location = new System.Drawing.Point(424, 82);
+            this.btn_BsCliente.Name = "btn_BsCliente";
+            this.btn_BsCliente.Size = new System.Drawing.Size(38, 30);
+            this.btn_BsCliente.TabIndex = 40;
+            this.btn_BsCliente.UseVisualStyleBackColor = false;
+            this.btn_BsCliente.Click += new System.EventHandler(this.btn_BsCliente_Click);
+            // 
             // v_ModiCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(676, 508);
+            this.Controls.Add(this.btn_BsCliente);
             this.Controls.Add(this.txt_Monto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Cancelar);
@@ -334,5 +352,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_Monto;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_BsCliente;
     }
 }

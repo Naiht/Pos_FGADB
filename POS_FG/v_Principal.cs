@@ -70,5 +70,12 @@ namespace POS_FG
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void clienteCreditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_ModiCliente ventana = new v_ModiCliente();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }

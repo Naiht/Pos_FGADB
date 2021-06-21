@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="sqlcon.cs" />
     <Compile Include="sqlcon2.cs" />
+    <Compile Include="ValidarV.cs" />
     <Compile Include="Ventana Base.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +111,7 @@
     <Compile Include="v_VentasCli.Designer.cs">
       <DependentUpon>v_VentasCli.cs</DependentUpon>
     </Compile>
-	<Compile Include="v_VGastos.cs">
+    <Compile Include="v_VGastos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="v_VGastos.Designer.cs">

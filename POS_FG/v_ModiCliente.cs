@@ -51,5 +51,39 @@ namespace POS_FG
         {
             InitializeComponent();
         }
+
+        private void btn_BsCliente_Click(object sender, EventArgs e)
+        {
+            v_VentasCli mensaje = new v_VentasCli();
+            mensaje.funcion = true;
+            mensaje.ShowDialog();
+
+
+            if (mensaje.DialogResult == DialogResult.OK)
+            {
+                txt_CedCliente.Text = mensaje.ecedulacli;
+                txt_NomCliente.Text = mensaje.enombrec;
+                txt_Monto.Text = mensaje.emonto.ToString();
+                txt_TelefonoCliente.Text = mensaje.etelefono.ToString();
+                txt_DireccionCliente.Text = mensaje.edireccion;
+            }
+        }
+
+        ValidarV validar = new ValidarV();
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            validar.limpiarfrm(this);
+        }
+
+        private void btn_Listo_Click(object sender, EventArgs e)
+        {
+            if (validar.validarfrm(this) == false)
+            {
+
+            }
+            else {
+                MessageBox.Show("No puede dejar ningun campo vacío","Campos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+        }
     }
 }
