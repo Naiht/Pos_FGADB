@@ -72,7 +72,13 @@ namespace POS_FG
         ValidarV validar = new ValidarV();
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            validar.limpiarfrm(this);
+            DialogResult cancela = DialogResult.No;
+
+            cancela = MessageBox.Show("¿Seguro de cancelar la operacion?", "Cancelar operación", MessageBoxButtons.YesNo);
+
+            if (cancela == DialogResult.Yes ) {
+                validar.limpiarfrm(this);
+            }
         }
 
         private void btn_Listo_Click(object sender, EventArgs e)
