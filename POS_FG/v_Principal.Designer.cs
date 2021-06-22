@@ -43,7 +43,6 @@
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +55,6 @@
             this.verToolStripMenuItem,
             this.ingresarToolStripMenuItem,
             this.editarToolStripMenuItem,
-            this.reportesToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -88,12 +86,14 @@
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
             this.facturasToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.facturasToolStripMenuItem.Text = "Facturas";
+            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
             // creditoToolStripMenuItem
             // 
             this.creditoToolStripMenuItem.Name = "creditoToolStripMenuItem";
             this.creditoToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.creditoToolStripMenuItem.Text = "Creditos";
+            this.creditoToolStripMenuItem.Click += new System.EventHandler(this.creditoToolStripMenuItem_Click);
             // 
             // gatosExternosToolStripMenuItem
             // 
@@ -153,28 +153,22 @@
             // productoToolStripMenuItem
             // 
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.productoToolStripMenuItem.Text = "Producto";
             // 
             // proveedorToolStripMenuItem1
             // 
             this.proveedorToolStripMenuItem1.Name = "proveedorToolStripMenuItem1";
-            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(193, 26);
             this.proveedorToolStripMenuItem1.Text = "Proveedor";
             this.proveedorToolStripMenuItem1.Click += new System.EventHandler(this.proveedorToolStripMenuItem1_Click);
             // 
             // clienteCreditoToolStripMenuItem
             // 
             this.clienteCreditoToolStripMenuItem.Name = "clienteCreditoToolStripMenuItem";
-            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.clienteCreditoToolStripMenuItem.Text = "Cliente/Credito";
             this.clienteCreditoToolStripMenuItem.Click += new System.EventHandler(this.clienteCreditoToolStripMenuItem_Click);
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // cerrarToolStripMenuItem
             // 
@@ -219,7 +213,6 @@
         private System.Windows.Forms.ToolStripMenuItem productosSuministradosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosExternoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteCreditoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
     }
 }

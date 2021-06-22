@@ -248,7 +248,7 @@
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(142, 40);
             this.btn_Cancelar.TabIndex = 7;
-            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.Text = "/";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 

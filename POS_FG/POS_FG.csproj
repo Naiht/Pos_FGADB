@@ -111,6 +111,18 @@
     <Compile Include="v_VentasCli.Designer.cs">
       <DependentUpon>v_VentasCli.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_VerCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_VerCredito.Designer.cs">
+      <DependentUpon>v_VerCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="v_VerFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_VerFacturas.Designer.cs">
+      <DependentUpon>v_VerFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_VGastos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_VentasCli.resx">
       <DependentUpon>v_VentasCli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_VerCredito.resx">
+      <DependentUpon>v_VerCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_VerFacturas.resx">
+      <DependentUpon>v_VerFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_VGastos.resx">
       <DependentUpon>v_VGastos.cs</DependentUpon>

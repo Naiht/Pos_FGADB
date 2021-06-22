@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace POS_FG
 {
-    public partial class v_ModiCliente : Form
+    public partial class v_VerFacturas : Form
     {
         sqlcon2 sql = new sqlcon2();
 
@@ -47,48 +47,26 @@ namespace POS_FG
         }
         #endregion
 
-        public v_ModiCliente()
+        public v_VerFacturas()
         {
             InitializeComponent();
+            val.desactivar(gbFiltros,false);
         }
 
         private void btn_BsCliente_Click(object sender, EventArgs e)
         {
-            v_VentasCli mensaje = new v_VentasCli();
-            mensaje.funcion = true;
-            mensaje.ShowDialog();
 
-
-            if (mensaje.DialogResult == DialogResult.OK)
-            {
-                txt_CedCliente.Text = mensaje.ecedulacli;
-                txt_NomCliente.Text = mensaje.enombrec;
-                txt_Monto.Text = mensaje.emonto.ToString();
-                txt_TelefonoCliente.Text = mensaje.etelefono.ToString();
-                txt_DireccionCliente.Text = mensaje.edireccion;
-            }
         }
 
-        ValidarV validar = new ValidarV();
-        private void btn_Cancelar_Click(object sender, EventArgs e)
+        ValidarV val = new ValidarV();
+        private void chk_filtros_CheckedChanged(object sender, EventArgs e)
         {
-            DialogResult cancela = DialogResult.No;
-
-            cancela = MessageBox.Show("¿Seguro de cancelar la operacion?", "Cancelar operación", MessageBoxButtons.YesNo);
-
-            if (cancela == DialogResult.Yes ) {
-                validar.limpiarfrm(this);
-            }
-        }
-
-        private void btn_Listo_Click(object sender, EventArgs e)
-        {
-            if (validar.validarfrm(this) == false)
+            if (chk_filtros.Checked)
             {
-
+                val.desactivar(gbFiltros,true);
             }
             else {
-                MessageBox.Show("No puede dejar ningun campo vacío","Campos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                val.desactivar(gbFiltros, false);
             }
         }
     }

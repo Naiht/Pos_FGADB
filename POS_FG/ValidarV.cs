@@ -33,6 +33,29 @@ namespace POS_FG
 
         }
 
+        public void desactivar(GroupBox gb, bool v)
+        {
+            foreach (Control oControls in gb.Controls)
+            {
+                if (oControls is CheckBox)
+                {
+
+                }
+                else
+                {
+                    if (v)
+                    {
+                        oControls.Enabled = true;
+                    }
+                    else {
+                        oControls.Enabled = false;
+                    }
+
+                }
+            }
+
+        }
+
         public bool validarfrm(Form gb)
         {
             foreach (Control oControls in gb.Controls)
