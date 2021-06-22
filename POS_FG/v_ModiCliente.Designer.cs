@@ -159,7 +159,7 @@
             this.btn_Listo.ForeColor = System.Drawing.Color.White;
             this.btn_Listo.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Listo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Listo.Location = new System.Drawing.Point(399, 430);
+            this.btn_Listo.Location = new System.Drawing.Point(394, 430);
             this.btn_Listo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Listo.Name = "btn_Listo";
             this.btn_Listo.Size = new System.Drawing.Size(157, 40);
