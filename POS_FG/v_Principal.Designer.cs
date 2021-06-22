@@ -88,6 +88,7 @@
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
             this.facturasToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.facturasToolStripMenuItem.Text = "Facturas";
+            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
             // creditoToolStripMenuItem
             // 
@@ -154,20 +155,20 @@
             // productoToolStripMenuItem
             // 
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.productoToolStripMenuItem.Text = "Producto";
             // 
             // proveedorToolStripMenuItem1
             // 
             this.proveedorToolStripMenuItem1.Name = "proveedorToolStripMenuItem1";
-            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(193, 26);
             this.proveedorToolStripMenuItem1.Text = "Proveedor";
             this.proveedorToolStripMenuItem1.Click += new System.EventHandler(this.proveedorToolStripMenuItem1_Click);
             // 
             // clienteCreditoToolStripMenuItem
             // 
             this.clienteCreditoToolStripMenuItem.Name = "clienteCreditoToolStripMenuItem";
-            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.clienteCreditoToolStripMenuItem.Text = "Cliente/Credito";
             this.clienteCreditoToolStripMenuItem.Click += new System.EventHandler(this.clienteCreditoToolStripMenuItem_Click);
             // 

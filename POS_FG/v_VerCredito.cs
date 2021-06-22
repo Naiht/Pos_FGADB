@@ -63,7 +63,7 @@ namespace POS_FG
         }
 
 
-        private void consultaglobal(bool normal, string cedula2) {
+        private void consultaglobal(bool normal, string nombre) {
             DataTable dt;
             if (normal)
             {
@@ -71,7 +71,7 @@ namespace POS_FG
 
             }
             else {
-                dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, fecha_limite ,telefono, estadocredito from credito where cedulacliente = '"+ cedula2 + "'");
+                dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, fecha_limite ,telefono, estadocredito from credito where nombrecliente like '%"+nombre+ "%'");
 
             }
             if (dt.Rows.Count > 0)
@@ -88,28 +88,23 @@ namespace POS_FG
             }
         }
 
-        private string cedula = "";
         private void btn_BsCliente_Click(object sender, EventArgs e)
         {
-            v_VentasCli mensaje = new v_VentasCli();
-            mensaje.funcion = true;
-            mensaje.ShowDialog();
-
-
-            if (mensaje.DialogResult == DialogResult.OK)
+            if (txt_Nombre.Text != "")
             {
-                cedula = mensaje.ecedulacli;
-                txt_NomCliente.Text = mensaje.enombrec;
-                consultaglobal(false, cedula);
+                consultaglobal(false, txt_Nombre.Text);
                 btn_Limpiar.Enabled = true;
+            }
+            else {
+                consultaglobal(true, "");
             }
         }
 
         private void btn_Limpiar_Click(object sender, EventArgs e)
         {
-            txt_NomCliente.Clear();
+            txt_Nombre.Clear();
             consultaglobal(true,"");
-            cedula = "";
+            txt_Nombre.Text = "";
             btn_Limpiar.Enabled = false;
         }
 

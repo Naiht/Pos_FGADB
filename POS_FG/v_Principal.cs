@@ -84,5 +84,13 @@ namespace POS_FG
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_VerFacturas ventana = new v_VerFacturas();
+            ventana.MdiParent = this;
+            ventana.Show();
+
+        }
     }
 }
