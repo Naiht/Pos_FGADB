@@ -51,5 +51,67 @@ namespace POS_FG
         {
             InitializeComponent();
         }
+
+
+        private void v_VerCredito_Load(object sender, EventArgs e)
+        {
+            dtgv_Creditos.ReadOnly = true;
+            dtgv_Creditos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Creditos.AllowUserToResizeRows = false;
+
+            consultaglobal(true,"");
+        }
+
+
+        private void consultaglobal(bool normal, string cedula2) {
+            DataTable dt;
+            if (normal)
+            {
+                dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, fecha_limite ,telefono, estadocredito from credito ");
+
+            }
+            else {
+                dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, fecha_limite ,telefono, estadocredito from credito where cedulacliente = '"+ cedula2 + "'");
+
+            }
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_Creditos.DataSource = dt;
+                dtgv_Creditos.Columns[0].HeaderText = "Nombre";
+                dtgv_Creditos.Columns[1].HeaderText = "Cedula";
+                dtgv_Creditos.Columns[2].HeaderText = "Monto";
+                dtgv_Creditos.Columns[3].HeaderText = "Dirección";
+                dtgv_Creditos.Columns[4].HeaderText = "Fecha limite";
+                dtgv_Creditos.Columns[5].HeaderText = "Telefono";
+                dtgv_Creditos.Columns[6].HeaderText = "Activo/No Activo";
+
+            }
+        }
+
+        private string cedula = "";
+        private void btn_BsCliente_Click(object sender, EventArgs e)
+        {
+            v_VentasCli mensaje = new v_VentasCli();
+            mensaje.funcion = true;
+            mensaje.ShowDialog();
+
+
+            if (mensaje.DialogResult == DialogResult.OK)
+            {
+                cedula = mensaje.ecedulacli;
+                txt_NomCliente.Text = mensaje.enombrec;
+                consultaglobal(false, cedula);
+                btn_Limpiar.Enabled = true;
+            }
+        }
+
+        private void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            txt_NomCliente.Clear();
+            consultaglobal(true,"");
+            cedula = "";
+            btn_Limpiar.Enabled = false;
+        }
+
     }
 }

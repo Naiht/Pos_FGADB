@@ -35,7 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgv_Creditos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_BsCliente = new System.Windows.Forms.Button();
             this.txt_NomCliente = new System.Windows.Forms.TextBox();
@@ -46,7 +46,7 @@
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Creditos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,18 +126,18 @@
             this.panel3.Size = new System.Drawing.Size(881, 5);
             this.panel3.TabIndex = 2;
             // 
-            // dataGridView1
+            // dtgv_Creditos
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 202);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(849, 378);
-            this.dataGridView1.TabIndex = 7;
+            this.dtgv_Creditos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_Creditos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Creditos.Location = new System.Drawing.Point(17, 202);
+            this.dtgv_Creditos.Name = "dtgv_Creditos";
+            this.dtgv_Creditos.RowHeadersVisible = false;
+            this.dtgv_Creditos.RowHeadersWidth = 51;
+            this.dtgv_Creditos.RowTemplate.Height = 24;
+            this.dtgv_Creditos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_Creditos.Size = new System.Drawing.Size(849, 378);
+            this.dtgv_Creditos.TabIndex = 7;
             // 
             // label1
             // 
@@ -161,6 +161,7 @@
             this.btn_BsCliente.Size = new System.Drawing.Size(38, 30);
             this.btn_BsCliente.TabIndex = 10;
             this.btn_BsCliente.UseVisualStyleBackColor = false;
+            this.btn_BsCliente.Click += new System.EventHandler(this.btn_BsCliente_Click);
             // 
             // txt_NomCliente
             // 
@@ -175,23 +176,23 @@
             // 
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Location = new System.Drawing.Point(416, 67);
+            this.groupBox1.Location = new System.Drawing.Point(433, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 111);
+            this.groupBox1.Size = new System.Drawing.Size(433, 111);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(207, 34);
+            this.dateTimePicker1.Location = new System.Drawing.Point(162, 29);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(252, 22);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(207, 73);
+            this.dateTimePicker2.Location = new System.Drawing.Point(162, 68);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(252, 22);
             this.dateTimePicker2.TabIndex = 1;
@@ -207,10 +208,11 @@
             this.btn_Limpiar.Location = new System.Drawing.Point(372, 112);
             this.btn_Limpiar.Name = "btn_Limpiar";
             this.btn_Limpiar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_Limpiar.Size = new System.Drawing.Size(38, 30);
+            this.btn_Limpiar.Size = new System.Drawing.Size(43, 30);
             this.btn_Limpiar.TabIndex = 13;
             this.btn_Limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Limpiar.UseVisualStyleBackColor = false;
+            this.btn_Limpiar.Click += new System.EventHandler(this.btn_Limpiar_Click);
             // 
             // v_VerCredito
             // 
@@ -223,7 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_BsCliente);
             this.Controls.Add(this.txt_NomCliente);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgv_Creditos);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -231,11 +233,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "v_VerCredito";
             this.Text = "v_Ventas";
+            this.Load += new System.EventHandler(this.v_VerCredito_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Creditos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,7 +254,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgv_Creditos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_BsCliente;
         private System.Windows.Forms.TextBox txt_NomCliente;
