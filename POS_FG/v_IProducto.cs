@@ -79,19 +79,15 @@ namespace POS_FG
             dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text +"'");
             if (dt.Rows.Count > 0)
             {
-                //txt_ID_Proveedor.Enabled = false;
-                dtgv_Producto.DataSource = dt;
-
+                txt_ID_Proveedor.Enabled = false;
+                dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
             }
             else
             {
-
                 v_iProveedor ventana = new v_iProveedor();
-                ventana.MdiParent = this.ParentForm;
-                ventana.Show();
+                ventana.ShowDialog();
             }
-           /* dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
-                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);*/
         }        
 
     
