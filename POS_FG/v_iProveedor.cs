@@ -66,7 +66,7 @@ namespace POS_FG
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            if (validar.validarfrm(this) == false)
+            if (txt_Telefono.Text != "")
             {
                 dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
                 txt_Telefono.Clear();
@@ -75,6 +75,16 @@ namespace POS_FG
             {
                 MessageBox.Show("Debes ingresar un numero de telefono para agregar", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            /*
+            if (validar.validarfrm(this) == false)
+            {
+                dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+                txt_Telefono.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Debes ingresar un numero de telefono para agregar", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }*/
         }
 
         private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)//evita el usode letras en el campo del numero de telefono del proveedor
@@ -114,6 +124,9 @@ namespace POS_FG
         private void btn_Remover_Click(object sender, EventArgs e)//borra la fila seleccionada en el dgv
         {
             dtgv_Telefonos.Rows.RemoveAt(fila);
+            btn_Remover.Enabled = false;//desactiva el boton remover para no causar errores
+            //validacion en situacion especial pendiente
+            /*
             if(fila==dtgv_Telefonos.Rows.Count - 1)//permite eliminar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
             {
                 fila = fila - 1;
@@ -129,7 +142,7 @@ namespace POS_FG
             else
             {
                 btn_Remover.Enabled = false;
-            }
+            }*/
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)

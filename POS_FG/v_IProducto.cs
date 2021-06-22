@@ -139,7 +139,9 @@ namespace POS_FG
         private void btn_Remover_Click(object sender, EventArgs e)// borra la fila seleccionada en el datagridview
         {
             dtgv_Producto.Rows.RemoveAt(fila);
-            if (fila == dtgv_Producto.Rows.Count - 1)//permite elimiar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
+            btn_Remover.Enabled = false;//desactiva el boton remover para no causar errores
+            //validacion en situacion especial pendiente 
+           /* if (fila == dtgv_Producto.Rows.Count - 1)//permite elimiar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
             {
                 fila = fila - 1;
             }
@@ -155,7 +157,7 @@ namespace POS_FG
             {
                 btn_Remover.Enabled = false;
             }
-
+           */
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
@@ -168,6 +170,7 @@ namespace POS_FG
         {
             fila = 0;
             fila = int.Parse(dtgv_Producto.CurrentCell.RowIndex.ToString());
+           
             if(fila == dtgv_Producto.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
             {
                 btn_Remover.Enabled = false;
