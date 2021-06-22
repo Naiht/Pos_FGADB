@@ -207,6 +207,7 @@
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(203, 26);
             this.txt_descripcion.TabIndex = 6;
+            this.txt_descripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_descripcion_KeyPress);
             // 
             // dtp_finicial
             // 

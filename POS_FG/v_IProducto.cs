@@ -52,13 +52,6 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            v_iProveedor ventana = new v_iProveedor();
-            ventana.MdiParent = this.ParentForm;
-            ventana.Show();
-        }
-
         public void limpiar()// funcion para limpiar los valores de los controles. esta funcin se llama desde el boton cancelar
         {
             txt_ID_Producto.Clear();
@@ -73,21 +66,52 @@ namespace POS_FG
             dtgv_Producto.Rows.Clear();
         }
 
+        ValidarV validar = new ValidarV();
+
         private void btn_Agregar_Click(object sender, EventArgs e)//agrega un producto al datagridview para preparar el ingreso del producto, proveedor y suministro 
         {
-            DataTable dt;
-            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text +"'");
-            if (dt.Rows.Count > 0)
+            if (validar.validarfrm(this) == false)
             {
-                txt_ID_Proveedor.Enabled = false;
-                dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
-                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
+                DataTable dt;
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text + "'");
+                if (dt.Rows.Count > 0)
+                {
+                    if(int.Parse(txt_Precio_Venta.Text)>int.Parse(txt_Precio_Compra.Text))
+                    {
+                        if (int.Parse(txt_Inv_Max.Text) > int.Parse(txt_Inv_min.Text))
+                        {
+                            if(int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_min.Text) && int.Parse(txt_Existencia.Text) < int.Parse(txt_Inv_Max.Text))
+                            {
+                                txt_ID_Proveedor.Enabled = false;
+                                dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("la existencia no puede ser mayor al inventario maximo ni menor al inventario minimo", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El inventario minimo no puede ser mayor al inventario maximo", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio de venta no puede ser menor al precio de compra", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    v_iProveedor ventana = new v_iProveedor();
+                    ventana.ShowDialog();
+                }
             }
             else
             {
-                v_iProveedor ventana = new v_iProveedor();
-                ventana.ShowDialog();
+                MessageBox.Show("No puede dejar ningun campo vacío", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }        
 
     
@@ -102,16 +126,36 @@ namespace POS_FG
             dtgv_Producto.Columns.Add("pventa", "Precio Venta");
             dtgv_Producto.Columns.Add("idprov", "ID Proveedor");
             dtgv_Producto.Columns.Add("numfactura", "Numero Factura");
+            btn_Remover.Enabled = false;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)//limpia todos los registro 
         {
             limpiar();
+            txt_ID_Proveedor.Enabled = true;
+            btn_Remover.Enabled = false;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)// borra la fila seleccionada en el datagridview
         {
             dtgv_Producto.Rows.RemoveAt(fila);
+            if (fila == dtgv_Producto.Rows.Count - 1)//permite elimiar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
+            {
+                fila = fila - 1;
+            }
+            else
+            {
+                fila = fila + 1;
+            }
+            if (dtgv_Producto.Rows.Count > 1 )// desactiva el boton en caso que se elimine el ultimo registro del dgv
+            {
+                btn_Remover.Enabled = true;
+            }
+            else
+            {
+                btn_Remover.Enabled = false;
+            }
+
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
@@ -124,6 +168,124 @@ namespace POS_FG
         {
             fila = 0;
             fila = int.Parse(dtgv_Producto.CurrentCell.RowIndex.ToString());
+            if(fila == dtgv_Producto.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
+            {
+                btn_Remover.Enabled = false;
+            }
+            else
+            {
+                btn_Remover.Enabled = true;
+            }
+        }
+
+        //validacion de valores permitidos
+
+        private void txt_ID_Producto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)||char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_NomProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == 46)
+            {
+                e.Handled = false;//permite letras y espacios
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra tecla
+            }
+        }
+
+        private void txt_Inv_Max_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_Inv_min_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_Existencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_Precio_Compra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == 46) 
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_Precio_Venta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_numfactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite solo teclas numericas y de control
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra techla
+            }
+        }
+
+        private void txt_ID_Proveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite letras y espacios
+            }
+            else
+            {
+                e.Handled = true;//no permite cualquier otra tecla
+            }
         }
     }
 }

@@ -59,30 +59,44 @@ namespace POS_FG
             dtgv_vgastos.AllowUserToResizeRows = false;
         }
 
+        ValidarV validar = new ValidarV();
+
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             if(rb_Descripcion.Checked)
             {
-                DataTable dt;
-                dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto WHERE descripcion = '" + txt_descripcion.Text + "'");
-                if (dt.Rows.Count > 0)
+                if (validar.validarfrm(this) == false)
                 {
-                    dtgv_vgastos.DataSource = dt;
-
+                    DataTable dt;
+                    dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto WHERE descripcion = '" + txt_descripcion.Text + "'");
+                    if (dt.Rows.Count > 0)
+                    {
+                        dtgv_vgastos.DataSource = dt;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debes agregar una descripcion para buscar", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
                 if(rb_Rango.Checked)
                 {
-                    DataTable dt;
-                    dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto WHERE fecha BETWEEN '"+ string.Format("{0: MM-dd-yyyy}",dtp_finicial.Value) +"' AND '"+ string.Format("{0: MM-dd-yyyy}",dtp_ffinal.Value) + "'");
-                    if (dt.Rows.Count > 0)
+                    if (dtp_finicial.Value < dtp_ffinal.Value)
                     {
-                        dtgv_vgastos.DataSource = dt;
+                        DataTable dt;
+                        dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto WHERE fecha BETWEEN '" + string.Format("{0: MM-dd-yyyy}", dtp_finicial.Value) + "' AND '" + string.Format("{0: MM-dd-yyyy}", dtp_ffinal.Value) + "'");
+                        if (dt.Rows.Count > 0)
+                        {
+                            dtgv_vgastos.DataSource = dt;
 
+                        }
                     }
-                    
+                    else
+                    {
+                        MessageBox.Show("la fecha inicial debe ser anterior a la fecha final", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
@@ -93,10 +107,26 @@ namespace POS_FG
                         if (dt.Rows.Count > 0)
                         {
                             dtgv_vgastos.DataSource = dt;
-
+                            
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Debes Seleccionar una opción");
+                    }
                 }
+            }
+        }
+
+        private void txt_descripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite valores alfanumericos y teclas de control
+            }
+            else
+            {
+                e.Handled = true;//no permite el resto de teclas
             }
         }
     }

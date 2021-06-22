@@ -59,12 +59,22 @@ namespace POS_FG
         private void v_proveedor_Load(object sender, EventArgs e)
         {
             dtgv_Telefonos.Columns.Add("telefonos", "Telefonos");
+            btn_Remover.Enabled = false;
         }
+
+        ValidarV validar = new ValidarV();
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
-            txt_Telefono.Clear();
+            if (validar.validarfrm(this) == false)
+            {
+                dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+                txt_Telefono.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Debes ingresar un numero de telefono para agregar", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)//evita el usode letras en el campo del numero de telefono del proveedor
@@ -104,11 +114,48 @@ namespace POS_FG
         private void btn_Remover_Click(object sender, EventArgs e)//borra la fila seleccionada en el dgv
         {
             dtgv_Telefonos.Rows.RemoveAt(fila);
+            if(fila==dtgv_Telefonos.Rows.Count - 1)//permite eliminar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
+            {
+                fila = fila - 1;
+            }
+            else
+            {
+                fila = fila + 1;
+            }
+            if (dtgv_Telefonos.Rows.Count > 1)//desactiva el boton en caso que se eliimne el ultimo registro del dgv
+            {
+                btn_Remover.Enabled = true;
+            }
+            else
+            {
+                btn_Remover.Enabled = false;
+            }
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
+            if(txt_ID_Proveedor.Text != "")
+            {
+                if(txt_NomProveedor.Text != "")
+                {
+                    if (dtgv_Telefonos.Rows.Count > 1)
+                    {
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debes ingresar al menos un numero del proveedor", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debes ingresar el nombre del proveedor", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes ingresar el ID del proveedor", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         int fila;
@@ -116,6 +163,14 @@ namespace POS_FG
         {
             fila = 0;
             fila = int.Parse(dtgv_Telefonos.CurrentCell.RowIndex.ToString());
+            if(fila==dtgv_Telefonos.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
+            {
+                btn_Remover.Enabled = false;
+            }
+            else
+            {
+                btn_Remover.Enabled = true;
+            }
         }
     }
 }

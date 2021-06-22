@@ -60,15 +60,28 @@ namespace POS_FG
             dtgv_gastos.Columns.Add("fecha", "Fecha");
         }
 
+        ValidarV validar = new ValidarV();
+
         private void btn_Agregar_Click(object sender, EventArgs e)//ingesa datos al datagridview 
         {
-            dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text,string.Format("{0: MM-dd-yyyy}",dtp_fechalimite.Value));
+            
+            if (validar.validarfrm(this) == false)
+            {
+                dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text, string.Format("{0: MM-dd-yyyy}", dtp_fechalimite.Value));
+            }
+            else
+            {
+                MessageBox.Show("No puede dejar ningun campo vacío", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+        
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
 
         }
+
+        //validaciones de valores permitidos
 
         private void txt_descripcion_KeyPress(object sender, KeyPressEventArgs e)//valida caracteres permitidos en el textbox de la descripcion
         {

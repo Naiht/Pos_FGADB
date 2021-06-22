@@ -52,7 +52,6 @@
             this.dtgv_Producto = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_ID_Proveedor = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_Registrar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Remover = new System.Windows.Forms.Button();
@@ -165,6 +164,7 @@
             this.txt_ID_Producto.Name = "txt_ID_Producto";
             this.txt_ID_Producto.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Producto.TabIndex = 4;
+            this.txt_ID_Producto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ID_Producto_KeyPress);
             // 
             // label2
             // 
@@ -183,6 +183,7 @@
             this.txt_NomProducto.Name = "txt_NomProducto";
             this.txt_NomProducto.Size = new System.Drawing.Size(100, 23);
             this.txt_NomProducto.TabIndex = 6;
+            this.txt_NomProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NomProducto_KeyPress);
             // 
             // label3
             // 
@@ -201,6 +202,7 @@
             this.txt_Inv_Max.Name = "txt_Inv_Max";
             this.txt_Inv_Max.Size = new System.Drawing.Size(100, 23);
             this.txt_Inv_Max.TabIndex = 8;
+            this.txt_Inv_Max.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Inv_Max_KeyPress);
             // 
             // label4
             // 
@@ -219,6 +221,7 @@
             this.txt_Inv_min.Name = "txt_Inv_min";
             this.txt_Inv_min.Size = new System.Drawing.Size(100, 23);
             this.txt_Inv_min.TabIndex = 10;
+            this.txt_Inv_min.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Inv_min_KeyPress);
             // 
             // label5
             // 
@@ -237,6 +240,7 @@
             this.txt_Existencia.Name = "txt_Existencia";
             this.txt_Existencia.Size = new System.Drawing.Size(100, 23);
             this.txt_Existencia.TabIndex = 12;
+            this.txt_Existencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Existencia_KeyPress);
             // 
             // label6
             // 
@@ -255,6 +259,7 @@
             this.txt_Precio_Compra.Name = "txt_Precio_Compra";
             this.txt_Precio_Compra.Size = new System.Drawing.Size(100, 23);
             this.txt_Precio_Compra.TabIndex = 14;
+            this.txt_Precio_Compra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_Compra_KeyPress);
             // 
             // label7
             // 
@@ -273,6 +278,7 @@
             this.txt_Precio_Venta.Name = "txt_Precio_Venta";
             this.txt_Precio_Venta.Size = new System.Drawing.Size(100, 23);
             this.txt_Precio_Venta.TabIndex = 16;
+            this.txt_Precio_Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_Venta_KeyPress);
             // 
             // dtgv_Producto
             // 
@@ -304,17 +310,7 @@
             this.txt_ID_Proveedor.Name = "txt_ID_Proveedor";
             this.txt_ID_Proveedor.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Proveedor.TabIndex = 23;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(68, 427);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 37);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Prueba proveedor";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txt_ID_Proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ID_Proveedor_KeyPress);
             // 
             // btn_Registrar
             // 
@@ -391,6 +387,7 @@
             this.txt_numfactura.Name = "txt_numfactura";
             this.txt_numfactura.Size = new System.Drawing.Size(100, 23);
             this.txt_numfactura.TabIndex = 26;
+            this.txt_numfactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numfactura_KeyPress);
             // 
             // label9
             // 
@@ -410,7 +407,6 @@
             this.ClientSize = new System.Drawing.Size(676, 489);
             this.Controls.Add(this.txt_numfactura);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_ID_Proveedor);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Registrar);
@@ -481,7 +477,6 @@
         private System.Windows.Forms.Button btn_Registrar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_ID_Proveedor;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_numfactura;
         private System.Windows.Forms.Label label9;
     }
