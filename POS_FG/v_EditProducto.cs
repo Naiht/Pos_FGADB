@@ -55,53 +55,57 @@ namespace POS_FG
             dtgv_Producos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Producos.AllowUserToAddRows = false;
 
+            consulta(true, "");
+        }
+
+        private void consulta(bool normal,string nombre)
+        {
             DataTable dt;
-            dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos");
+            if (normal)
+            {
+                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos");
+            }
+            else
+            {
+                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max," +
+                    "inventario_min,existencias,P_venta,P_compra FROM productos where nombreproducto like '%"+ nombre + "%'");
+            }
             if (dt.Rows.Count > 0)
             {
                 dtgv_Producos.DataSource = dt;
             }
         }
 
+        private void consulta2(bool normal, string id)
+        {
+            DataTable dt;
+            if (normal)
+            {
+                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos");
+            }
+            else
+            {
+                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max," +
+                    "inventario_min,existencias,P_venta,P_compra FROM productos where IDproducto = '"+ id +"'");
+            }
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_Producos.DataSource = dt;
+            }
+        }
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             if (txt_Busqueda.Text != "")
             {
                 if (rb_id.Checked)
                 {
-                    foreach (DataGridViewRow Row in dtgv_Producos.Rows)
-                    {
-                        String strFila = Row.Index.ToString();
-                        string Valor = Convert.ToString(Row.Cells[0].Value);
-
-                        if (Valor == this.txt_Busqueda.Text)
-                        {
-                            txt_NomProducto.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[1].Value);
-                            txt_Inv_Max.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[2].Value);
-                            txt_Inv_min.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[3].Value);
-                            txt_Precio_Compra.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[6].Value);
-                            txt_Precio_Venta.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[5].Value);
-                        }
-                    }
+                    consulta2(false, txt_Busqueda.Text);
                 }
                 else
                 {
                     if (rb_nombre.Checked)
                     {
-                        foreach (DataGridViewRow Row in dtgv_Producos.Rows)
-                        {
-                            String strFila = Row.Index.ToString();
-                            string Valor = Convert.ToString(Row.Cells[1].Value);
-
-                            if (Valor == this.txt_Busqueda.Text)
-                            {
-                                txt_NomProducto.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[1].Value);
-                                txt_Inv_Max.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[2].Value);
-                                txt_Inv_min.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[3].Value);
-                                txt_Precio_Compra.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[6].Value);
-                                txt_Precio_Venta.Text = Convert.ToString(dtgv_Producos.Rows[int.Parse(strFila)].Cells[5].Value);
-                            }
-                        }
+                        consulta(false, txt_Busqueda.Text);
                     }
                 }
             }
@@ -122,6 +126,16 @@ namespace POS_FG
             txt_Inv_min.Text = dtgv_Producos.Rows[fila].Cells[3].Value.ToString();
             txt_Precio_Compra.Text = dtgv_Producos.Rows[fila].Cells[6].Value.ToString();
             txt_Precio_Venta.Text = dtgv_Producos.Rows[fila].Cells[5].Value.ToString();
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -157,6 +157,7 @@
             this.btn_Modificar.TabIndex = 55;
             this.btn_Modificar.Text = "Modificar   ";
             this.btn_Modificar.UseVisualStyleBackColor = false;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Cancelar
             // 
@@ -173,6 +174,7 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // dtgv_Producos
             // 
