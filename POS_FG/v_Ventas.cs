@@ -97,5 +97,11 @@ namespace POS_FG
                 monto = mensaje.monto;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            v_RepProductos rep = new v_RepProductos();
+            rep.ShowDialog();
+        }
     }
 }
