@@ -52,6 +52,7 @@ namespace POS_FG
 
         sqlcon2 sql = new sqlcon2();
 
+
         private void v_proveedor_Load(object sender, EventArgs e)
         {
             dtgv_proveedores.ReadOnly = true;
@@ -70,18 +71,32 @@ namespace POS_FG
             }
         }
 
+        #region celular
+        DataTable dtp;
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            //dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
-            /*DataTable dt;
-            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
-            DataRow row = dt.NewRow();
+            DataRow row = dtp.NewRow();
             row["PhoneProveedor"] = txt_Telefono.Text.ToString();
-            dt.Rows.Add(row);
-            dt.AcceptChanges();
-            dtgv_Telefonos.DataSource = dt;*/
+            dtp.Rows.Add(row);
+            dtp.AcceptChanges();
+            dtgv_Telefonos.DataSource = dtp;
         }
 
+        int fila;
+        private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = 0;
+            fila = dtgv_proveedores.CurrentRow.Index;
+            txt_ID_Proveedor.Text = dtgv_proveedores.Rows[fila].Cells[0].Value.ToString();
+            txt_NomProveedor.Text = dtgv_proveedores.Rows[fila].Cells[1].Value.ToString();
+
+            dtp = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+            if (dtp.Rows.Count > 0)
+            {
+                dtgv_Telefonos.DataSource = dtp;
+            }
+        }
+        #endregion
         private void btn_Remover_Click(object sender, EventArgs e)
         {
 
@@ -198,22 +213,5 @@ namespace POS_FG
                 e.Handled = true;//no permite ninguna otra tecla
             }
         }
-
-        int fila;
-        private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            fila = 0;
-            fila = dtgv_proveedores.CurrentRow.Index;
-            txt_ID_Proveedor.Text = dtgv_proveedores.Rows[fila].Cells[0].Value.ToString();
-            txt_NomProveedor.Text = dtgv_proveedores.Rows[fila].Cells[1].Value.ToString();
-            DataTable dt;
-            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
-            if (dt.Rows.Count > 0)
-            {
-                dtgv_Telefonos.DataSource = dt;
-            }
-        }
-
-
     }
 }
