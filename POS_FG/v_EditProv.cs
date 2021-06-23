@@ -72,18 +72,16 @@ namespace POS_FG
         }
 
         #region celular
-
+        DataTable dtp;
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            //DataTable dt;
-            //dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
             DataRow row = dtp.NewRow();
             row["PhoneProveedor"] = txt_Telefono.Text.ToString();
             dtp.Rows.Add(row);
             dtp.AcceptChanges();
             dtgv_Telefonos.DataSource = dtp;
         }
-        DataTable dtp;
+
         int fila;
         private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
