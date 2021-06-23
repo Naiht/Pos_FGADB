@@ -58,6 +58,7 @@ namespace POS_FG
             dtgv_gastos.Columns.Add("descripcion", "Descripcion");
             dtgv_gastos.Columns.Add("total", "Total");
             dtgv_gastos.Columns.Add("fecha", "Fecha");
+            btn_Remover.Enabled = false;
         }
 
         ValidarV validar = new ValidarV();
@@ -67,7 +68,14 @@ namespace POS_FG
             
             if (validar.validarfrm(this) == false)
             {
-                dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text, string.Format("{0: MM-dd-yyyy}", dtp_fechalimite.Value));
+                if (dtp_fecha.Value <= DateTime.Now)
+                {
+                    dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text, string.Format("{0: MM-dd-yyyy}", dtp_fecha.Value));
+                }
+                else
+                {
+                    MessageBox.Show("La fecha deber ser igual o anterio a la fecha actual", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -128,6 +136,54 @@ namespace POS_FG
                     e.Handled = true;//desactiva el resto de teclas pulsadas
                 }
             }
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)
+        {
+            dtgv_gastos.Rows.RemoveAt(fila);
+            btn_Remover.Enabled = false;
+            //validacion en situacion especial pendiente
+            /*
+            if(fila==dtgv_gastos.Rows.Count - 1)//permite eliminar el resgistro que se selecciona automaticamente luego de borrar uno sin necesidad de clickear sobre una fila
+            {
+                fila = fila - 1;
+            }
+            else
+            {
+                fila = fila + 1;
+            }
+            if (dtgv_gastos.Rows.Count > 1)//desactiva el boton en caso que se eliimne el ultimo registro del dgv
+            {
+                btn_Remover.Enabled = true;
+            }
+            else
+            {
+                btn_Remover.Enabled = false;
+            }*/
+        }
+
+        int fila;
+        private void dtgv_gastos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = 0;
+            fila = int.Parse(dtgv_gastos.CurrentCell.RowIndex.ToString());
+            btn_Remover.Enabled = true;
+            /*if(fila==dtgv_gastos.Rows.Count - 1)
+            {
+                btn_Remover.Enabled = false;
+            }
+            else
+            {
+                btn_Remover.Enabled = true;
+            }*/
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            txt_descripcion.Clear();
+            txt_total.Clear();
+            dtgv_gastos.Rows.Clear();
+            btn_Remover.Enabled = false;
         }
     }
 }

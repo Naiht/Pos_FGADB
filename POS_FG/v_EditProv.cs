@@ -50,19 +50,170 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
 
+        sqlcon2 sql = new sqlcon2();
+
         private void v_proveedor_Load(object sender, EventArgs e)
         {
+            dtgv_proveedores.ReadOnly = true;
+            dtgv_proveedores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_proveedores.AllowUserToAddRows = false;
 
+            dtgv_Telefonos.ReadOnly = true;
+            dtgv_Telefonos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Telefonos.AllowUserToAddRows = false;
+
+            DataTable dt;
+            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_proveedores.DataSource = dt;
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btn_Agregar_Click(object sender, EventArgs e)
+        {
+            //dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+            /*DataTable dt;
+            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+            DataRow row = dt.NewRow();
+            row["PhoneProveedor"] = txt_Telefono.Text.ToString();
+            dt.Rows.Add(row);
+            dt.AcceptChanges();
+            dtgv_Telefonos.DataSource = dt;*/
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btn_Cancelar_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            if(txt_Busqueda.Text != "")
+            {
+                if (rb_id.Checked)
+                {
+                    foreach (DataGridViewRow Row in dtgv_proveedores.Rows)
+                    {
+                        String strFila = Row.Index.ToString();
+                        string Valor = Convert.ToString(Row.Cells[0].Value);
+
+                        if (Valor == this.txt_Busqueda.Text)
+                        {
+                            txt_ID_Proveedor.Text = Convert.ToString(dtgv_proveedores.Rows[int.Parse(strFila)].Cells[0].Value);
+                            txt_NomProveedor.Text = Convert.ToString(dtgv_proveedores.Rows[int.Parse(strFila)].Cells[1].Value);
+                            DataTable dt;
+                            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+                            if (dt.Rows.Count > 0)
+                            {
+                                dtgv_Telefonos.DataSource = dt;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (rb_nombre.Checked)
+                    {
+                        foreach (DataGridViewRow Row in dtgv_proveedores.Rows)
+                        {
+                            String strFila = Row.Index.ToString();
+                            string Valor = Convert.ToString(Row.Cells[1].Value);
+
+                            if (Valor == this.txt_Busqueda.Text)
+                            {
+                                txt_ID_Proveedor.Text = Convert.ToString(dtgv_proveedores.Rows[int.Parse(strFila)].Cells[0].Value);
+                                txt_NomProveedor.Text = Convert.ToString(dtgv_proveedores.Rows[int.Parse(strFila)].Cells[1].Value);
+                                DataTable dt;
+                                dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+                                if (dt.Rows.Count > 0)
+                                {
+                                    dtgv_Telefonos.DataSource = dt;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("La casilla buscar no puedo estar vacia ", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txt_ID_Proveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite teclas de contros y caracteres alfanumericos
+            }
+            else
+            {
+                e.Handled = true;//no permite ninguna otra tecla
+            }
+        }
+
+        private void txt_NomProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;//permite teclas de contros y caracteres alfanumericos y espacios
+            }
+            else
+            {
+                e.Handled = true;//no permite ninguna otra tecla
+            }
+        }
+
+        private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;//permite teclas de contros y caracteres numericos
+            }
+            else
+            {
+                e.Handled = true;//no permite ninguna otra tecla
+            }
+        }
+
+        private void txt_Busqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;//permite teclas de contros y caracteres alfanumericos y espacios
+            }
+            else
+            {
+                e.Handled = true;//no permite ninguna otra tecla
+            }
+        }
+
+        int fila;
+        private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = 0;
+            fila = dtgv_proveedores.CurrentRow.Index;
+            txt_ID_Proveedor.Text = dtgv_proveedores.Rows[fila].Cells[0].Value.ToString();
+            txt_NomProveedor.Text = dtgv_proveedores.Rows[fila].Cells[1].Value.ToString();
+            DataTable dt;
+            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_Telefonos.DataSource = dt;
+            }
+        }
+
+
     }
 }

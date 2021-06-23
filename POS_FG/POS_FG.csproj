@@ -61,6 +61,12 @@
     <Compile Include="v_AgregCliente.Designer.cs">
       <DependentUpon>v_AgregCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_EditProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_EditProducto.Designer.cs">
+      <DependentUpon>v_EditProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_EditProv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_AgregCliente.resx">
       <DependentUpon>v_AgregCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_EditProducto.resx">
+      <DependentUpon>v_EditProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_EditProv.resx">
       <DependentUpon>v_EditProv.cs</DependentUpon>

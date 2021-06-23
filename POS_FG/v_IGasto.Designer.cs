@@ -40,10 +40,12 @@
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_total = new System.Windows.Forms.TextBox();
-            this.dtp_fechalimite = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.btn_Registrar = new System.Windows.Forms.Button();
+            this.btn_Remover = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -139,8 +141,9 @@
             this.dtgv_gastos.Location = new System.Drawing.Point(50, 235);
             this.dtgv_gastos.Name = "dtgv_gastos";
             this.dtgv_gastos.ReadOnly = true;
-            this.dtgv_gastos.Size = new System.Drawing.Size(647, 154);
+            this.dtgv_gastos.Size = new System.Drawing.Size(345, 154);
             this.dtgv_gastos.TabIndex = 3;
+            this.dtgv_gastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_gastos_CellClick);
             // 
             // label1
             // 
@@ -180,22 +183,22 @@
             this.txt_total.TabIndex = 7;
             this.txt_total.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_total_KeyPress);
             // 
-            // dtp_fechalimite
+            // dtp_fecha
             // 
-            this.dtp_fechalimite.Location = new System.Drawing.Point(401, 150);
-            this.dtp_fechalimite.Name = "dtp_fechalimite";
-            this.dtp_fechalimite.Size = new System.Drawing.Size(200, 20);
-            this.dtp_fechalimite.TabIndex = 8;
+            this.dtp_fecha.Location = new System.Drawing.Point(401, 150);
+            this.dtp_fecha.Name = "dtp_fecha";
+            this.dtp_fecha.Size = new System.Drawing.Size(200, 20);
+            this.dtp_fecha.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(307, 150);
+            this.label3.Location = new System.Drawing.Point(348, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.Size = new System.Drawing.Size(47, 17);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Fecha Limite";
+            this.label3.Text = "Fecha";
             // 
             // btn_Agregar
             // 
@@ -223,7 +226,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(579, 197);
+            this.btn_Registrar.Location = new System.Drawing.Point(579, 395);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(118, 32);
             this.btn_Registrar.TabIndex = 22;
@@ -231,16 +234,52 @@
             this.btn_Registrar.UseVisualStyleBackColor = false;
             this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
+            // btn_Remover
+            // 
+            this.btn_Remover.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Remover.FlatAppearance.BorderSize = 0;
+            this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remover.ForeColor = System.Drawing.Color.White;
+            this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
+            this.btn_Remover.Location = new System.Drawing.Point(579, 197);
+            this.btn_Remover.Name = "btn_Remover";
+            this.btn_Remover.Size = new System.Drawing.Size(118, 32);
+            this.btn_Remover.TabIndex = 23;
+            this.btn_Remover.Text = "Remover ";
+            this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
+            this.btn_Cancelar.Location = new System.Drawing.Point(455, 395);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
+            this.btn_Cancelar.TabIndex = 29;
+            this.btn_Cancelar.Text = "Cancelar ";
+            this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
             // v_IGasto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(742, 445);
+            this.Controls.Add(this.btn_Cancelar);
+            this.Controls.Add(this.btn_Remover);
             this.Controls.Add(this.btn_Registrar);
             this.Controls.Add(this.btn_Agregar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtp_fechalimite);
+            this.Controls.Add(this.dtp_fecha);
             this.Controls.Add(this.txt_total);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_descripcion);
@@ -279,9 +318,11 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_total;
-        private System.Windows.Forms.DateTimePicker dtp_fechalimite;
+        private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Registrar;
+        private System.Windows.Forms.Button btn_Remover;
+        private System.Windows.Forms.Button btn_Cancelar;
     }
 }

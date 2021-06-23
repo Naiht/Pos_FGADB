@@ -58,6 +58,9 @@ namespace POS_FG
 
         private void v_proveedor_Load(object sender, EventArgs e)
         {
+            dtgv_Telefonos.ReadOnly = true;
+            dtgv_Telefonos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Telefonos.AllowUserToAddRows = false;
             dtgv_Telefonos.Columns.Add("telefonos", "Telefonos");
             btn_Remover.Enabled = false;
         }
@@ -176,14 +179,15 @@ namespace POS_FG
         {
             fila = 0;
             fila = int.Parse(dtgv_Telefonos.CurrentCell.RowIndex.ToString());
-            if(fila==dtgv_Telefonos.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
+            btn_Remover.Enabled = true;
+            /*if(fila==dtgv_Telefonos.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
             {
                 btn_Remover.Enabled = false;
             }
             else
             {
                 btn_Remover.Enabled = true;
-            }
+            }*/
         }
     }
 }

@@ -159,6 +159,7 @@
             this.txt_ID_Proveedor.Name = "txt_ID_Proveedor";
             this.txt_ID_Proveedor.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Proveedor.TabIndex = 4;
+            this.txt_ID_Proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ID_Proveedor_KeyPress);
             // 
             // label2
             // 
@@ -177,6 +178,7 @@
             this.txt_NomProveedor.Name = "txt_NomProveedor";
             this.txt_NomProveedor.Size = new System.Drawing.Size(186, 23);
             this.txt_NomProveedor.TabIndex = 23;
+            this.txt_NomProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NomProveedor_KeyPress);
             // 
             // dtgv_Telefonos
             // 
@@ -199,7 +201,6 @@
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 25;
             this.label3.Text = "Telefono";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt_Telefono
             // 
@@ -208,7 +209,7 @@
             this.txt_Telefono.Name = "txt_Telefono";
             this.txt_Telefono.Size = new System.Drawing.Size(100, 23);
             this.txt_Telefono.TabIndex = 26;
-            this.txt_Telefono.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Telefono_KeyPress);
             // 
             // btn_Cancelar
             // 
@@ -225,6 +226,7 @@
             this.btn_Cancelar.Text = "Cancelar ";
             this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Agregar
             // 
@@ -241,6 +243,7 @@
             this.btn_Agregar.TabIndex = 27;
             this.btn_Agregar.Text = "Agregar ";
             this.btn_Agregar.UseVisualStyleBackColor = false;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // btn_Modificar
             // 
@@ -258,6 +261,7 @@
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Modificar.UseVisualStyleBackColor = false;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Remover
             // 
@@ -274,6 +278,7 @@
             this.btn_Remover.Text = "Remover";
             this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // dtgv_proveedores
             // 
@@ -284,6 +289,7 @@
             this.dtgv_proveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_proveedores.Size = new System.Drawing.Size(324, 320);
             this.dtgv_proveedores.TabIndex = 30;
+            this.dtgv_proveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_proveedores_CellClick);
             // 
             // rb_id
             // 
@@ -314,6 +320,7 @@
             this.txt_Busqueda.Name = "txt_Busqueda";
             this.txt_Busqueda.Size = new System.Drawing.Size(190, 23);
             this.txt_Busqueda.TabIndex = 33;
+            this.txt_Busqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Busqueda_KeyPress);
             // 
             // label4
             // 
@@ -338,6 +345,7 @@
             this.btn_Buscar.Size = new System.Drawing.Size(29, 29);
             this.btn_Buscar.TabIndex = 35;
             this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // v_EditProv
             // 

@@ -117,6 +117,9 @@ namespace POS_FG
     
         private void v_IProducto_Load(object sender, EventArgs e)//carga el nombre de las columnas del datagridview 
         {
+            dtgv_Producto.ReadOnly = true;
+            dtgv_Producto.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Producto.AllowUserToAddRows = false;
             dtgv_Producto.Columns.Add("id", "ID");
             dtgv_Producto.Columns.Add("nombre", "Nombre");
             dtgv_Producto.Columns.Add("invmax", "Inventario Max");
@@ -170,15 +173,15 @@ namespace POS_FG
         {
             fila = 0;
             fila = int.Parse(dtgv_Producto.CurrentCell.RowIndex.ToString());
-           
-            if(fila == dtgv_Producto.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
+            btn_Remover.Enabled = true;
+            /*if (fila == dtgv_Producto.Rows.Count - 1)//el menos 1 es porque la filas empiezan en 0
             {
                 btn_Remover.Enabled = false;
             }
             else
             {
                 btn_Remover.Enabled = true;
-            }
+            }*/
         }
 
         //validacion de valores permitidos
