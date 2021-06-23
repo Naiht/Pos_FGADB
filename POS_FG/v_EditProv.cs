@@ -52,6 +52,7 @@ namespace POS_FG
 
         sqlcon2 sql = new sqlcon2();
 
+        DataTable dt;
         private void v_proveedor_Load(object sender, EventArgs e)
         {
             dtgv_proveedores.ReadOnly = true;
@@ -62,7 +63,7 @@ namespace POS_FG
             dtgv_Telefonos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Telefonos.AllowUserToAddRows = false;
 
-            DataTable dt;
+
             dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
             if (dt.Rows.Count > 0)
             {
@@ -73,13 +74,13 @@ namespace POS_FG
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
             //dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
-            /*DataTable dt;
-            dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+           // DataTable dt;
+            //dt = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
             DataRow row = dt.NewRow();
             row["PhoneProveedor"] = txt_Telefono.Text.ToString();
             dt.Rows.Add(row);
             dt.AcceptChanges();
-            dtgv_Telefonos.DataSource = dt;*/
+            dtgv_Telefonos.DataSource = dt;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)
