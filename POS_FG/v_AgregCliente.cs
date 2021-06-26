@@ -66,7 +66,8 @@ namespace POS_FG
                     cedulaclia = txt_CedCliente.Text;
                     montoa = 0;
 
-
+                    sql.multiple("insert into credito (nombrecliente,cedulacliente,direccioncliente,telefono) values ('"+txt_NomCliente.Text+
+                        "','"+txt_CedCliente.Text+"','"+txt_DireccionCliente.Text+"','"+txt_TelefonoCliente.Text+"')");
 
                     this.Close();
                 }
