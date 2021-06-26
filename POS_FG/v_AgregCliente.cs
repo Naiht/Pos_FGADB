@@ -50,19 +50,33 @@ namespace POS_FG
             InitializeComponent();
         }
 
+        sqlcon2 sql = new sqlcon2();
+        ValidarV validar = new ValidarV();
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Son correctos los datos del cliente?", "Nuevo Cliente", MessageBoxButtons.OKCancel);
+            if (validar.validarfrm(this) == false)
+            {
+                DialogResult resultado = MessageBox.Show("¿Son correctos los datos del cliente?", "Nuevo Cliente", MessageBoxButtons.OKCancel);
 
-            if (resultado == DialogResult.OK) {
-                DialogResult = DialogResult.OK;
+                if (resultado == DialogResult.OK)
+                {
+                    DialogResult = DialogResult.OK;
 
-                nombreca = txt_NomCliente.Text;
-                cedulaclia = txt_CedCliente.Text;
-                montoa = 0;
+                    nombreca = txt_NomCliente.Text;
+                    cedulaclia = txt_CedCliente.Text;
+                    montoa = 0;
 
-                this.Close();
+                    sql.multiple("insert into credito (nombrecliente,cedulacliente,direccioncliente,telefono) values ('"+txt_NomCliente.Text+
+                        "','"+txt_CedCliente.Text+"','"+txt_DireccionCliente.Text+"','"+txt_TelefonoCliente.Text+"')");
+
+                    this.Close();
+                }
             }
+            else
+            {
+                MessageBox.Show("No puede dejar ningun campo vacío", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)

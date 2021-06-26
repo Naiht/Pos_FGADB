@@ -51,6 +51,17 @@ namespace POS_FG
 
             rb_Nombre.Checked = true;
 
+            dtgv_Factura.Columns.Add("", "Codigo");
+            dtgv_Factura.Columns.Add("", "Nombre");
+            dtgv_Factura.Columns.Add("", "Precio");
+
+            dtgv_Factura.ReadOnly = true;
+            dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Factura.AllowUserToResizeRows = false;
+
+            //dtgv_Factura.Rows.Add();
+            dtgv_Factura.Rows[dtgv_Factura.RowCount-1].Cells[0].Value = "Total";
+
             DataTable dt;
             dt = sql.tablas("productos","select IDProducto,nombreproducto,P_venta from productos");
             if (dt.Rows.Count > 0)
@@ -95,6 +106,60 @@ namespace POS_FG
                 txt_NomCliente.Text = mensaje.nombrec;
                 cedula = mensaje.cedulacli;
                 monto = mensaje.monto;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            v_RepProductos rep = new v_RepProductos();
+            rep.ShowDialog();
+        }
+        
+        int fila;
+        float total = 0;
+        private void dtgv_ProductosV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            fila = dtgv_ProductosV.CurrentRow.Index;//Variable que guarda la fila seleccionada
+            dtgv_Factura.Rows.Insert(0,dtgv_ProductosV.Rows[fila].Cells[0].Value, dtgv_ProductosV.Rows[fila].Cells[1].Value, dtgv_ProductosV.Rows[fila].Cells[2].Value);
+
+            total = float.Parse(dtgv_ProductosV.Rows[fila].Cells[2].Value.ToString()) + total;//Variable que almacena el total de venta
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = ""+total;
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)
+        {
+            if (dtgv_Factura.Rows.Count > 1)
+            {
+                total = total - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString());//Variable que almacena el total de venta
+                dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = "" + total;
+                dtgv_Factura.Rows.Remove(dtgv_Factura.CurrentRow);
+            }
+            else {
+                MessageBox.Show("No quedan productos por remover","No hay productos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_Finalizar_Click(object sender, EventArgs e)
+        {
+            if (dtgv_Factura.Rows.Count > 1)
+            {
+                DialogResult venta = MessageBox.Show("¿Es correcta la venta?","",MessageBoxButtons.YesNo);
+
+                //Informacion de la factura a la base de datos ki
+                if (venta == DialogResult.Yes)
+                {
+                    sql.multiple("insert into factura (monto,fecha) values ("+total+",'06/25/2021')");
+                    for (int i = 0; i < dtgv_Factura.Rows.Count -1; i++)
+                    {
+                        sql.multiple("insert into detalle (IDproducto,IDfactura,cantidadcompra) values " +
+                            "('"+dtgv_Factura.Rows[i].Cells[0].Value.ToString()+"',31,2)");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para realizar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

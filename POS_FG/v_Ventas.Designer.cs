@@ -42,22 +42,23 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
-            this.btn_Remover = new System.Windows.Forms.Button();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.btn_Finalizar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtgv_Factura = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chb_Credito = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_BsCliente = new System.Windows.Forms.Button();
             this.txt_NomCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_Remover = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Finalizar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             this.pan_Producto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Factura)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,6 +213,7 @@
             this.dtgv_ProductosV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_ProductosV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_ProductosV.Location = new System.Drawing.Point(11, 117);
+            this.dtgv_ProductosV.MultiSelect = false;
             this.dtgv_ProductosV.Name = "dtgv_ProductosV";
             this.dtgv_ProductosV.RowHeadersVisible = false;
             this.dtgv_ProductosV.RowHeadersWidth = 51;
@@ -219,67 +221,31 @@
             this.dtgv_ProductosV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_ProductosV.Size = new System.Drawing.Size(404, 569);
             this.dtgv_ProductosV.TabIndex = 0;
+            this.dtgv_ProductosV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_ProductosV_CellDoubleClick);
             // 
-            // btn_Remover
+            // button1
             // 
-            this.btn_Remover.BackColor = System.Drawing.Color.DimGray;
-            this.btn_Remover.FlatAppearance.BorderSize = 0;
-            this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Remover.ForeColor = System.Drawing.Color.White;
-            this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
-            this.btn_Remover.Location = new System.Drawing.Point(344, 431);
-            this.btn_Remover.Name = "btn_Remover";
-            this.btn_Remover.Size = new System.Drawing.Size(142, 40);
-            this.btn_Remover.TabIndex = 8;
-            this.btn_Remover.Text = "Remover";
-            this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Remover.UseVisualStyleBackColor = false;
+            this.button1.Location = new System.Drawing.Point(142, 650);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 35);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Reportes Prueba";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btn_Cancelar
+            // dtgv_Factura
             // 
-            this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
-            this.btn_Cancelar.Location = new System.Drawing.Point(68, 691);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(142, 40);
-            this.btn_Cancelar.TabIndex = 7;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Finalizar
-            // 
-            this.btn_Finalizar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_Finalizar.FlatAppearance.BorderSize = 0;
-            this.btn_Finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Finalizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Finalizar.Image = global::POS_FG.Properties.Resources.carro;
-            this.btn_Finalizar.Location = new System.Drawing.Point(281, 691);
-            this.btn_Finalizar.Name = "btn_Finalizar";
-            this.btn_Finalizar.Size = new System.Drawing.Size(142, 40);
-            this.btn_Finalizar.TabIndex = 6;
-            this.btn_Finalizar.Text = "Finalizar";
-            this.btn_Finalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Finalizar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(473, 319);
-            this.dataGridView1.TabIndex = 6;
+            this.dtgv_Factura.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Factura.Location = new System.Drawing.Point(13, 98);
+            this.dtgv_Factura.MultiSelect = false;
+            this.dtgv_Factura.Name = "dtgv_Factura";
+            this.dtgv_Factura.RowHeadersVisible = false;
+            this.dtgv_Factura.RowHeadersWidth = 51;
+            this.dtgv_Factura.RowTemplate.Height = 24;
+            this.dtgv_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_Factura.Size = new System.Drawing.Size(473, 319);
+            this.dtgv_Factura.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -351,15 +317,66 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Factura";
             // 
+            // btn_Remover
+            // 
+            this.btn_Remover.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Remover.FlatAppearance.BorderSize = 0;
+            this.btn_Remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remover.ForeColor = System.Drawing.Color.White;
+            this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
+            this.btn_Remover.Location = new System.Drawing.Point(344, 431);
+            this.btn_Remover.Name = "btn_Remover";
+            this.btn_Remover.Size = new System.Drawing.Size(142, 40);
+            this.btn_Remover.TabIndex = 8;
+            this.btn_Remover.Text = "Remover";
+            this.btn_Remover.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
+            this.btn_Cancelar.Location = new System.Drawing.Point(68, 691);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(142, 40);
+            this.btn_Cancelar.TabIndex = 7;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Finalizar
+            // 
+            this.btn_Finalizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Finalizar.FlatAppearance.BorderSize = 0;
+            this.btn_Finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Finalizar.ForeColor = System.Drawing.Color.White;
+            this.btn_Finalizar.Image = global::POS_FG.Properties.Resources.carro;
+            this.btn_Finalizar.Location = new System.Drawing.Point(281, 691);
+            this.btn_Finalizar.Name = "btn_Finalizar";
+            this.btn_Finalizar.Size = new System.Drawing.Size(142, 40);
+            this.btn_Finalizar.TabIndex = 6;
+            this.btn_Finalizar.Text = "Finalizar";
+            this.btn_Finalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Finalizar.UseVisualStyleBackColor = false;
+            this.btn_Finalizar.Click += new System.EventHandler(this.btn_Finalizar_Click);
+            // 
             // v_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(928, 761);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgv_Factura);
             this.Controls.Add(this.btn_Remover);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Finalizar);
@@ -379,7 +396,7 @@
             this.pan_Producto.ResumeLayout(false);
             this.pan_Producto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ProductosV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Factura)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -406,12 +423,13 @@
         private System.Windows.Forms.Button btn_Finalizar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Remover;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgv_Factura;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox chb_Credito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_BsCliente;
         private System.Windows.Forms.TextBox txt_NomCliente;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
