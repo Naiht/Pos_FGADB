@@ -146,6 +146,7 @@ namespace POS_FG
             {
                 DialogResult venta = MessageBox.Show("¿Es correcta la venta?","",MessageBoxButtons.YesNo);
 
+                //Informacion de la factura a la base de datos
                 if (venta == DialogResult.Yes)
                 {
                     sql.multiple("insert into factura (monto,fecha) values ("+total+",'06/25/2021')");
