@@ -50,6 +50,8 @@ namespace POS_FG
             InitializeComponent();
         }
 
+        sqlcon2 sql = new sqlcon2();
+
         private void v_IGasto_Load(object sender, EventArgs e)
         {
             dtgv_gastos.ReadOnly = true;
@@ -85,8 +87,14 @@ namespace POS_FG
         
 
         private void btn_Registrar_Click(object sender, EventArgs e)
-        {
-
+        {    
+            
+            foreach(DataGridViewRow row in dtgv_gastos.Rows)
+            {
+                MessageBox.Show("", row.Index.ToString());
+                sql.multiple("INSERT INTO gasto(IDpulperia, descripcion, fecha, total)" +
+                    "values");
+            }
         }
 
         //validaciones de valores permitidos
