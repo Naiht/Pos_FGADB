@@ -1,7 +1,7 @@
 @echo on
 git add .
 
-SET /P COM=Commit:
+SET /P COM=Commit :
 
 git commit -m "%COM%"
 
