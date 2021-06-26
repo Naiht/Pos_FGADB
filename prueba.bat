@@ -1,5 +1,8 @@
 @echo on
 git add .
 
-git commit -m "holi"
+SET /P COM=Commit:
 
+git commit -m "COM"
+
+pause
