@@ -3,7 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-*.bat
+
 
 # User-specific files
 *.rsuser
@@ -11,6 +11,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.bat
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
