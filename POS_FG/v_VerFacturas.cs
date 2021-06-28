@@ -76,6 +76,7 @@ namespace POS_FG
             dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Factura.AllowUserToResizeRows = false;
 
+            
             DataTable dt;
             dt = sql.tablas("factura", "select * from factura");
             if (dt.Rows.Count > 0)
@@ -83,6 +84,13 @@ namespace POS_FG
                 dtgv_Factura.DataSource = dt;
             }
 
+
+        }
+
+        private void dtgv_Factura_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            v_VerFacturaDetalle rep = new v_VerFacturaDetalle(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[0].Value.ToString());
+            rep.ShowDialog();
         }
     }
 }

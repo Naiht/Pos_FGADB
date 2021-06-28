@@ -182,6 +182,7 @@
             // 
             // dtgv_Factura
             // 
+            this.dtgv_Factura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Factura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Factura.Location = new System.Drawing.Point(17, 256);
@@ -192,6 +193,7 @@
             this.dtgv_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_Factura.Size = new System.Drawing.Size(849, 334);
             this.dtgv_Factura.TabIndex = 15;
+            this.dtgv_Factura.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Factura_CellDoubleClick);
             // 
             // chk_filtros
             // 
