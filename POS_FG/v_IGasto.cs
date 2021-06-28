@@ -87,13 +87,24 @@ namespace POS_FG
         
 
         private void btn_Registrar_Click(object sender, EventArgs e)
-        {    
-            
-            foreach(DataGridViewRow row in dtgv_gastos.Rows)
+        {
+            if (dtgv_gastos.Rows.Count > 1)
             {
-                MessageBox.Show("", row.Index.ToString());
-                sql.multiple("INSERT INTO gasto(IDpulperia, descripcion, fecha, total)" +
-                    "values");
+                DialogResult venta = MessageBox.Show("¿Los registros son correctos?", "", MessageBoxButtons.YesNo);
+
+                //Informacion de la factura a la base de datos ki
+                if (venta == DialogResult.Yes)
+                {
+                    sql.multiple("");
+                    for (int i = 0; i < dtgv_gastos.Rows.Count - 1; i++)
+                    {
+                        sql.multiple("");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para realizar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
