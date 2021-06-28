@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace POS_FG
 {
-    public partial class v_VerFacturas : Form
+    public partial class v_VerFacturaDetalle : Form
     {
         sqlcon2 sql = new sqlcon2();
 
@@ -46,43 +46,14 @@ namespace POS_FG
             this.WindowState = FormWindowState.Minimized;
         }
         #endregion
-
-        public v_VerFacturas()
+        public v_VerFacturaDetalle()
         {
             InitializeComponent();
-            val.desactivar(gbFiltros,false);
         }
 
-        private void btn_BsCliente_Click(object sender, EventArgs e)
+        public v_VerFacturaDetalle(String datos)
         {
-
-        }
-
-        ValidarV val = new ValidarV();
-        private void chk_filtros_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_filtros.Checked)
-            {
-                val.desactivar(gbFiltros,true);
-            }
-            else {
-                val.desactivar(gbFiltros, false);
-            }
-        }
-
-        private void v_VerFacturas_Load(object sender, EventArgs e)
-        {
-            dtgv_Factura.ReadOnly = true;
-            dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dtgv_Factura.AllowUserToResizeRows = false;
-
-            DataTable dt;
-            dt = sql.tablas("factura", "select * from factura");
-            if (dt.Rows.Count > 0)
-            {
-                dtgv_Factura.DataSource = dt;
-            }
-
+            InitializeComponent();
         }
     }
 }
