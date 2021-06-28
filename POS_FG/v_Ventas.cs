@@ -51,19 +51,11 @@ namespace POS_FG
 
             rb_Nombre.Checked = true;
 
-            dtgv_Factura.Columns.Add("", "Codigo");
-            dtgv_Factura.Columns.Add("", "Nombre");
-            dtgv_Factura.Columns.Add("", "Precio");
+            deffac();
 
-            dtgv_Factura.ReadOnly = true;
-            dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dtgv_Factura.AllowUserToResizeRows = false;
-
-            //dtgv_Factura.Rows.Add();
-            dtgv_Factura.Rows[dtgv_Factura.RowCount-1].Cells[0].Value = "Total";
 
             DataTable dt;
-            dt = sql.tablas("productos","select IDProducto,nombreproducto,P_venta from productos");
+            dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos");
             if (dt.Rows.Count > 0)
             {
                 dtgv_ProductosV.DataSource = dt;
@@ -85,7 +77,7 @@ namespace POS_FG
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (chb_Credito.Checked){
+            if (chb_Credito.Checked) {
                 btn_BsCliente.Enabled = true;
                 btn_BsCliente.BackColor = Color.DimGray;
             }
@@ -114,17 +106,17 @@ namespace POS_FG
             v_RepProductos rep = new v_RepProductos();
             rep.ShowDialog();
         }
-        
+
         int fila;
         float total = 0;
         private void dtgv_ProductosV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
             fila = dtgv_ProductosV.CurrentRow.Index;//Variable que guarda la fila seleccionada
-            dtgv_Factura.Rows.Insert(0,dtgv_ProductosV.Rows[fila].Cells[0].Value, dtgv_ProductosV.Rows[fila].Cells[1].Value, dtgv_ProductosV.Rows[fila].Cells[2].Value);
+            dtgv_Factura.Rows.Insert(0, dtgv_ProductosV.Rows[fila].Cells[0].Value, dtgv_ProductosV.Rows[fila].Cells[1].Value, dtgv_ProductosV.Rows[fila].Cells[2].Value);
 
             total = float.Parse(dtgv_ProductosV.Rows[fila].Cells[2].Value.ToString()) + total;//Variable que almacena el total de venta
-            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = ""+total;
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = "" + total;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)
@@ -136,7 +128,7 @@ namespace POS_FG
                 dtgv_Factura.Rows.Remove(dtgv_Factura.CurrentRow);
             }
             else {
-                MessageBox.Show("No quedan productos por remover","No hay productos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("No quedan productos por remover", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -144,16 +136,18 @@ namespace POS_FG
         {
             if (dtgv_Factura.Rows.Count > 1)
             {
-                DialogResult venta = MessageBox.Show("¿Es correcta la venta?","",MessageBoxButtons.YesNo);
+                DialogResult venta = MessageBox.Show("¿Es correcta la venta?", "", MessageBoxButtons.YesNo);
 
                 //Informacion de la factura a la base de datos ki
                 if (venta == DialogResult.Yes)
                 {
-                    sql.multiple("insert into factura (monto,fecha) values ("+total+",'06/25/2021')");
-                    for (int i = 0; i < dtgv_Factura.Rows.Count -1; i++)
+                    sql.multiple("insert into factura (monto,fecha) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "')");
+
+         
+                    for (int i = 0; i < dtgv_Factura.Rows.Count - 1; i++)
                     {
                         sql.multiple("insert into detalle (IDproducto,IDfactura,cantidadcompra) values " +
-                            "('"+dtgv_Factura.Rows[i].Cells[0].Value.ToString()+"',31,2)");
+                            "('" + dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "',32,2)");
                     }
                 }
             }
@@ -161,6 +155,53 @@ namespace POS_FG
             {
                 MessageBox.Show("Para realizar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            if (dtgv_Factura.Rows.Count > 1)
+            {
+                DialogResult venta = MessageBox.Show("¿Desea cancelar esta venta?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (venta == DialogResult.Yes)
+                {
+                    dtgv_Factura.Rows.Clear();
+
+                    dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[0].Value = "Total";
+
+                    if (chb_Credito.Checked)
+                    {
+                        limpventac();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para eliminar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deffac()
+        {
+            dtgv_Factura.Columns.Add("", "Codigo");
+            dtgv_Factura.Columns.Add("", "Nombre");
+            dtgv_Factura.Columns.Add("", "Precio");
+
+            dtgv_Factura.ReadOnly = true;
+            dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Factura.AllowUserToResizeRows = false;
+
+            //dtgv_Factura.Rows.Add();
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[0].Value = "Total";
+        }
+
+        private void limpventac()
+        {
+            chb_Credito.Checked = false;
+            txt_NomCliente.Clear();
+            cedula = "";
+            monto = 0;
         }
     }
 }

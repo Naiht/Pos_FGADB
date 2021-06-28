@@ -40,6 +40,7 @@ namespace POS_FG
             }
         }
 
+
         public DataTable tablas(string tabla, string sql)
         {
             DataSet ds = new DataSet();
