@@ -51,9 +51,20 @@ namespace POS_FG
             InitializeComponent();
         }
 
-        public v_VerFacturaDetalle(String datos)
+        public v_VerFacturaDetalle(String factura)
         {
             InitializeComponent();
+
+            dtgv_FacturaD.ReadOnly = true;
+            dtgv_FacturaD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_FacturaD.AllowUserToResizeRows = false;
+
+            DataTable dt;
+            dt = sql.tablas("detalle", "select p.nombreproducto, d.cantidadcompra, f.monto from detalle d INNER JOIN factura f ON d.IDfactura = f.IDfactura INNER JOIN productos p ON p.IDproducto = d.IDproducto where f.IDfactura = "+factura);
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_FacturaD.DataSource = dt;
+            }
         }
     }
 }

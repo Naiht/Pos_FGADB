@@ -235,6 +235,7 @@
             // 
             // dtgv_Factura
             // 
+            this.dtgv_Factura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Factura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Factura.Location = new System.Drawing.Point(13, 98);
