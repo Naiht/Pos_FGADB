@@ -70,6 +70,8 @@ namespace POS_FG
 
         private void btn_Agregar_Click(object sender, EventArgs e)//agrega un producto al datagridview para preparar el ingreso del producto, proveedor y suministro 
         {
+            int x = 0;
+            int xx = 0;
             if (validar.validarfrm(this) == false)
             {
                 DataTable dt;
@@ -82,9 +84,29 @@ namespace POS_FG
                         {
                             if(int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_min.Text) && int.Parse(txt_Existencia.Text) < int.Parse(txt_Inv_Max.Text))
                             {
-                                txt_ID_Proveedor.Enabled = false;
-                                dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
-                                txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text);
+                                for(int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                {
+                                    if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                    {
+                                        x = 1;
+                                        xx = i;
+                                    }
+                                }
+                                if (x == 1)
+                                {
+                                    DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
+                                    if (repetido == DialogResult.Yes)
+                                    {
+                                        dtgv_Producto.Rows[xx].Cells[4].Value=int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString())+int.Parse(txt_Existencia.Text);
+                                    }
+                                }
+                                else
+                                {
+                                    txt_ID_Proveedor.Enabled = false;
+                                    dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                    txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                }
+                                
                             }
                             else
                             {
@@ -120,15 +142,16 @@ namespace POS_FG
             dtgv_Producto.ReadOnly = true;
             dtgv_Producto.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Producto.AllowUserToAddRows = false;
-            dtgv_Producto.Columns.Add("id", "ID");
-            dtgv_Producto.Columns.Add("nombre", "Nombre");
-            dtgv_Producto.Columns.Add("invmax", "Inventario Max");
-            dtgv_Producto.Columns.Add("invmin", "Inventario Min");
-            dtgv_Producto.Columns.Add("existencia", "Existencia");
-            dtgv_Producto.Columns.Add("pcompra", "Precio Compra");
-            dtgv_Producto.Columns.Add("pventa", "Precio Venta");
-            dtgv_Producto.Columns.Add("idprov", "ID Proveedor");
-            dtgv_Producto.Columns.Add("numfactura", "Numero Factura");
+            dtgv_Producto.Columns.Add("id", "ID");//0
+            dtgv_Producto.Columns.Add("nombre", "Nombre");//1
+            dtgv_Producto.Columns.Add("invmax", "Inventario Max");//2
+            dtgv_Producto.Columns.Add("invmin", "Inventario Min");//3
+            dtgv_Producto.Columns.Add("existencia", "Existencia");//4
+            dtgv_Producto.Columns.Add("pcompra", "Precio Compra");//5
+            dtgv_Producto.Columns.Add("pventa", "Precio Venta");//6
+            dtgv_Producto.Columns.Add("idprov", "ID Proveedor");//7
+            dtgv_Producto.Columns.Add("numfactura", "Numero Factura");//8
+            dtgv_Producto.Columns.Add("fechafactura", "Fecha");//9
             btn_Remover.Enabled = false;
         }
 
@@ -165,7 +188,60 @@ namespace POS_FG
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
+            if (dtgv_Producto.Rows.Count >= 1)
+            {
+                DialogResult venta = MessageBox.Show("¿Los datos de la factura son correctos?", "", MessageBoxButtons.YesNo);
 
+                //registro de gastos en la bd 
+                if (venta == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                    {
+                        int a = 0;
+
+                        DataTable dt;
+                        dt = sql.tablas("productos", "SELECT * FROM productos WHERE IDproducto = '" + dtgv_Producto.Rows[i].Cells[0].Value.ToString()+"'");
+                        if (dt.Rows.Count > 0)
+                        {
+                            //MessageBox.Show("se actualiza la cantidad ");
+                            
+
+                            sql.multiple("UPDATE productos SET existencias = existencias+" + int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) + " WHERE IDproducto='" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "'");
+
+                            
+
+                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());
+
+                            sql.multiple("INSERT INTO suministro (RUC,IDproducto,montosuministra,fechasuministra,numfacturasuministra,cantidadsuministra)" +
+                                "VALUES('" + dtgv_Producto.Rows[i].Cells[7].Value.ToString() + "','" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "'," + a + ",'" + dtgv_Producto.Rows[i].Cells[9].Value.ToString() + "'," +
+                                int.Parse(dtgv_Producto.Rows[i].Cells[8].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) + ")");
+
+                        }
+                        else
+                        {
+                            //MessageBox.Show("se inserta el producto");
+                            sql.multiple("INSERT INTO productos(IDproducto, IDpulperia, nombreproducto, inventario_max, inventario_min, existencias, P_venta, P_compra)" +
+                                "VALUES('" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "',1,'" + dtgv_Producto.Rows[i].Cells[1].Value.ToString() + "'," + int.Parse(dtgv_Producto.Rows[i].Cells[2].Value.ToString()) +
+                                "," + int.Parse(dtgv_Producto.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[6].Value.ToString()) +
+                                "," + int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString()) + ")");
+
+                           
+
+                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());
+                            
+                            sql.multiple("INSERT INTO suministro (RUC,IDproducto,montosuministra,fechasuministra,numfacturasuministra,cantidadsuministra)" +
+                                "VALUES('" + dtgv_Producto.Rows[i].Cells[7].Value.ToString() + "','" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "'," + a + ",'" + dtgv_Producto.Rows[i].Cells[9].Value.ToString() + "'," +
+                                int.Parse(dtgv_Producto.Rows[i].Cells[8].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) + ")");
+
+                        }
+                    }
+                    MessageBox.Show("Se registraron los gastos correctamente", "Registro de Gastos", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes ingresar al menos un producto para proceder con el registro ", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         int fila;

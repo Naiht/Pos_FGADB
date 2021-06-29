@@ -66,12 +66,28 @@ namespace POS_FG
         }
 
         ValidarV validar = new ValidarV();
-
+        
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
+            int x = 0;
             if (txt_Telefono.Text != "")
             {
-                dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+                for(int i = 0; i < dtgv_Telefonos.Rows.Count; i++)
+                {
+                    if (txt_Telefono.Text == dtgv_Telefonos.Rows[i].Cells[0].Value.ToString())
+                    {
+                        x = 1;
+                    }
+                }
+                if (x == 1)
+                {
+                    MessageBox.Show("Este numero se ingreso previamente");
+                }
+                else
+                {
+                    dtgv_Telefonos.Rows.Add(txt_Telefono.Text);
+                }
+                
                 txt_Telefono.Clear();
             }
             else
@@ -148,15 +164,37 @@ namespace POS_FG
             }*/
         }
 
+        sqlcon2 sql = new sqlcon2();
+
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
             if(txt_ID_Proveedor.Text != "")
             {
                 if(txt_NomProveedor.Text != "")
                 {
-                    if (dtgv_Telefonos.Rows.Count > 1)
+                    if (dtgv_Telefonos.Rows.Count >= 1)
                     {
+                        DialogResult venta = MessageBox.Show("¿Los datos son correctos?", "", MessageBoxButtons.YesNo);
 
+                        //registro de gastos en la bd 
+                        if (venta == DialogResult.Yes)
+                        {
+                            DataTable dt;
+                            dt = sql.tablas("proveedor", "SELECT RUC FROM proveedor WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+                            if (dt.Rows.Count > 0)
+                            {
+                                MessageBox.Show("El proveedor ya existe");
+                            }
+                            else
+                            {
+                                sql.multiple("INSERT INTO proveedor (RUC,nombreproveedor)VALUES('" + txt_ID_Proveedor.Text + "','" + txt_NomProveedor.Text + "')");
+                                for (int i = 0; i < dtgv_Telefonos.Rows.Count; i++)
+                                {
+                                    sql.multiple("INSERT INTO ProveedorPhone (PhoneProveedor,RUC)VALUES('" + dtgv_Telefonos.Rows[i].Cells[0].Value.ToString() + "','" + txt_ID_Proveedor.Text + "')");
+                                }
+                                MessageBox.Show("Se registraro al proveedor correctamente", "Registro de proveedor", MessageBoxButtons.OK);
+                            }
+                        }
                     }
                     else
                     {

@@ -149,6 +149,7 @@
             // 
             this.txt_ID_Proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID_Proveedor.Location = new System.Drawing.Point(183, 74);
+            this.txt_ID_Proveedor.MaxLength = 14;
             this.txt_ID_Proveedor.Name = "txt_ID_Proveedor";
             this.txt_ID_Proveedor.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Proveedor.TabIndex = 4;
@@ -168,6 +169,7 @@
             // 
             this.txt_NomProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NomProveedor.Location = new System.Drawing.Point(183, 119);
+            this.txt_NomProveedor.MaxLength = 35;
             this.txt_NomProveedor.Name = "txt_NomProveedor";
             this.txt_NomProveedor.Size = new System.Drawing.Size(186, 23);
             this.txt_NomProveedor.TabIndex = 23;
@@ -176,12 +178,12 @@
             // 
             this.dtgv_Telefonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Telefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_Telefonos.Location = new System.Drawing.Point(29, 205);
+            this.dtgv_Telefonos.Location = new System.Drawing.Point(47, 205);
             this.dtgv_Telefonos.Name = "dtgv_Telefonos";
             this.dtgv_Telefonos.RowHeadersVisible = false;
             this.dtgv_Telefonos.RowHeadersWidth = 51;
             this.dtgv_Telefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_Telefonos.Size = new System.Drawing.Size(148, 150);
+            this.dtgv_Telefonos.Size = new System.Drawing.Size(100, 150);
             this.dtgv_Telefonos.TabIndex = 24;
             this.dtgv_Telefonos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Telefonos_CellClick);
             // 
@@ -199,6 +201,7 @@
             // 
             this.txt_Telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Telefono.Location = new System.Drawing.Point(183, 165);
+            this.txt_Telefono.MaxLength = 8;
             this.txt_Telefono.Name = "txt_Telefono";
             this.txt_Telefono.Size = new System.Drawing.Size(100, 23);
             this.txt_Telefono.TabIndex = 26;

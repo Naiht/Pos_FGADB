@@ -58,6 +58,8 @@
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.txt_numfactura = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtp_fechafacturacompra = new System.Windows.Forms.DateTimePicker();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -161,6 +163,7 @@
             // 
             this.txt_ID_Producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID_Producto.Location = new System.Drawing.Point(160, 60);
+            this.txt_ID_Producto.MaxLength = 14;
             this.txt_ID_Producto.Name = "txt_ID_Producto";
             this.txt_ID_Producto.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Producto.TabIndex = 4;
@@ -180,6 +183,7 @@
             // 
             this.txt_NomProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NomProducto.Location = new System.Drawing.Point(160, 95);
+            this.txt_NomProducto.MaxLength = 40;
             this.txt_NomProducto.Name = "txt_NomProducto";
             this.txt_NomProducto.Size = new System.Drawing.Size(100, 23);
             this.txt_NomProducto.TabIndex = 6;
@@ -307,6 +311,7 @@
             // 
             this.txt_ID_Proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID_Proveedor.Location = new System.Drawing.Point(160, 310);
+            this.txt_ID_Proveedor.MaxLength = 14;
             this.txt_ID_Proveedor.Name = "txt_ID_Proveedor";
             this.txt_ID_Proveedor.Size = new System.Drawing.Size(100, 23);
             this.txt_ID_Proveedor.TabIndex = 23;
@@ -372,7 +377,7 @@
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.Image = global::POS_FG.Properties.Resources.boton_agregar_2;
             this.btn_Agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Agregar.Location = new System.Drawing.Point(68, 390);
+            this.btn_Agregar.Location = new System.Drawing.Point(67, 432);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(118, 32);
             this.btn_Agregar.TabIndex = 18;
@@ -399,12 +404,31 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Numero Factura";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 378);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 17);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Fecha Factura";
+            // 
+            // dtp_fechafacturacompra
+            // 
+            this.dtp_fechafacturacompra.Location = new System.Drawing.Point(160, 375);
+            this.dtp_fechafacturacompra.Name = "dtp_fechafacturacompra";
+            this.dtp_fechafacturacompra.Size = new System.Drawing.Size(200, 20);
+            this.dtp_fechafacturacompra.TabIndex = 28;
+            // 
             // v_IProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(676, 489);
+            this.Controls.Add(this.dtp_fechafacturacompra);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_numfactura);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_ID_Proveedor);
@@ -479,5 +503,7 @@
         private System.Windows.Forms.TextBox txt_ID_Proveedor;
         private System.Windows.Forms.TextBox txt_numfactura;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtp_fechafacturacompra;
     }
 }

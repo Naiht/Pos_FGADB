@@ -63,6 +63,18 @@ namespace POS_FG
             dtgv_Telefonos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Telefonos.AllowUserToAddRows = false;
 
+            dtgv_eliminar.ReadOnly = true;
+            dtgv_eliminar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_eliminar.AllowUserToAddRows = false;
+            dtgv_eliminar.Visible = false;
+            dtgv_eliminar.Columns.Add("telefonos", "Telefonos");
+
+            dtgv_agregar.ReadOnly = true;
+            dtgv_agregar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_agregar.AllowUserToAddRows = false;
+            dtgv_agregar.Visible = false;
+            dtgv_agregar.Columns.Add("telefonos", "Telefonos");
+
             rb_nombre.Checked = true;
 
             consulta(true, "");
@@ -77,6 +89,8 @@ namespace POS_FG
             dtp.Rows.Add(row);
             dtp.AcceptChanges();
             dtgv_Telefonos.DataSource = dtp;
+            dtgv_agregar.Rows.Add(txt_Telefono.Text);
+            
         }
 
         int fila;
@@ -96,7 +110,9 @@ namespace POS_FG
         #endregion
         private void btn_Remover_Click(object sender, EventArgs e)
         {
-
+            dtgv_eliminar.Rows.Add(dtgv_Telefonos.Rows[fila2].Cells[0].Value.ToString());
+            dtgv_Telefonos.Rows.RemoveAt(fila2);
+            
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -110,6 +126,36 @@ namespace POS_FG
 
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
+            if (txt_NomProveedor.Text != "")
+            {
+                if(dtgv_agregar.Rows.Count > 0)
+                {
+                    DialogResult venta = MessageBox.Show("¿Los registros son correctos?", "", MessageBoxButtons.YesNo);
+
+                    //registra los nuevos numeros del proveedor 
+                    if (venta == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < dtgv_agregar.Rows.Count; i++)
+                        {
+                            sql.multiple("INSERT INTO ProveedorPhone (PhoneProveedor,RUC)VALUES('" + dtgv_agregar.Rows[i].Cells[0].Value.ToString() + "','" + txt_ID_Proveedor.Text + "')");
+
+                        }
+                        
+                    }
+                }
+                if (dtgv_eliminar.Rows.Count > 0)
+                {
+                    for(int i=0;i<dtgv_eliminar.Rows.Count; i++)
+                    {
+                        sql.multiple("DELETE FROM ProveedorPhone WHERE RUC='" + txt_ID_Proveedor.Text + "' and PhoneProveedor='" + dtgv_eliminar.Rows[i].Cells[0].Value.ToString() + "'");
+                    }
+                }
+                MessageBox.Show("Los datos del proveedor se actualizaron correctamente", "Edicion de proveedor", MessageBoxButtons.OK);
+
+                
+
+            }
+
 
         }
 
@@ -215,6 +261,13 @@ namespace POS_FG
             {
                 e.Handled = true;//no permite ninguna otra tecla
             }
+        }
+        int fila2;
+        private void dtgv_Telefonos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila2 = 0;
+            fila2 = int.Parse(dtgv_Telefonos.CurrentCell.RowIndex.ToString());
+            //MessageBox.Show("" + fila);
         }
     }
 }
