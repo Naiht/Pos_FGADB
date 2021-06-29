@@ -210,6 +210,7 @@
             // 
             // dtgv_ProductosV
             // 
+            this.dtgv_ProductosV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_ProductosV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_ProductosV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_ProductosV.Location = new System.Drawing.Point(11, 117);
