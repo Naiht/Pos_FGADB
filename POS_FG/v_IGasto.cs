@@ -50,6 +50,8 @@ namespace POS_FG
             InitializeComponent();
         }
 
+        sqlcon2 sql = new sqlcon2();
+
         private void v_IGasto_Load(object sender, EventArgs e)
         {
             dtgv_gastos.ReadOnly = true;
@@ -65,12 +67,27 @@ namespace POS_FG
 
         private void btn_Agregar_Click(object sender, EventArgs e)//ingesa datos al datagridview 
         {
-            
+            int x=0;
             if (validar.validarfrm(this) == false)
             {
                 if (dtp_fecha.Value <= DateTime.Now)
                 {
-                    dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text, string.Format("{0: MM-dd-yyyy}", dtp_fecha.Value));
+                    for (int i = 0; i < dtgv_gastos.Rows.Count; i++)
+                    {
+                        if(txt_descripcion.Text==dtgv_gastos.Rows[i].Cells[0].Value.ToString() && string.Format("{0: MM-dd-yyyy}", dtp_fecha.Value) == dtgv_gastos.Rows[i].Cells[2].Value.ToString() && txt_total.Text == dtgv_gastos.Rows[i].Cells[1].Value.ToString())
+                        {
+                            x = 1;
+                        }
+                    }
+                    if (x == 1)
+                    {
+                       MessageBox.Show("Este registro ya existe ");
+                    }
+                    else
+                    {
+                        dtgv_gastos.Rows.Add(txt_descripcion.Text, txt_total.Text, string.Format("{0: MM-dd-yyyy}", dtp_fecha.Value));
+                    }
+                    
                 }
                 else
                 {
@@ -86,7 +103,27 @@ namespace POS_FG
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
+            if (dtgv_gastos.Rows.Count >= 1)
+            {
+                DialogResult venta = MessageBox.Show("¿Los registros son correctos?", "", MessageBoxButtons.YesNo);
 
+                //registro de gastos en la bd 
+                if (venta == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dtgv_gastos.Rows.Count ; i++)
+                    {
+                        sql.multiple("INSERT INTO gasto (IDpulperia,descripcion,fecha,total) values(1,'" + dtgv_gastos.Rows[i].Cells[0].Value.ToString() + "','" +
+                            dtgv_gastos.Rows[i].Cells[2].Value.ToString() + "'," + dtgv_gastos.Rows[i].Cells[1].Value + ")");
+                        
+                    }
+                    MessageBox.Show("Se registraron los gastos correctamente","Registro de Gastos",MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para registrar un gasto primero debes ingresar sus datos", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dtgv_gastos.Rows.Clear();
         }
 
         //validaciones de valores permitidos

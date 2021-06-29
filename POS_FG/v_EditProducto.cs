@@ -55,6 +55,8 @@ namespace POS_FG
             dtgv_Producos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Producos.AllowUserToAddRows = false;
 
+            rb_nombre.Checked = true;
+
             consulta(true, "");
         }
 
@@ -67,8 +69,7 @@ namespace POS_FG
             }
             else
             {
-                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max," +
-                    "inventario_min,existencias,P_venta,P_compra FROM productos where nombreproducto like '%"+ nombre + "%'");
+                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos where nombreproducto like '%"+ nombre + "%'");
             }
             if (dt.Rows.Count > 0)
             {
@@ -111,7 +112,7 @@ namespace POS_FG
             }
             else
             {
-                MessageBox.Show("La casilla buscar no puede estar vacia ", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                consulta(true, "");
             }
         }
 
@@ -121,6 +122,7 @@ namespace POS_FG
             fila = 0;
             fila = dtgv_Producos.CurrentRow.Index;
 
+            txt_idproducto.Text = dtgv_Producos.Rows[fila].Cells[0].Value.ToString();
             txt_NomProducto.Text = dtgv_Producos.Rows[fila].Cells[1].Value.ToString();
             txt_Inv_Max.Text = dtgv_Producos.Rows[fila].Cells[2].Value.ToString();
             txt_Inv_min.Text = dtgv_Producos.Rows[fila].Cells[3].Value.ToString();
@@ -130,12 +132,22 @@ namespace POS_FG
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-
+            txt_Busqueda.Clear();
+            txt_NomProducto.Clear();
+            txt_Inv_Max.Clear();
+            txt_Inv_min.Clear();
+            txt_Precio_Compra.Clear();
+            txt_Precio_Venta.Clear();
+            consulta(true, "");
         }
 
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
-
+           if(txt_NomProducto.Text != "" && txt_Inv_Max.Text != "" && txt_Inv_min.Text != "" && txt_Precio_Compra.Text != "" && txt_Precio_Venta.Text != "")
+           {
+                sql.multiple("UPDATE productos SET nombreproducto='" + txt_NomProducto.Text + "',inventario_max=" + int.Parse(txt_Inv_Max.Text) + ",inventario_min=" + int.Parse(txt_Inv_min.Text) + ",P_venta=" + int.Parse(txt_Precio_Venta.Text) +
+                    ",P_compra= " + int.Parse(txt_Precio_Compra.Text) + "WHERE IDproducto = '" + txt_idproducto.Text + "'");
+           }
         }
     }
 }
