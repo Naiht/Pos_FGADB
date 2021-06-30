@@ -73,7 +73,7 @@ namespace POS_FG
             else {
                 dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, fecha_limite ,telefono, estadocredito from credito where nombrecliente like '%"+nombre+ "%'");
 
-            }
+            }            
             if (dt.Rows.Count > 0)
             {
                 dtgv_Creditos.DataSource = dt;
@@ -84,7 +84,6 @@ namespace POS_FG
                 dtgv_Creditos.Columns[4].HeaderText = "Fecha limite";
                 dtgv_Creditos.Columns[5].HeaderText = "Telefono";
                 dtgv_Creditos.Columns[6].HeaderText = "Activo/No Activo";
-
             }
         }
 

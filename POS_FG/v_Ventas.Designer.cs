@@ -40,7 +40,7 @@
             this.rb_Nombre = new System.Windows.Forms.RadioButton();
             this.rb_Id = new System.Windows.Forms.RadioButton();
             this.btn_Buscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_B = new System.Windows.Forms.TextBox();
             this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.dtgv_Factura = new System.Windows.Forms.DataGridView();
@@ -145,7 +145,7 @@
             this.pan_Producto.Controls.Add(this.rb_Nombre);
             this.pan_Producto.Controls.Add(this.rb_Id);
             this.pan_Producto.Controls.Add(this.btn_Buscar);
-            this.pan_Producto.Controls.Add(this.textBox1);
+            this.pan_Producto.Controls.Add(this.txt_B);
             this.pan_Producto.Controls.Add(this.dtgv_ProductosV);
             this.pan_Producto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pan_Producto.Location = new System.Drawing.Point(492, 45);
@@ -199,14 +199,15 @@
             this.btn_Buscar.Size = new System.Drawing.Size(40, 40);
             this.btn_Buscar.TabIndex = 2;
             this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
-            // textBox1
+            // txt_B
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(90, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 30);
-            this.textBox1.TabIndex = 1;
+            this.txt_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_B.Location = new System.Drawing.Point(90, 35);
+            this.txt_B.Name = "txt_B";
+            this.txt_B.Size = new System.Drawing.Size(231, 30);
+            this.txt_B.TabIndex = 1;
             // 
             // dtgv_ProductosV
             // 
@@ -422,7 +423,7 @@
         private System.Windows.Forms.RadioButton rb_Nombre;
         private System.Windows.Forms.RadioButton rb_Id;
         private System.Windows.Forms.Button btn_Buscar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_B;
         private System.Windows.Forms.Button btn_Finalizar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Remover;

@@ -42,6 +42,7 @@ namespace POS_FG
             InitializeComponent();
         }
 
+        DataTable dt;
         private void v_Ventas_Load(object sender, EventArgs e)
         {
 
@@ -54,7 +55,7 @@ namespace POS_FG
             deffac();
 
 
-            DataTable dt;
+
             dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos");
             if (dt.Rows.Count > 0)
             {
@@ -202,6 +203,28 @@ namespace POS_FG
             txt_NomCliente.Clear();
             cedula = "";
             monto = 0;
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            if (rb_Nombre.Checked) {
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos where nombreproducto like '%" + txt_B.Text + "%'");
+            }
+            else if (rb_Id.Checked){
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos where IDProducto like '%" + txt_B.Text + "%'");
+            }
+            else{
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos");
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_ProductosV.DataSource = dt;
+                dtgv_ProductosV.Columns[0].HeaderText = "Codigo";
+                dtgv_ProductosV.Columns[1].HeaderText = "Nombre";
+                dtgv_ProductosV.Columns[2].HeaderText = "Precio";
+            }
+
         }
     }
 }

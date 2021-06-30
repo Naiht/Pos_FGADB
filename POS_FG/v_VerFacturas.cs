@@ -55,6 +55,28 @@ namespace POS_FG
 
         private void btn_BsCliente_Click(object sender, EventArgs e)
         {
+            if (rdb_nfactura.Checked){
+                
+                dt = sql.tablas("factura", "select IDfactura,cliente,monto,fecha from factura where IDfactura like '%" + txt_Nombre.Text + "%'");
+            }
+            else if (rdb_rangofecha.Checked){
+                dt = sql.tablas("factura", "select IDfactura,cliente,monto,fecha from factura WHERE fecha BETWEEN '" + string.Format("{0: MM-dd-yyyy}", dtp_fInicio.Value) + "' AND '" + string.Format("{0: MM-dd-yyyy}", dtp_fFin.Value) + "'");
+            }
+            else
+            {
+                dt = sql.tablas("factura", "select IDfactura,cliente,monto,fecha from factura");
+            }
+
+
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_Factura.DataSource = dt;
+
+                dtgv_Factura.Columns[0].HeaderText = "N de factura";
+                dtgv_Factura.Columns[1].HeaderText = "Nombre cliente";
+                dtgv_Factura.Columns[2].HeaderText = "Monto";
+                dtgv_Factura.Columns[3].HeaderText = "Fecha";
+            }
 
         }
 
@@ -64,27 +86,31 @@ namespace POS_FG
             if (chk_filtros.Checked)
             {
                 val.desactivar(gbFiltros,true);
+                rdb_nfactura.Checked = true;
             }
             else {
                 val.desactivar(gbFiltros, false);
+                dt = sql.tablas("factura", "select IDfactura,cliente,monto,fecha from factura");
             }
         }
 
+        DataTable dt;
         private void v_VerFacturas_Load(object sender, EventArgs e)
         {
             dtgv_Factura.ReadOnly = true;
             dtgv_Factura.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Factura.AllowUserToResizeRows = false;
-
-            
-            DataTable dt;
-            dt = sql.tablas("factura", "select * from factura");
+          
+            dt = sql.tablas("factura", "select IDfactura,cliente,monto,fecha from factura");
             if (dt.Rows.Count > 0)
             {
                 dtgv_Factura.DataSource = dt;
+
+                dtgv_Factura.Columns[0].HeaderText = "N de factura";
+                dtgv_Factura.Columns[1].HeaderText = "Nombre cliente";
+                dtgv_Factura.Columns[2].HeaderText = "Monto";
+                dtgv_Factura.Columns[3].HeaderText = "Fecha";
             }
-
-
         }
 
         private void dtgv_Factura_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -42,7 +42,7 @@
             this.dtgv_Factura = new System.Windows.Forms.DataGridView();
             this.chk_filtros = new System.Windows.Forms.CheckBox();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdb_nfactura = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rdb_rangofecha = new System.Windows.Forms.RadioButton();
@@ -208,7 +208,7 @@
             // 
             // gbFiltros
             // 
-            this.gbFiltros.Controls.Add(this.radioButton1);
+            this.gbFiltros.Controls.Add(this.rdb_nfactura);
             this.gbFiltros.Controls.Add(this.chk_filtros);
             this.gbFiltros.Controls.Add(this.label3);
             this.gbFiltros.Controls.Add(this.label2);
@@ -226,16 +226,16 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros de busqueda";
             // 
-            // radioButton1
+            // rdb_nfactura
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 143);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(113, 21);
-            this.radioButton1.TabIndex = 21;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "N° de factura";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdb_nfactura.AutoSize = true;
+            this.rdb_nfactura.Location = new System.Drawing.Point(6, 143);
+            this.rdb_nfactura.Name = "rdb_nfactura";
+            this.rdb_nfactura.Size = new System.Drawing.Size(113, 21);
+            this.rdb_nfactura.TabIndex = 21;
+            this.rdb_nfactura.TabStop = true;
+            this.rdb_nfactura.Text = "N° de factura";
+            this.rdb_nfactura.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -325,7 +325,7 @@
         private System.Windows.Forms.DataGridView dtgv_Factura;
         private System.Windows.Forms.CheckBox chk_filtros;
         private System.Windows.Forms.GroupBox gbFiltros;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdb_nfactura;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdb_rangofecha;
