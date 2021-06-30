@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -171,6 +172,12 @@
     <Compile Include="v_VGastos.Designer.cs">
       <DependentUpon>v_VGastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_vproveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_vproveedor.Designer.cs">
+      <DependentUpon>v_vproveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_VSuministro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_VGastos.resx">
       <DependentUpon>v_VGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_vproveedor.resx">
+      <DependentUpon>v_vproveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_VSuministro.resx">
       <DependentUpon>v_VSuministro.cs</DependentUpon>

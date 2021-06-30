@@ -30,14 +30,10 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_Modificar = new System.Windows.Forms.Button();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.dtgv_Producos = new System.Windows.Forms.DataGridView();
+            this.dtgv_Productos = new System.Windows.Forms.DataGridView();
             this.txt_Precio_Venta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Precio_Compra = new System.Windows.Forms.TextBox();
@@ -48,17 +44,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_NomProducto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_Buscar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Busqueda = new System.Windows.Forms.TextBox();
             this.rb_nombre = new System.Windows.Forms.RadioButton();
             this.rb_id = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_idproducto = new System.Windows.Forms.TextBox();
+            this.btn_Buscar = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.pan_Sup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producos)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -69,7 +69,7 @@
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(742, 37);
             this.pan_Sup.TabIndex = 0;
@@ -88,38 +88,12 @@
             this.lbl_NombreV.Text = "Editar Producto";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
             // 
-            // pb_Minimizar
-            // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 476);
             this.panel1.TabIndex = 1;
@@ -129,7 +103,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(734, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(8, 476);
             this.panel2.TabIndex = 2;
@@ -139,57 +113,23 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 509);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(730, 4);
             this.panel3.TabIndex = 2;
             // 
-            // btn_Modificar
+            // dtgv_Productos
             // 
-            this.btn_Modificar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_Modificar.FlatAppearance.BorderSize = 0;
-            this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Modificar.ForeColor = System.Drawing.Color.White;
-            this.btn_Modificar.Image = global::POS_FG.Properties.Resources.boton_marcado;
-            this.btn_Modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Modificar.Location = new System.Drawing.Point(187, 343);
-            this.btn_Modificar.Name = "btn_Modificar";
-            this.btn_Modificar.Size = new System.Drawing.Size(118, 32);
-            this.btn_Modificar.TabIndex = 55;
-            this.btn_Modificar.Text = "Modificar   ";
-            this.btn_Modificar.UseVisualStyleBackColor = false;
-            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
-            this.btn_Cancelar.Location = new System.Drawing.Point(63, 343);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
-            this.btn_Cancelar.TabIndex = 54;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
-            // dtgv_Producos
-            // 
-            this.dtgv_Producos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgv_Producos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_Producos.Location = new System.Drawing.Point(336, 129);
-            this.dtgv_Producos.Name = "dtgv_Producos";
-            this.dtgv_Producos.RowHeadersVisible = false;
-            this.dtgv_Producos.RowHeadersWidth = 51;
-            this.dtgv_Producos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_Producos.Size = new System.Drawing.Size(361, 323);
-            this.dtgv_Producos.TabIndex = 53;
-            this.dtgv_Producos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Producos_CellClick);
+            this.dtgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Productos.Location = new System.Drawing.Point(336, 129);
+            this.dtgv_Productos.Name = "dtgv_Productos";
+            this.dtgv_Productos.RowHeadersVisible = false;
+            this.dtgv_Productos.RowHeadersWidth = 51;
+            this.dtgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_Productos.Size = new System.Drawing.Size(361, 323);
+            this.dtgv_Productos.TabIndex = 53;
+            this.dtgv_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Producos_CellClick);
             // 
             // txt_Precio_Venta
             // 
@@ -282,21 +222,6 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Nombre del Producto";
             // 
-            // btn_Buscar
-            // 
-            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
-            this.btn_Buscar.FlatAppearance.BorderSize = 0;
-            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Buscar.ForeColor = System.Drawing.Color.White;
-            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
-            this.btn_Buscar.Location = new System.Drawing.Point(613, 75);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(25, 23);
-            this.btn_Buscar.TabIndex = 60;
-            this.btn_Buscar.UseVisualStyleBackColor = false;
-            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -343,9 +268,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(57, 132);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 41;
-            this.label1.Text = "ID Producto";
+            this.label1.Text = "Codigo Producto";
             // 
             // txt_idproducto
             // 
@@ -356,6 +281,81 @@
             this.txt_idproducto.ReadOnly = true;
             this.txt_idproducto.Size = new System.Drawing.Size(100, 23);
             this.txt_idproducto.TabIndex = 42;
+            // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Buscar.ForeColor = System.Drawing.Color.White;
+            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_Buscar.Location = new System.Drawing.Point(613, 75);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(25, 23);
+            this.btn_Buscar.TabIndex = 60;
+            this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
+            // 
+            // btn_Modificar
+            // 
+            this.btn_Modificar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Modificar.FlatAppearance.BorderSize = 0;
+            this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Modificar.ForeColor = System.Drawing.Color.White;
+            this.btn_Modificar.Image = global::POS_FG.Properties.Resources.boton_marcado;
+            this.btn_Modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Modificar.Location = new System.Drawing.Point(187, 343);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(118, 32);
+            this.btn_Modificar.TabIndex = 55;
+            this.btn_Modificar.Text = "Modificar   ";
+            this.btn_Modificar.UseVisualStyleBackColor = false;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
+            this.btn_Cancelar.Location = new System.Drawing.Point(63, 343);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
+            this.btn_Cancelar.TabIndex = 54;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // v_EditProducto
             // 
@@ -370,7 +370,7 @@
             this.Controls.Add(this.rb_id);
             this.Controls.Add(this.btn_Modificar);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.dtgv_Producos);
+            this.Controls.Add(this.dtgv_Productos);
             this.Controls.Add(this.txt_Precio_Venta);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_Precio_Compra);
@@ -388,15 +388,15 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_EditProducto";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_EditProducto_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,7 +413,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Button btn_Cancelar;
-        private System.Windows.Forms.DataGridView dtgv_Producos;
+        private System.Windows.Forms.DataGridView dtgv_Productos;
         private System.Windows.Forms.TextBox txt_Precio_Venta;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_Precio_Compra;

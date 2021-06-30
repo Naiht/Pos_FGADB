@@ -63,6 +63,7 @@ namespace POS_FG
             txt_Precio_Venta.Clear();
             txt_ID_Proveedor.Clear();
             txt_numfactura.Clear();
+            
             dtgv_Producto.Rows.Clear();
         }
 
@@ -82,35 +83,93 @@ namespace POS_FG
                     {
                         if (int.Parse(txt_Inv_Max.Text) > int.Parse(txt_Inv_min.Text))
                         {
-                            if(int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_min.Text) && int.Parse(txt_Existencia.Text) < int.Parse(txt_Inv_Max.Text))
+                            if(int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_min.Text))
                             {
-                                for(int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                if(int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_Max.Text))
                                 {
-                                    if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                    DialogResult aviso = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                    if (aviso == DialogResult.Yes)
                                     {
-                                        x = 1;
-                                        xx = i;
+                                        for (int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                        {
+                                            if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                            {
+                                                x = 1;
+                                                xx = i;
+                                            }
+                                        }
+                                        if (x == 1)
+                                        {
+                                            DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
+                                            if (repetido == DialogResult.Yes)
+                                            {
+                                                if(int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()))
+                                                {
+                                                    DialogResult aviso2 = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                                    if (aviso2 == DialogResult.Yes)
+                                                    {
+                                                        dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+                                                    }
+                                                }
+                                                
+
+                                            }
+                                        }
+                                        else
+                                        {
+
+                                            dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                            txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                            txt_ID_Proveedor.Enabled = false;
+                                            txt_numfactura.Enabled = false;
+                                            dtp_fechafacturacompra.Enabled = false;
+
+                                        }
                                     }
-                                }
-                                if (x == 1)
-                                {
-                                    DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
-                                    if (repetido == DialogResult.Yes)
-                                    {
-                                        dtgv_Producto.Rows[xx].Cells[4].Value=int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString())+int.Parse(txt_Existencia.Text);
-                                    }
+                                    
                                 }
                                 else
                                 {
-                                    txt_ID_Proveedor.Enabled = false;
-                                    dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
-                                    txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                    for (int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                    {
+                                        if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                        {
+                                            x = 1;
+                                            xx = i;
+                                        }
+                                    }
+                                    if (x == 1)
+                                    {
+                                        DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
+                                        if (repetido == DialogResult.Yes)
+                                        {
+                                            if (int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()))
+                                            {
+                                                DialogResult aviso3 = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                                if (aviso3 == DialogResult.Yes)
+                                                {
+                                                    dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+                                                }
+                                            }
+                                           // dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                        txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                        txt_ID_Proveedor.Enabled = false;
+                                        txt_numfactura.Enabled = false;
+                                        dtp_fechafacturacompra.Enabled = false;
+
+                                    }
                                 }
-                                
                             }
                             else
                             {
-                                MessageBox.Show("la existencia no puede ser mayor al inventario maximo ni menor al inventario minimo", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("La existencia no puede ser menor al inventario minimo", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                         else
@@ -133,7 +192,7 @@ namespace POS_FG
             {
                 MessageBox.Show("No puede dejar ningun campo vacío", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+            btn_Registrar.Enabled = true;
         }        
 
     
@@ -142,7 +201,7 @@ namespace POS_FG
             dtgv_Producto.ReadOnly = true;
             dtgv_Producto.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_Producto.AllowUserToAddRows = false;
-            dtgv_Producto.Columns.Add("id", "ID");//0
+            dtgv_Producto.Columns.Add("id", "Codigo");//0
             dtgv_Producto.Columns.Add("nombre", "Nombre");//1
             dtgv_Producto.Columns.Add("invmax", "Inventario Max");//2
             dtgv_Producto.Columns.Add("invmin", "Inventario Min");//3
@@ -153,6 +212,7 @@ namespace POS_FG
             dtgv_Producto.Columns.Add("numfactura", "Numero Factura");//8
             dtgv_Producto.Columns.Add("fechafactura", "Fecha");//9
             btn_Remover.Enabled = false;
+            btn_Registrar.Enabled = false;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)//limpia todos los registro 
@@ -160,6 +220,9 @@ namespace POS_FG
             limpiar();
             txt_ID_Proveedor.Enabled = true;
             btn_Remover.Enabled = false;
+            btn_Registrar.Enabled = false;
+            txt_numfactura.Enabled = true;
+            dtp_fechafacturacompra.Enabled = true;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)// borra la fila seleccionada en el datagridview
@@ -368,6 +431,12 @@ namespace POS_FG
             {
                 e.Handled = true;//no permite cualquier otra tecla
             }
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            v_vproveedor ventana = new v_vproveedor();
+            ventana.ShowDialog();
         }
     }
 }
