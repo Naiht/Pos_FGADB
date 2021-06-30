@@ -120,7 +120,7 @@ namespace POS_FG
 
         private void txt_descripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar) || char.IsSeparator(e.KeyChar))
             {
                 e.Handled = false;//permite valores alfanumericos y teclas de control
             }
