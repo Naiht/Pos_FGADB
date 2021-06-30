@@ -51,7 +51,8 @@ namespace POS_FG
         }
 
         sqlcon2 sql = new sqlcon2();
-
+        int pos = 0;
+       
 
         private void v_proveedor_Load(object sender, EventArgs e)
         {
@@ -78,21 +79,68 @@ namespace POS_FG
             rb_nombre.Checked = true;
 
             consulta(true, "");
-        }
 
+            btn_Remover.Enabled = false;
+            btn_Modificar.Enabled = false;
+            rb_nombre.Checked = true;
+        }
+        
         #region celular
         DataTable dtp;
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            DataRow row = dtp.NewRow();
-            row["PhoneProveedor"] = txt_Telefono.Text.ToString();
-            dtp.Rows.Add(row);
-            dtp.AcceptChanges();
-            dtgv_Telefonos.DataSource = dtp;
-            dtgv_agregar.Rows.Add(txt_Telefono.Text);
+            if (txt_Telefono.Text != "")
+            {
+                int x = 0;
+                int xx = 0;
+                DataRow row = dtp.NewRow();
+                for (int i = 0; i < dtgv_Telefonos.Rows.Count; i++)
+                {
+                    if (txt_Telefono.Text == dtgv_Telefonos.Rows[i].Cells[0].Value.ToString())
+                    {
+                        xx = 1;
+                    }
+                }
+                if (xx != 1)
+                {
+                    row["Telefonos"] = txt_Telefono.Text.ToString();
+                    dtp.Rows.Add(row);
+                    dtp.AcceptChanges();
+                    dtgv_Telefonos.DataSource = dtp;
+                }
+                else
+                {
+                    MessageBox.Show("Ese numero ya ha sido ingresado");
+                }
+                for (int i = 0; i < dtgv_agregar.Rows.Count; i++)
+                {
+                    if (txt_Telefono.Text == dtgv_agregar.Rows[i].Cells[0].Value.ToString())
+                    {
+                        x = 1;
+                    }
+                }
+                if (x != 1 && xx != 1)
+                {
+                    dtgv_agregar.Rows.Add(txt_Telefono.Text);
+                }
+
+                for (int i = 0; i < dtgv_eliminar.Rows.Count; i++)
+                {
+                    if (dtgv_eliminar.Rows[i].Cells[0].Value.ToString() == txt_Telefono.Text)
+                    {
+                        dtgv_eliminar.Rows.RemoveAt(i);
+                    }
+                }
+                txt_Telefono.Clear();
+                btn_Modificar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("La casilla telefino esta vacia");
+            }
             
         }
-
+        
         int fila;
         private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -101,18 +149,47 @@ namespace POS_FG
             txt_ID_Proveedor.Text = dtgv_proveedores.Rows[fila].Cells[0].Value.ToString();
             txt_NomProveedor.Text = dtgv_proveedores.Rows[fila].Cells[1].Value.ToString();
 
-            dtp = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
+            dtp = sql.tablas("ProveedorPhone", "SELECT PhoneProveedor AS [Telefonos] FROM ProveedorPhone WHERE RUC ='" + txt_ID_Proveedor.Text + "'");
             if (dtp.Rows.Count > 0)
             {
                 dtgv_Telefonos.DataSource = dtp;
             }
+            else
+            {
+                dtgv_Telefonos.DataSource = null;
+            }
+            btn_Remover.Enabled = false;
+            btn_Modificar.Enabled = false;
+            txt_Telefono.Clear();
+            dtgv_eliminar.Rows.Clear();
+            dtgv_agregar.Rows.Clear();
         }
         #endregion
         private void btn_Remover_Click(object sender, EventArgs e)
         {
-            dtgv_eliminar.Rows.Add(dtgv_Telefonos.Rows[fila2].Cells[0].Value.ToString());
-            dtgv_Telefonos.Rows.RemoveAt(fila2);
+            int x = 0;
+            for(int i = 0; i < dtgv_eliminar.Rows.Count; i++)
+            {
+                if (dtgv_Telefonos.Rows[fila2].Cells[0].Value.ToString() == dtgv_eliminar.Rows[i].Cells[0].Value.ToString())
+                {
+                    x = 1;
+                }
+            }
+            if (x != 1)
+            {
+                dtgv_eliminar.Rows.Add(dtgv_Telefonos.Rows[fila2].Cells[0].Value.ToString());
+                for(int i = 0; i < dtgv_agregar.Rows.Count; i++)
+                {
+                    if (dtgv_Telefonos.Rows[fila2].Cells[0].Value.ToString() == dtgv_agregar.Rows[i].Cells[0].Value.ToString())
+                    {
+                        dtgv_agregar.Rows.RemoveAt(i);
+                    }
+                }
+            }
             
+            dtgv_Telefonos.Rows.RemoveAt(fila2);
+            btn_Remover.Enabled = false;
+            btn_Modificar.Enabled = true;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -121,7 +198,10 @@ namespace POS_FG
             txt_ID_Proveedor.Clear();
             txt_NomProveedor.Clear();
             txt_Telefono.Clear();
+            dtgv_agregar.Rows.Clear();
+            dtgv_eliminar.Rows.Clear();
             dtgv_Telefonos.DataSource = null;
+            btn_Remover.Enabled = false;
         }
 
         private void btn_Modificar_Click(object sender, EventArgs e)
@@ -138,25 +218,40 @@ namespace POS_FG
                         for (int i = 0; i < dtgv_agregar.Rows.Count; i++)
                         {
                             sql.multiple("INSERT INTO ProveedorPhone (PhoneProveedor,RUC)VALUES('" + dtgv_agregar.Rows[i].Cells[0].Value.ToString() + "','" + txt_ID_Proveedor.Text + "')");
-
                         }
-                        
                     }
                 }
                 if (dtgv_eliminar.Rows.Count > 0)
                 {
-                    for(int i=0;i<dtgv_eliminar.Rows.Count; i++)
+                    DialogResult venta = MessageBox.Show("¿Los registros son correctos?", "", MessageBoxButtons.YesNo);
+
+                    //elimina los registros deseados
+                    if (venta == DialogResult.Yes)
                     {
-                        sql.multiple("DELETE FROM ProveedorPhone WHERE RUC='" + txt_ID_Proveedor.Text + "' and PhoneProveedor='" + dtgv_eliminar.Rows[i].Cells[0].Value.ToString() + "'");
+                        for (int i = 0; i < dtgv_eliminar.Rows.Count; i++)
+                        {
+                            sql.multiple("DELETE FROM ProveedorPhone WHERE RUC='" + txt_ID_Proveedor.Text + "' and PhoneProveedor='" + dtgv_eliminar.Rows[i].Cells[0].Value.ToString() + "'");
+                        }
                     }
+                }
+                for (int i = 0; i < viejos.Length; i++)
+                {
+                    //MessageBox.Show("nuevos " + nuevos.Length + "viejos" + viejos.Length);
+                    if (nuevos[i] != "" && viejos[i] != "")
+                    {
+                        sql.multiple("UPDATE ProveedorPhone SET PhoneProveedor='" + nuevos[i] + "' WHERE RUC='" + txt_ID_Proveedor.Text + "' and PhoneProveedor='" + viejos[i] + "'");
+                    }
+                    
                 }
                 MessageBox.Show("Los datos del proveedor se actualizaron correctamente", "Edicion de proveedor", MessageBoxButtons.OK);
 
-                
-
             }
-
-
+            dtgv_agregar.Rows.Clear();
+            dtgv_eliminar.Rows.Clear();
+            btn_Modificar.Enabled = false;
+            btn_Remover.Enabled = false;
+            Array.Clear(nuevos, 0, nuevos.Length);
+            Array.Clear(viejos, 0, viejos.Length);
         }
 
         private void consulta(bool normal,string id)
@@ -164,11 +259,11 @@ namespace POS_FG
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor AS [Nombre],active AS [Estado Activo] FROM proveedor");
             }
             else
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC ='" + id + "'");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor AS [Nombre],active AS [Estado Activo] FROM proveedor WHERE RUC ='" + id + "'");
             }
             if (dt.Rows.Count > 0)
             {
@@ -181,11 +276,11 @@ namespace POS_FG
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor AS [Nombre],active AS [Estado Activo] FROM proveedor");
             }
             else
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE nombreproveedor like '%" + nombre + "%'");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor AS [Nombre],active AS [Estado Activo] FROM proveedor WHERE nombreproveedor like '%" + nombre + "%'");
             }
             if (dt.Rows.Count > 0)
             {
@@ -268,6 +363,27 @@ namespace POS_FG
             fila2 = 0;
             fila2 = int.Parse(dtgv_Telefonos.CurrentCell.RowIndex.ToString());
             //MessageBox.Show("" + fila);
+            btn_Remover.Enabled = true;
+        }
+        string[] nuevos = new string[1];
+        string[] viejos = new string[1];
+        private void dtgv_Telefonos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string nuevo;
+            // MessageBox.Show("" + dtgv_Telefonos.CurrentCell.Value.ToString());
+           
+            viejos[pos] = dtgv_Telefonos.CurrentCell.Value.ToString();
+            //MessageBox.Show("" + viejos[pos]+"  "+pos);
+            Array.Resize(ref viejos, viejos.Length + 1);
+            //MessageBox.Show("indices" + viejos.Length);
+            nuevo = Microsoft.VisualBasic.Interaction.InputBox("Ingresa el nuevo numero", "Modificar un numero", "" + dtgv_Telefonos.CurrentCell.Value.ToString());
+            nuevos[pos] = nuevo;
+            Array.Resize(ref nuevos, nuevos.Length + 1);
+            dtgv_Telefonos.CurrentCell.Value = nuevo;
+            btn_Modificar.Enabled = true;
+            //MessageBox.Show("" + nuevo);
+            pos++;
+            //MessageBox.Show("" + pos);
         }
     }
 }

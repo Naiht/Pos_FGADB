@@ -51,13 +51,14 @@ namespace POS_FG
         sqlcon2 sql = new sqlcon2();
         private void v_EditProducto_Load(object sender, EventArgs e)
         {
-            dtgv_Producos.ReadOnly = true;
-            dtgv_Producos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dtgv_Producos.AllowUserToAddRows = false;
-
+            dtgv_Productos.ReadOnly = true;
+            dtgv_Productos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtgv_Productos.AllowUserToAddRows = false;
+            
             rb_nombre.Checked = true;
 
             consulta(true, "");
+
         }
 
         private void consulta(bool normal,string nombre)
@@ -65,15 +66,18 @@ namespace POS_FG
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos");
+                dt = sql.tablas("productos", "SELECT IDproducto AS [Codigo],nombreproducto AS [Nombre], inventario_max AS [Inventario Maximo],inventario_min AS [Inventario Minimo],existencias AS [Existencias],P_venta AS [Precio Venta]" +
+                    ",P_compra AS [Precio Compra] FROM productos");
+                
             }
             else
             {
-                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos where nombreproducto like '%"+ nombre + "%'");
+                dt = sql.tablas("productos", "SELECT IDproducto AS [Codigo],nombreproducto AS [Nombre], inventario_max AS [Inventario Maximo],inventario_min AS [Inventario Minimo],existencias AS [Existencias],P_venta AS [Precio Venta]" +
+                    ",P_compra AS [Precio Compra] FROM productos WHERE nombreproducto like '%" + nombre + "%'");
             }
             if (dt.Rows.Count > 0)
             {
-                dtgv_Producos.DataSource = dt;
+                dtgv_Productos.DataSource = dt;
             }
         }
 
@@ -82,16 +86,17 @@ namespace POS_FG
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max,inventario_min,existencias,P_venta,P_compra FROM productos");
+                dt = sql.tablas("productos", "SELECT IDproducto AS [Codigo],nombreproducto AS [Nombre], inventario_max AS [Inventario Maximo],inventario_min AS [Inventario Minimo],existencias AS [Existencias],P_venta AS [Precio Venta]" +
+                    ",P_compra AS [Precio Compra] FROM productos");
             }
             else
             {
-                dt = sql.tablas("productos", "SELECT IDproducto,nombreproducto, inventario_max," +
-                    "inventario_min,existencias,P_venta,P_compra FROM productos where IDproducto = '"+ id +"'");
+                dt = sql.tablas("productos", "SELECT IDproducto AS [Codigo],nombreproducto AS [Nombre], inventario_max AS [Inventario Maximo]," +
+                    "inventario_min AS [Inventario Minimo],existencias AS [Existencias],P_venta AS [Precio Venta],P_compra AS [Precio Compra] FROM productos where IDproducto = '" + id +"'");
             }
             if (dt.Rows.Count > 0)
             {
-                dtgv_Producos.DataSource = dt;
+                dtgv_Productos.DataSource = dt;
             }
         }
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -120,14 +125,15 @@ namespace POS_FG
         private void dtgv_Producos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             fila = 0;
-            fila = dtgv_Producos.CurrentRow.Index;
+            fila = dtgv_Productos.CurrentRow.Index;
 
-            txt_idproducto.Text = dtgv_Producos.Rows[fila].Cells[0].Value.ToString();
-            txt_NomProducto.Text = dtgv_Producos.Rows[fila].Cells[1].Value.ToString();
-            txt_Inv_Max.Text = dtgv_Producos.Rows[fila].Cells[2].Value.ToString();
-            txt_Inv_min.Text = dtgv_Producos.Rows[fila].Cells[3].Value.ToString();
-            txt_Precio_Compra.Text = dtgv_Producos.Rows[fila].Cells[6].Value.ToString();
-            txt_Precio_Venta.Text = dtgv_Producos.Rows[fila].Cells[5].Value.ToString();
+            txt_idproducto.Text = dtgv_Productos.Rows[fila].Cells[0].Value.ToString();
+            txt_NomProducto.Text = dtgv_Productos.Rows[fila].Cells[1].Value.ToString();
+            txt_Inv_Max.Text = dtgv_Productos.Rows[fila].Cells[2].Value.ToString();
+            txt_Inv_min.Text = dtgv_Productos.Rows[fila].Cells[3].Value.ToString();
+            txt_Precio_Compra.Text = dtgv_Productos.Rows[fila].Cells[6].Value.ToString();
+            txt_Precio_Venta.Text = dtgv_Productos.Rows[fila].Cells[5].Value.ToString();
+
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -138,6 +144,7 @@ namespace POS_FG
             txt_Inv_min.Clear();
             txt_Precio_Compra.Clear();
             txt_Precio_Venta.Clear();
+            txt_idproducto.Clear();
             consulta(true, "");
         }
 
@@ -149,9 +156,21 @@ namespace POS_FG
                 {
                     if (int.Parse(txt_Precio_Venta.Text) > float.Parse(txt_Precio_Compra.Text))
                     {
-                        //if(txt_Inv_min.Text<int.Parse(dtgv_Producos.Rows[fila].Cells[0].Value.ToString()))
-                        sql.multiple("UPDATE productos SET nombreproducto='" + txt_NomProducto.Text + "',inventario_max=" + int.Parse(txt_Inv_Max.Text) + ",inventario_min=" + int.Parse(txt_Inv_min.Text) + ",P_venta=" + int.Parse(txt_Precio_Venta.Text) +
-                          ",P_compra= " + float.Parse(txt_Precio_Compra.Text) + "WHERE IDproducto = '" + txt_idproducto.Text + "'");
+                        if (int.Parse(txt_Inv_min.Text) < int.Parse(dtgv_Productos.Rows[fila].Cells[4].Value.ToString()))
+                        {
+                            if(int.Parse(txt_Inv_Max.Text)> int.Parse(dtgv_Productos.Rows[fila].Cells[4].Value.ToString()))
+                            {
+                                sql.multiple("UPDATE productos SET nombreproducto='" + txt_NomProducto.Text + "',inventario_max=" + int.Parse(txt_Inv_Max.Text) + ",inventario_min=" + int.Parse(txt_Inv_min.Text) + ",P_venta=" + int.Parse(txt_Precio_Venta.Text) +
+                                   ",P_compra= " + float.Parse(txt_Precio_Compra.Text) + "WHERE IDproducto = '" + txt_idproducto.Text + "'");
+
+                                MessageBox.Show("Se edito con el producto con exito");
+                            }
+                            MessageBox.Show("El inventario maximo no puede ser menor a la existencia del producto");
+                        }
+                        else
+                        {
+                            MessageBox.Show("El inventario minimo no puede ser mayor a la existencia del producto ");
+                        }
                     }
                     else
                     {

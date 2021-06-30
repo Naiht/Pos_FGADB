@@ -60,6 +60,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dtp_fechafacturacompra = new System.Windows.Forms.DateTimePicker();
+            this.btn_Buscar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -155,9 +156,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "ID Producto";
+            this.label1.Text = "Codigo Producto";
             // 
             // txt_ID_Producto
             // 
@@ -421,12 +422,28 @@
             this.dtp_fechafacturacompra.Size = new System.Drawing.Size(200, 20);
             this.dtp_fechafacturacompra.TabIndex = 28;
             // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Buscar.ForeColor = System.Drawing.Color.White;
+            this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_Buscar.Location = new System.Drawing.Point(266, 310);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(29, 23);
+            this.btn_Buscar.TabIndex = 42;
+            this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
+            // 
             // v_IProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(676, 489);
+            this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.dtp_fechafacturacompra);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_numfactura);
@@ -505,5 +522,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtp_fechafacturacompra;
+        private System.Windows.Forms.Button btn_Buscar;
     }
 }

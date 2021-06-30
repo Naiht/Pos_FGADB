@@ -71,7 +71,7 @@
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(784, 37);
             this.pan_Sup.TabIndex = 0;
@@ -95,7 +95,7 @@
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
             this.pb_Minimizar.Location = new System.Drawing.Point(716, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -108,7 +108,7 @@
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
             this.pb_Cerrar.Location = new System.Drawing.Point(752, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,7 +121,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 466);
             this.panel1.TabIndex = 1;
@@ -131,7 +131,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(780, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4, 466);
             this.panel2.TabIndex = 2;
@@ -141,7 +141,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 499);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(776, 4);
             this.panel3.TabIndex = 2;
@@ -354,6 +354,7 @@
             this.dtgv_Telefonos.Size = new System.Drawing.Size(100, 150);
             this.dtgv_Telefonos.TabIndex = 24;
             this.dtgv_Telefonos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Telefonos_CellClick);
+            this.dtgv_Telefonos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Telefonos_CellDoubleClick);
             // 
             // dtgv_eliminar
             // 
@@ -409,7 +410,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_EditProv";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_proveedor_Load);
