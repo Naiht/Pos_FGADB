@@ -48,7 +48,7 @@
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(567, 45);
+            this.pan_Sup.Size = new System.Drawing.Size(545, 45);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -68,7 +68,7 @@
             // 
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(524, 3);
+            this.pb_Cerrar.Location = new System.Drawing.Point(502, 3);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -82,38 +82,39 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 498);
+            this.panel1.Size = new System.Drawing.Size(5, 535);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(557, 45);
+            this.panel2.Location = new System.Drawing.Point(535, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 498);
+            this.panel2.Size = new System.Drawing.Size(10, 535);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(5, 538);
+            this.panel3.Location = new System.Drawing.Point(5, 575);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(552, 5);
+            this.panel3.Size = new System.Drawing.Size(530, 5);
             this.panel3.TabIndex = 2;
             // 
             // dtgv_FacturaD
             // 
+            this.dtgv_FacturaD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_FacturaD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_FacturaD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_FacturaD.Location = new System.Drawing.Point(17, 89);
+            this.dtgv_FacturaD.Location = new System.Drawing.Point(17, 102);
             this.dtgv_FacturaD.Name = "dtgv_FacturaD";
             this.dtgv_FacturaD.RowHeadersVisible = false;
             this.dtgv_FacturaD.RowHeadersWidth = 51;
             this.dtgv_FacturaD.RowTemplate.Height = 24;
             this.dtgv_FacturaD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_FacturaD.Size = new System.Drawing.Size(526, 396);
+            this.dtgv_FacturaD.Size = new System.Drawing.Size(504, 396);
             this.dtgv_FacturaD.TabIndex = 16;
             // 
             // v_VerFacturaDetalle
@@ -121,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(567, 543);
+            this.ClientSize = new System.Drawing.Size(545, 580);
             this.Controls.Add(this.dtgv_FacturaD);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

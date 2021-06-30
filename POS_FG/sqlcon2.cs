@@ -11,7 +11,7 @@ namespace POS_FG
 {
     class sqlcon2
     {
-        private string cadena = "Data Source=(local);Initial Catalog=pulperiafg;Integrated Security=True";
+        private string cadena = "Data Source=(local);Initial Catalog=pulperiafg2;Integrated Security=True";
         private SqlConnection coneccion;
         private SqlCommand comando;
 

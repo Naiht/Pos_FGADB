@@ -60,11 +60,19 @@ namespace POS_FG
             dtgv_FacturaD.AllowUserToResizeRows = false;
 
             DataTable dt;
-            dt = sql.tablas("detalle", "select p.nombreproducto, d.cantidadcompra, f.monto from detalle d INNER JOIN factura f ON d.IDfactura = f.IDfactura INNER JOIN productos p ON p.IDproducto = d.IDproducto where f.IDfactura = "+factura);
+            dt = sql.tablas("detalle", "select p.nombreproducto, d.cantidadcompra, p.P_venta, f.monto from detalle d INNER JOIN factura f ON d.IDfactura = f.IDfactura INNER JOIN productos p ON p.IDproducto = d.IDproducto where f.IDfactura = " + factura);
             if (dt.Rows.Count > 0)
             {
                 dtgv_FacturaD.DataSource = dt;
             }
+
+            dtgv_FacturaD.Columns[0].HeaderText = "Producto";
+            dtgv_FacturaD.Columns[1].HeaderText = "Cantidad";
+            dtgv_FacturaD.Columns[2].HeaderText = "Precio";
+
+
+            dtgv_FacturaD.Rows[dtgv_FacturaD.RowCount - 1].Cells[0].Value = "Total";
+            //dtgv_FacturaD.Rows[dtgv_FacturaD.RowCount - 1].Cells[2].Value = "" + dtgv_FacturaD.Rows[0].Cells[3].Value.ToString();
         }
     }
 }
