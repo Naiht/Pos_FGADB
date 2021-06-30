@@ -144,18 +144,36 @@ namespace POS_FG
                 {
                     sql.multiple("insert into factura (monto,fecha) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "')");
 
-         
+
                     for (int i = 0; i < dtgv_Factura.Rows.Count - 1; i++)
                     {
                         sql.multiple("insert into detalle (IDproducto,IDfactura,cantidadcompra) values " +
-                            "('" + dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "',32,2)");
+                            "('" + dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "',"+nfactura()+",2)");
                     }
+
+                    dtgv_Factura.Rows.Clear();
+
+                    dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[0].Value = "Total";
+
+                    if (chb_Credito.Checked)
+                    {
+                        limpventac();
+                    }
+
                 }
             }
             else
             {
                 MessageBox.Show("Para realizar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+
+        }
+
+        private String nfactura() {
+            DataTable nfac;
+            nfac = sql.tablas("factura", "select IDfactura from factura");
+            return nfac.Rows[nfac.Rows.Count - 1][0].ToString();
         }
 
 
