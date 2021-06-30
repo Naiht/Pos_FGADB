@@ -78,7 +78,7 @@ namespace POS_FG
                 dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text + "'");
                 if (dt.Rows.Count > 0)
                 {
-                    if(int.Parse(txt_Precio_Venta.Text)>int.Parse(txt_Precio_Compra.Text))
+                    if(int.Parse(txt_Precio_Venta.Text)>float.Parse(txt_Precio_Compra.Text))
                     {
                         if (int.Parse(txt_Inv_Max.Text) > int.Parse(txt_Inv_min.Text))
                         {
@@ -210,7 +210,7 @@ namespace POS_FG
 
                             
 
-                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());
+                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());//el monto pagado por ese producto
 
                             sql.multiple("INSERT INTO suministro (RUC,IDproducto,montosuministra,fechasuministra,numfacturasuministra,cantidadsuministra)" +
                                 "VALUES('" + dtgv_Producto.Rows[i].Cells[7].Value.ToString() + "','" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "'," + a + ",'" + dtgv_Producto.Rows[i].Cells[9].Value.ToString() + "'," +
@@ -223,11 +223,11 @@ namespace POS_FG
                             sql.multiple("INSERT INTO productos(IDproducto, IDpulperia, nombreproducto, inventario_max, inventario_min, existencias, P_venta, P_compra)" +
                                 "VALUES('" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "',1,'" + dtgv_Producto.Rows[i].Cells[1].Value.ToString() + "'," + int.Parse(dtgv_Producto.Rows[i].Cells[2].Value.ToString()) +
                                 "," + int.Parse(dtgv_Producto.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) + "," + int.Parse(dtgv_Producto.Rows[i].Cells[6].Value.ToString()) +
-                                "," + int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString()) + ")");
+                                "," + float.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString()) + ")");
 
                            
 
-                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());
+                            a = int.Parse(dtgv_Producto.Rows[i].Cells[4].Value.ToString()) * int.Parse(dtgv_Producto.Rows[i].Cells[5].Value.ToString());//monto pagado por ese producto
                             
                             sql.multiple("INSERT INTO suministro (RUC,IDproducto,montosuministra,fechasuministra,numfacturasuministra,cantidadsuministra)" +
                                 "VALUES('" + dtgv_Producto.Rows[i].Cells[7].Value.ToString() + "','" + dtgv_Producto.Rows[i].Cells[0].Value.ToString() + "'," + a + ",'" + dtgv_Producto.Rows[i].Cells[9].Value.ToString() + "'," +

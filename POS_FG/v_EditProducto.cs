@@ -145,8 +145,29 @@ namespace POS_FG
         {
            if(txt_NomProducto.Text != "" && txt_Inv_Max.Text != "" && txt_Inv_min.Text != "" && txt_Precio_Compra.Text != "" && txt_Precio_Venta.Text != "")
            {
-                sql.multiple("UPDATE productos SET nombreproducto='" + txt_NomProducto.Text + "',inventario_max=" + int.Parse(txt_Inv_Max.Text) + ",inventario_min=" + int.Parse(txt_Inv_min.Text) + ",P_venta=" + int.Parse(txt_Precio_Venta.Text) +
-                    ",P_compra= " + int.Parse(txt_Precio_Compra.Text) + "WHERE IDproducto = '" + txt_idproducto.Text + "'");
+                if (int.Parse(txt_Inv_Max.Text) > int.Parse(txt_Inv_min.Text))
+                {
+                    if (int.Parse(txt_Precio_Venta.Text) > float.Parse(txt_Precio_Compra.Text))
+                    {
+                        //if(txt_Inv_min.Text<int.Parse(dtgv_Producos.Rows[fila].Cells[0].Value.ToString()))
+                        sql.multiple("UPDATE productos SET nombreproducto='" + txt_NomProducto.Text + "',inventario_max=" + int.Parse(txt_Inv_Max.Text) + ",inventario_min=" + int.Parse(txt_Inv_min.Text) + ",P_venta=" + int.Parse(txt_Precio_Venta.Text) +
+                          ",P_compra= " + float.Parse(txt_Precio_Compra.Text) + "WHERE IDproducto = '" + txt_idproducto.Text + "'");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio de venta debe ser mayor al precio de compra ");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("El inventario maximo debe ser mayor al inventario minimo");
+                }
+                
+           }
+           else
+           {
+                MessageBox.Show("No puede dejar campos vacios");
            }
         }
     }
