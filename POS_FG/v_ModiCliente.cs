@@ -63,7 +63,6 @@ namespace POS_FG
             {
                 txt_CedCliente.Text = mensaje.ecedulacli;
                 txt_NomCliente.Text = mensaje.enombrec;
-                txt_Monto.Text = mensaje.emonto.ToString();
                 txt_TelefonoCliente.Text = mensaje.etelefono.ToString();
                 txt_DireccionCliente.Text = mensaje.edireccion;
             }

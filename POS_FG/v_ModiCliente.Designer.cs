@@ -46,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_NomCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_Monto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btn_BsCliente = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
@@ -110,7 +108,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 463);
+            this.panel1.Size = new System.Drawing.Size(5, 363);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -119,14 +117,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(666, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 463);
+            this.panel2.Size = new System.Drawing.Size(10, 363);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(5, 503);
+            this.panel3.Location = new System.Drawing.Point(5, 403);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(661, 5);
             this.panel3.TabIndex = 2;
@@ -140,7 +138,7 @@
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
             this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Cancelar.Location = new System.Drawing.Point(108, 430);
+            this.btn_Cancelar.Location = new System.Drawing.Point(86, 336);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(157, 40);
@@ -159,7 +157,7 @@
             this.btn_Listo.ForeColor = System.Drawing.Color.White;
             this.btn_Listo.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Listo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Listo.Location = new System.Drawing.Point(394, 430);
+            this.btn_Listo.Location = new System.Drawing.Point(375, 336);
             this.btn_Listo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Listo.Name = "btn_Listo";
             this.btn_Listo.Size = new System.Drawing.Size(157, 40);
@@ -259,26 +257,6 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Nombre del cliente";
             // 
-            // txt_Monto
-            // 
-            this.txt_Monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Monto.Location = new System.Drawing.Point(187, 316);
-            this.txt_Monto.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Monto.Name = "txt_Monto";
-            this.txt_Monto.Size = new System.Drawing.Size(174, 26);
-            this.txt_Monto.TabIndex = 38;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 322);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 20);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Monto";
-            // 
             // btn_BsCliente
             // 
             this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
@@ -298,10 +276,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(676, 508);
+            this.ClientSize = new System.Drawing.Size(676, 408);
             this.Controls.Add(this.btn_BsCliente);
-            this.Controls.Add(this.txt_Monto);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Listo);
             this.Controls.Add(this.pictureBox1);
@@ -350,8 +326,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_NomCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_Monto;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_BsCliente;
     }
 }

@@ -35,6 +35,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgv_FacturaD = new System.Windows.Forms.DataGridView();
+            this.btn_BsCliente = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_FacturaD)).BeginInit();
@@ -82,7 +84,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 535);
+            this.panel1.Size = new System.Drawing.Size(5, 472);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -91,14 +93,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(535, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 535);
+            this.panel2.Size = new System.Drawing.Size(10, 472);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(5, 575);
+            this.panel3.Location = new System.Drawing.Point(5, 512);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(530, 5);
             this.panel3.TabIndex = 2;
@@ -117,12 +119,40 @@
             this.dtgv_FacturaD.Size = new System.Drawing.Size(504, 396);
             this.dtgv_FacturaD.TabIndex = 16;
             // 
+            // btn_BsCliente
+            // 
+            this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.FlatAppearance.BorderSize = 0;
+            this.btn_BsCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BsCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_BsCliente.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_BsCliente.Location = new System.Drawing.Point(468, 66);
+            this.btn_BsCliente.Name = "btn_BsCliente";
+            this.btn_BsCliente.Size = new System.Drawing.Size(53, 30);
+            this.btn_BsCliente.TabIndex = 17;
+            this.btn_BsCliente.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DimGray;
+            this.button1.Image = global::POS_FG.Properties.Resources.lupa;
+            this.button1.Location = new System.Drawing.Point(409, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 30);
+            this.button1.TabIndex = 18;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // v_VerFacturaDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(545, 580);
+            this.ClientSize = new System.Drawing.Size(545, 517);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_BsCliente);
             this.Controls.Add(this.dtgv_FacturaD);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -148,5 +178,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtgv_FacturaD;
+        private System.Windows.Forms.Button btn_BsCliente;
+        private System.Windows.Forms.Button button1;
     }
 }
