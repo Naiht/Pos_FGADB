@@ -276,6 +276,7 @@
             // 
             // dtgv_proveedores
             // 
+            this.dtgv_proveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_proveedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_proveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_proveedores.Location = new System.Drawing.Point(432, 119);
@@ -344,6 +345,7 @@
             // 
             // dtgv_Telefonos
             // 
+            this.dtgv_Telefonos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Telefonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Telefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Telefonos.Location = new System.Drawing.Point(183, 207);

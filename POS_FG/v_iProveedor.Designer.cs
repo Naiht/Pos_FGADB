@@ -176,6 +176,7 @@
             // 
             // dtgv_Telefonos
             // 
+            this.dtgv_Telefonos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Telefonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Telefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Telefonos.Location = new System.Drawing.Point(47, 205);
