@@ -43,7 +43,6 @@
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.dtp_finicial = new System.Windows.Forms.DateTimePicker();
             this.dtp_ffinal = new System.Windows.Forms.DateTimePicker();
-            this.rb_Todos = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pan_Sup.SuspendLayout();
@@ -60,9 +59,9 @@
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(742, 37);
+            this.pan_Sup.Size = new System.Drawing.Size(724, 46);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -71,10 +70,9 @@
             this.lbl_NombreV.AutoSize = true;
             this.lbl_NombreV.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NombreV.ForeColor = System.Drawing.Color.White;
-            this.lbl_NombreV.Location = new System.Drawing.Point(9, 6);
-            this.lbl_NombreV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_NombreV.Location = new System.Drawing.Point(12, 7);
             this.lbl_NombreV.Name = "lbl_NombreV";
-            this.lbl_NombreV.Size = new System.Drawing.Size(74, 25);
+            this.lbl_NombreV.Size = new System.Drawing.Size(93, 29);
             this.lbl_NombreV.TabIndex = 2;
             this.lbl_NombreV.Text = "Gastos";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
@@ -83,10 +81,10 @@
             // 
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Minimizar.Location = new System.Drawing.Point(634, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Minimizar.Size = new System.Drawing.Size(31, 34);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Minimizar.TabIndex = 1;
             this.pb_Minimizar.TabStop = false;
@@ -96,10 +94,10 @@
             // 
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Cerrar.Location = new System.Drawing.Point(682, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Cerrar.Size = new System.Drawing.Size(31, 34);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Cerrar.TabIndex = 0;
             this.pb_Cerrar.TabStop = false;
@@ -109,49 +107,51 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 46);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(4, 408);
+            this.panel1.Size = new System.Drawing.Size(5, 494);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(734, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(713, 46);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(8, 408);
+            this.panel2.Size = new System.Drawing.Size(11, 494);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(4, 441);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(5, 535);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(730, 4);
+            this.panel3.Size = new System.Drawing.Size(708, 5);
             this.panel3.TabIndex = 2;
             // 
             // dtgv_vgastos
             // 
+            this.dtgv_vgastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_vgastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_vgastos.Location = new System.Drawing.Point(185, 194);
+            this.dtgv_vgastos.Location = new System.Drawing.Point(12, 248);
+            this.dtgv_vgastos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgv_vgastos.Name = "dtgv_vgastos";
-            this.dtgv_vgastos.ReadOnly = true;
-            this.dtgv_vgastos.Size = new System.Drawing.Size(385, 227);
+            this.dtgv_vgastos.RowHeadersVisible = false;
+            this.dtgv_vgastos.RowHeadersWidth = 51;
+            this.dtgv_vgastos.Size = new System.Drawing.Size(694, 279);
             this.dtgv_vgastos.TabIndex = 4;
             // 
             // lbl_buscar
             // 
             this.lbl_buscar.AutoSize = true;
             this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl_buscar.Location = new System.Drawing.Point(51, 73);
-            this.lbl_buscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_buscar.Location = new System.Drawing.Point(22, 87);
             this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(82, 17);
+            this.lbl_buscar.Size = new System.Drawing.Size(99, 20);
             this.lbl_buscar.TabIndex = 10;
             this.lbl_buscar.Text = "Descripcion";
             // 
@@ -159,10 +159,10 @@
             // 
             this.rb_Descripcion.AutoSize = true;
             this.rb_Descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rb_Descripcion.Location = new System.Drawing.Point(400, 71);
-            this.rb_Descripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_Descripcion.Location = new System.Drawing.Point(528, 87);
+            this.rb_Descripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rb_Descripcion.Name = "rb_Descripcion";
-            this.rb_Descripcion.Size = new System.Drawing.Size(100, 21);
+            this.rb_Descripcion.Size = new System.Drawing.Size(120, 24);
             this.rb_Descripcion.TabIndex = 9;
             this.rb_Descripcion.TabStop = true;
             this.rb_Descripcion.Text = "Descripcion";
@@ -172,10 +172,10 @@
             // 
             this.rb_Rango.AutoSize = true;
             this.rb_Rango.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rb_Rango.Location = new System.Drawing.Point(400, 113);
-            this.rb_Rango.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_Rango.Location = new System.Drawing.Point(528, 135);
+            this.rb_Rango.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rb_Rango.Name = "rb_Rango";
-            this.rb_Rango.Size = new System.Drawing.Size(133, 21);
+            this.rb_Rango.Size = new System.Drawing.Size(156, 24);
             this.rb_Rango.TabIndex = 8;
             this.rb_Rango.TabStop = true;
             this.rb_Rango.Text = "Rango De Fecha";
@@ -190,10 +190,10 @@
             this.btn_Buscar.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
             this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Buscar.Location = new System.Drawing.Point(583, 107);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Buscar.Location = new System.Drawing.Point(537, 188);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(114, 32);
+            this.btn_Buscar.Size = new System.Drawing.Size(152, 39);
             this.btn_Buscar.TabIndex = 7;
             this.btn_Buscar.Text = "Buscar";
             this.btn_Buscar.UseVisualStyleBackColor = false;
@@ -202,72 +202,58 @@
             // txt_descripcion
             // 
             this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descripcion.Location = new System.Drawing.Point(137, 67);
-            this.txt_descripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_descripcion.Location = new System.Drawing.Point(137, 79);
+            this.txt_descripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(203, 26);
+            this.txt_descripcion.Size = new System.Drawing.Size(269, 30);
             this.txt_descripcion.TabIndex = 6;
             this.txt_descripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_descripcion_KeyPress);
             // 
             // dtp_finicial
             // 
             this.dtp_finicial.CustomFormat = "MM/DD/AAAA";
-            this.dtp_finicial.Location = new System.Drawing.Point(145, 111);
+            this.dtp_finicial.Location = new System.Drawing.Point(141, 137);
+            this.dtp_finicial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_finicial.Name = "dtp_finicial";
-            this.dtp_finicial.Size = new System.Drawing.Size(200, 20);
+            this.dtp_finicial.Size = new System.Drawing.Size(265, 22);
             this.dtp_finicial.TabIndex = 11;
             // 
             // dtp_ffinal
             // 
-            this.dtp_ffinal.Location = new System.Drawing.Point(145, 154);
+            this.dtp_ffinal.Location = new System.Drawing.Point(141, 188);
+            this.dtp_ffinal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_ffinal.Name = "dtp_ffinal";
-            this.dtp_ffinal.Size = new System.Drawing.Size(200, 20);
+            this.dtp_ffinal.Size = new System.Drawing.Size(265, 22);
             this.dtp_ffinal.TabIndex = 12;
-            // 
-            // rb_Todos
-            // 
-            this.rb_Todos.AutoSize = true;
-            this.rb_Todos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rb_Todos.Location = new System.Drawing.Point(400, 153);
-            this.rb_Todos.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_Todos.Name = "rb_Todos";
-            this.rb_Todos.Size = new System.Drawing.Size(66, 21);
-            this.rb_Todos.TabIndex = 13;
-            this.rb_Todos.TabStop = true;
-            this.rb_Todos.Text = "Todos";
-            this.rb_Todos.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(51, 115);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(22, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Fecha Inicial";
+            this.label1.Text = "Fecha inicial";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(51, 158);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(22, 190);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Fecha Final";
+            this.label2.Text = "Fecha final";
             // 
             // v_VGastos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(742, 445);
+            this.ClientSize = new System.Drawing.Size(724, 540);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rb_Todos);
             this.Controls.Add(this.dtp_ffinal);
             this.Controls.Add(this.dtp_finicial);
             this.Controls.Add(this.lbl_buscar);
@@ -281,7 +267,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "v_VGastos";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_VGastos_Load);
@@ -312,7 +298,6 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.DateTimePicker dtp_finicial;
         private System.Windows.Forms.DateTimePicker dtp_ffinal;
-        private System.Windows.Forms.RadioButton rb_Todos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

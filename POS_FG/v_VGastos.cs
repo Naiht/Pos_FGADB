@@ -57,6 +57,15 @@ namespace POS_FG
             dtgv_vgastos.ReadOnly = true;
             dtgv_vgastos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtgv_vgastos.AllowUserToResizeRows = false;
+
+
+            DataTable dt;
+            dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto");
+            if (dt.Rows.Count > 0)
+            {
+                dtgv_vgastos.DataSource = dt;
+
+            }
         }
 
         ValidarV validar = new ValidarV();
@@ -100,20 +109,7 @@ namespace POS_FG
                 }
                 else
                 {
-                    if (rb_Todos.Checked)
-                    {
-                        DataTable dt;
-                        dt = sql.tablas("gasto", "SELECT descripcion,total,fecha FROM gasto");
-                        if (dt.Rows.Count > 0)
-                        {
-                            dtgv_vgastos.DataSource = dt;
-                            
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debes Seleccionar una opción");
-                    }
+                    MessageBox.Show("Debes Seleccionar una opción");
                 }
             }
         }
