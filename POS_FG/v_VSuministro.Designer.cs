@@ -138,7 +138,6 @@
             // 
             // dtgv_suministro
             // 
-<<<<<<< HEAD
             this.dtgv_suministro.AllowUserToResizeRows = false;
             this.dtgv_suministro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_suministro.Location = new System.Drawing.Point(44, 140);
@@ -146,13 +145,13 @@
             this.dtgv_suministro.Name = "dtgv_suministro";
             this.dtgv_suministro.RowHeadersWidth = 51;
             this.dtgv_suministro.Size = new System.Drawing.Size(885, 369);
-=======
+
             this.dtgv_suministro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_suministro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_suministro.Location = new System.Drawing.Point(386, 183);
             this.dtgv_suministro.Name = "dtgv_suministro";
             this.dtgv_suministro.Size = new System.Drawing.Size(332, 233);
->>>>>>> 026cb4feadcbeb79ddf3ca6f684a35b5816b6e1c
+
             this.dtgv_suministro.TabIndex = 3;
             // 
             // lbl_buscar
@@ -174,13 +173,13 @@
             this.btn_Buscar.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
             this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
+
             this.btn_Buscar.Location = new System.Drawing.Point(777, 78);
             this.btn_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
+
             this.btn_Buscar.Location = new System.Drawing.Point(485, 146);
             this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 026cb4feadcbeb79ddf3ca6f684a35b5816b6e1c
+
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(152, 39);
             this.btn_Buscar.TabIndex = 12;
@@ -290,9 +289,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(989, 548);
-=======
+
             this.ClientSize = new System.Drawing.Size(742, 445);
             this.Controls.Add(this.rb_todo);
             this.Controls.Add(this.label2);
@@ -301,7 +300,7 @@
             this.Controls.Add(this.dtp_finicial);
             this.Controls.Add(this.rb_numfactura);
             this.Controls.Add(this.rb_Rango);
->>>>>>> 026cb4feadcbeb79ddf3ca6f684a35b5816b6e1c
+
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.txt_numfactura);

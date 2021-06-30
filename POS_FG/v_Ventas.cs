@@ -142,6 +142,10 @@ namespace POS_FG
                 //Informacion de la factura a la base de datos ki
                 if (venta == DialogResult.Yes)
                 {
+                    if (chb_Credito.Checked) {
+                        credito();
+                    }
+
                     sql.multiple("insert into factura (monto,fecha) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "')");
 
 
@@ -168,6 +172,10 @@ namespace POS_FG
             }
 
 
+        }
+
+        private void credito() { 
+        
         }
 
         private String nfactura() {
@@ -231,7 +239,7 @@ namespace POS_FG
             else if (rb_Id.Checked){
                 dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos where IDProducto like '%" + txt_B.Text + "%'");
             }
-            else{
+            else if(txt_B.Text == ""){
                 dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos");
             }
 
