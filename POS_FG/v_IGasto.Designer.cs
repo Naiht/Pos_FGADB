@@ -137,6 +137,7 @@
             // 
             // dtgv_gastos
             // 
+            this.dtgv_gastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_gastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_gastos.Location = new System.Drawing.Point(50, 235);
             this.dtgv_gastos.Name = "dtgv_gastos";

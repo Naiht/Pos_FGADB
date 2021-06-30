@@ -30,6 +30,8 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
+            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,12 +55,10 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.pb_Minimizar = new System.Windows.Forms.PictureBox();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.pan_Sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -87,6 +87,32 @@
             this.lbl_NombreV.TabIndex = 2;
             this.lbl_NombreV.Text = "Editar Producto";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
+            // 
+            // pb_Minimizar
+            // 
+            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
+            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Minimizar.Name = "pb_Minimizar";
+            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Minimizar.TabIndex = 1;
+            this.pb_Minimizar.TabStop = false;
+            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
+            // 
+            // pb_Cerrar
+            // 
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // panel1
             // 
@@ -120,6 +146,7 @@
             // 
             // dtgv_Productos
             // 
+            this.dtgv_Productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Productos.Location = new System.Drawing.Point(336, 129);
@@ -331,32 +358,6 @@
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
-            // pb_Minimizar
-            // 
-            this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Minimizar.Name = "pb_Minimizar";
-            this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Minimizar.TabIndex = 1;
-            this.pb_Minimizar.TabStop = false;
-            this.pb_Minimizar.Click += new System.EventHandler(this.pb_Minimizar_Click);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
-            // 
             // v_EditProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,9 +395,9 @@
             this.Load += new System.EventHandler(this.v_EditProducto_Load);
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -39,10 +39,19 @@
             this.lbl_buscar = new System.Windows.Forms.Label();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.txt_numfactura = new System.Windows.Forms.TextBox();
+            this.dtgv_facturas = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtp_ffinal = new System.Windows.Forms.DateTimePicker();
+            this.dtp_finicial = new System.Windows.Forms.DateTimePicker();
+            this.rb_numfactura = new System.Windows.Forms.RadioButton();
+            this.rb_Rango = new System.Windows.Forms.RadioButton();
+            this.rb_todo = new System.Windows.Forms.RadioButton();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_suministro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_facturas)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -130,10 +139,11 @@
             // 
             // dtgv_suministro
             // 
+            this.dtgv_suministro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_suministro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_suministro.Location = new System.Drawing.Point(33, 114);
+            this.dtgv_suministro.Location = new System.Drawing.Point(386, 183);
             this.dtgv_suministro.Name = "dtgv_suministro";
-            this.dtgv_suministro.Size = new System.Drawing.Size(664, 300);
+            this.dtgv_suministro.Size = new System.Drawing.Size(332, 233);
             this.dtgv_suministro.TabIndex = 3;
             // 
             // lbl_buscar
@@ -156,7 +166,7 @@
             this.btn_Buscar.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
             this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Buscar.Location = new System.Drawing.Point(583, 63);
+            this.btn_Buscar.Location = new System.Drawing.Point(485, 146);
             this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(114, 32);
@@ -175,15 +185,110 @@
             this.txt_numfactura.TabIndex = 11;
             this.txt_numfactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numfactura_KeyPress);
             // 
+            // dtgv_facturas
+            // 
+            this.dtgv_facturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgv_facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_facturas.Location = new System.Drawing.Point(23, 183);
+            this.dtgv_facturas.Name = "dtgv_facturas";
+            this.dtgv_facturas.Size = new System.Drawing.Size(357, 233);
+            this.dtgv_facturas.TabIndex = 3;
+            this.dtgv_facturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_facturas_CellClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(105, 147);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Fecha final";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(105, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Fecha inicial";
+            // 
+            // dtp_ffinal
+            // 
+            this.dtp_ffinal.Location = new System.Drawing.Point(195, 147);
+            this.dtp_ffinal.Name = "dtp_ffinal";
+            this.dtp_ffinal.Size = new System.Drawing.Size(200, 20);
+            this.dtp_ffinal.TabIndex = 19;
+            // 
+            // dtp_finicial
+            // 
+            this.dtp_finicial.CustomFormat = "MM/DD/AAAA";
+            this.dtp_finicial.Location = new System.Drawing.Point(195, 105);
+            this.dtp_finicial.Name = "dtp_finicial";
+            this.dtp_finicial.Size = new System.Drawing.Size(200, 20);
+            this.dtp_finicial.TabIndex = 18;
+            // 
+            // rb_numfactura
+            // 
+            this.rb_numfactura.AutoSize = true;
+            this.rb_numfactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rb_numfactura.Location = new System.Drawing.Point(485, 65);
+            this.rb_numfactura.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_numfactura.Name = "rb_numfactura";
+            this.rb_numfactura.Size = new System.Drawing.Size(144, 21);
+            this.rb_numfactura.TabIndex = 17;
+            this.rb_numfactura.TabStop = true;
+            this.rb_numfactura.Text = "Numero de factura";
+            this.rb_numfactura.UseVisualStyleBackColor = true;
+            // 
+            // rb_Rango
+            // 
+            this.rb_Rango.AutoSize = true;
+            this.rb_Rango.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rb_Rango.Location = new System.Drawing.Point(485, 90);
+            this.rb_Rango.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_Rango.Name = "rb_Rango";
+            this.rb_Rango.Size = new System.Drawing.Size(133, 21);
+            this.rb_Rango.TabIndex = 16;
+            this.rb_Rango.TabStop = true;
+            this.rb_Rango.Text = "Rango De Fecha";
+            this.rb_Rango.UseVisualStyleBackColor = true;
+            // 
+            // rb_todo
+            // 
+            this.rb_todo.AutoSize = true;
+            this.rb_todo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rb_todo.Location = new System.Drawing.Point(485, 115);
+            this.rb_todo.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_todo.Name = "rb_todo";
+            this.rb_todo.Size = new System.Drawing.Size(106, 21);
+            this.rb_todo.TabIndex = 22;
+            this.rb_todo.TabStop = true;
+            this.rb_todo.Text = "Mostrar todo";
+            this.rb_todo.UseVisualStyleBackColor = true;
+            this.rb_todo.CheckedChanged += new System.EventHandler(this.rb_todo_CheckedChanged);
+            // 
             // v_VSuministro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(742, 445);
+            this.Controls.Add(this.rb_todo);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtp_ffinal);
+            this.Controls.Add(this.dtp_finicial);
+            this.Controls.Add(this.rb_numfactura);
+            this.Controls.Add(this.rb_Rango);
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.txt_numfactura);
+            this.Controls.Add(this.dtgv_facturas);
             this.Controls.Add(this.dtgv_suministro);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -199,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_suministro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_facturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +323,13 @@
         private System.Windows.Forms.Label lbl_buscar;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox txt_numfactura;
+        private System.Windows.Forms.DataGridView dtgv_facturas;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtp_ffinal;
+        private System.Windows.Forms.DateTimePicker dtp_finicial;
+        private System.Windows.Forms.RadioButton rb_numfactura;
+        private System.Windows.Forms.RadioButton rb_Rango;
+        private System.Windows.Forms.RadioButton rb_todo;
     }
 }
