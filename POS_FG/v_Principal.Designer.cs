@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +43,9 @@
             this.proveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ventaToolStripMenuItem,
+            this.ventasPagosToolStripMenuItem,
             this.verToolStripMenuItem,
             this.ingresarToolStripMenuItem,
             this.editarToolStripMenuItem,
@@ -59,16 +61,9 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1195, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1195, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ventaToolStripMenuItem
-            // 
-            this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
-            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.ventaToolStripMenuItem.Text = "Venta";
-            this.ventaToolStripMenuItem.Click += new System.EventHandler(this.ventaToolStripMenuItem_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -123,21 +118,21 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.productosToolStripMenuItem.Text = "Producto";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // proveedorToolStripMenuItem
             // 
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
             this.proveedorToolStripMenuItem.Click += new System.EventHandler(this.proveedorToolStripMenuItem_Click);
             // 
             // gastosExternoToolStripMenuItem
             // 
             this.gastosExternoToolStripMenuItem.Name = "gastosExternoToolStripMenuItem";
-            this.gastosExternoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gastosExternoToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.gastosExternoToolStripMenuItem.Text = "Gastos externos";
             this.gastosExternoToolStripMenuItem.Click += new System.EventHandler(this.gastosExternoToolStripMenuItem_Click);
             // 
@@ -154,21 +149,21 @@
             // productoToolStripMenuItem
             // 
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.productoToolStripMenuItem.Text = "Producto";
             this.productoToolStripMenuItem.Click += new System.EventHandler(this.productoToolStripMenuItem_Click);
             // 
             // proveedorToolStripMenuItem1
             // 
             this.proveedorToolStripMenuItem1.Name = "proveedorToolStripMenuItem1";
-            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(193, 26);
             this.proveedorToolStripMenuItem1.Text = "Proveedor";
             this.proveedorToolStripMenuItem1.Click += new System.EventHandler(this.proveedorToolStripMenuItem1_Click);
             // 
             // clienteCreditoToolStripMenuItem
             // 
             this.clienteCreditoToolStripMenuItem.Name = "clienteCreditoToolStripMenuItem";
-            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clienteCreditoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.clienteCreditoToolStripMenuItem.Text = "Cliente/Credito";
             this.clienteCreditoToolStripMenuItem.Click += new System.EventHandler(this.clienteCreditoToolStripMenuItem_Click);
             // 
@@ -178,6 +173,28 @@
             this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
+            // ventasPagosToolStripMenuItem
+            // 
+            this.ventasPagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ventaToolStripMenuItem1,
+            this.pagosCreditoToolStripMenuItem});
+            this.ventasPagosToolStripMenuItem.Name = "ventasPagosToolStripMenuItem";
+            this.ventasPagosToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.ventasPagosToolStripMenuItem.Text = "Ventas/Pagos";
+            // 
+            // ventaToolStripMenuItem1
+            // 
+            this.ventaToolStripMenuItem1.Name = "ventaToolStripMenuItem1";
+            this.ventaToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.ventaToolStripMenuItem1.Text = "Venta";
+            this.ventaToolStripMenuItem1.Click += new System.EventHandler(this.ventaToolStripMenuItem1_Click);
+            // 
+            // pagosCreditoToolStripMenuItem
+            // 
+            this.pagosCreditoToolStripMenuItem.Name = "pagosCreditoToolStripMenuItem";
+            this.pagosCreditoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pagosCreditoToolStripMenuItem.Text = "Pagos credito";
             // 
             // v_Principal
             // 
@@ -201,7 +218,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
@@ -216,6 +232,9 @@
         private System.Windows.Forms.ToolStripMenuItem gastosExternoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteCreditoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasPagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pagosCreditoToolStripMenuItem;
     }
 }
 

@@ -19,9 +19,7 @@ namespace POS_FG
 
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            v_Ventas ventana = new v_Ventas();
-            ventana.MdiParent = this;
-            ventana.Show();
+
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +94,13 @@ namespace POS_FG
         private void productoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             v_EditProducto ventana = new v_EditProducto();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void ventaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            v_Ventas ventana = new v_Ventas();
             ventana.MdiParent = this;
             ventana.Show();
         }
