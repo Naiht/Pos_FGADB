@@ -67,7 +67,7 @@ namespace POS_FG
 
             consulta(true, "");
         }
-
+        //prueba
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             if (rb_numfactura.Checked)
