@@ -30,16 +30,16 @@
         {
             this.pan_Sup = new System.Windows.Forms.Panel();
             this.lbl_NombreV = new System.Windows.Forms.Label();
-            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgv_FacturaD = new System.Windows.Forms.DataGridView();
-            this.btn_BsCliente = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_BsCliente = new System.Windows.Forms.Button();
+            this.pb_Cerrar = new System.Windows.Forms.PictureBox();
             this.pan_Sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_FacturaD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -65,18 +65,6 @@
             this.lbl_NombreV.TabIndex = 2;
             this.lbl_NombreV.Text = "Detalle de factura";
             this.lbl_NombreV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_NombreV_MouseDown);
-            // 
-            // pb_Cerrar
-            // 
-            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(502, 3);
-            this.pb_Cerrar.Name = "pb_Cerrar";
-            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
-            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Cerrar.TabIndex = 0;
-            this.pb_Cerrar.TabStop = false;
-            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // panel1
             // 
@@ -119,6 +107,19 @@
             this.dtgv_FacturaD.Size = new System.Drawing.Size(504, 396);
             this.dtgv_FacturaD.TabIndex = 16;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DimGray;
+            this.button1.Image = global::POS_FG.Properties.Resources.imprimir;
+            this.button1.Location = new System.Drawing.Point(409, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 30);
+            this.button1.TabIndex = 18;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // btn_BsCliente
             // 
             this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
@@ -132,18 +133,17 @@
             this.btn_BsCliente.TabIndex = 17;
             this.btn_BsCliente.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // pb_Cerrar
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.DimGray;
-            this.button1.Image = global::POS_FG.Properties.Resources.lupa;
-            this.button1.Location = new System.Drawing.Point(409, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 30);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
+            this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
+            this.pb_Cerrar.Location = new System.Drawing.Point(502, 3);
+            this.pb_Cerrar.Name = "pb_Cerrar";
+            this.pb_Cerrar.Size = new System.Drawing.Size(31, 35);
+            this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cerrar.TabIndex = 0;
+            this.pb_Cerrar.TabStop = false;
+            this.pb_Cerrar.Click += new System.EventHandler(this.pb_Cerrar_Click);
             // 
             // v_VerFacturaDetalle
             // 
@@ -163,8 +163,8 @@
             this.Text = "v_Ventas";
             this.pan_Sup.ResumeLayout(false);
             this.pan_Sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_FacturaD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

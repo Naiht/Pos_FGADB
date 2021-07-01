@@ -329,6 +329,7 @@
     <None Include="Resources\devolucion-de-dinero.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\imprimir.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
