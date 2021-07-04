@@ -113,7 +113,7 @@ namespace POS_FG
             }
             else
             {
-                dt = sql.tablas("suministro", "select numfacturasuministra AS [NUMERO DE FACTURA],sum(montosuministra) AS [TOTAL DE LA FACTURA],fechasuministra AS[FECHA] from suministro where numfacturasuministra ="+int.Parse(factura)+" group by numfacturasuministra,fechasuministra");
+                dt = sql.tablas("suministro", "select numfacturasuministra AS [NUMERO DE FACTURA],sum(montosuministra) AS [TOTAL DE LA FACTURA],fechasuministra AS[FECHA] from suministro where CAST(numfacturasuministra AS varchar(20) ) LIKE '%" + factura +"%' group by numfacturasuministra,fechasuministra");
             }
             if (dt.Rows.Count > 0)
             {
@@ -161,6 +161,7 @@ namespace POS_FG
             rb_todo.Checked = false;
             rb_numfactura.Checked = true;
             dtgv_suministro.DataSource = null;
+            txt_numfactura.Clear();
         }
     }
 }

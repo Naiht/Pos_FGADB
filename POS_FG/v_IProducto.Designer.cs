@@ -61,10 +61,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dtp_fechafacturacompra = new System.Windows.Forms.DateTimePicker();
             this.btn_Buscar = new System.Windows.Forms.Button();
+            this.btn_Bproducto = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_Sup
@@ -77,7 +80,7 @@
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
             this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(676, 37);
+            this.pan_Sup.Size = new System.Drawing.Size(924, 37);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -98,7 +101,7 @@
             // 
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(608, 2);
+            this.pb_Minimizar.Location = new System.Drawing.Point(856, 2);
             this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
@@ -111,7 +114,7 @@
             // 
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(644, 2);
+            this.pb_Cerrar.Location = new System.Drawing.Point(892, 2);
             this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
@@ -134,7 +137,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(672, 37);
+            this.panel2.Location = new System.Drawing.Point(920, 37);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4, 452);
@@ -147,7 +150,7 @@
             this.panel3.Location = new System.Drawing.Point(4, 485);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(668, 4);
+            this.panel3.Size = new System.Drawing.Size(916, 4);
             this.panel3.TabIndex = 2;
             // 
             // label1
@@ -234,9 +237,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(15, 208);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 17);
+            this.label5.Size = new System.Drawing.Size(133, 17);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Existencia";
+            this.label5.Text = "Cantidad Comprada";
             // 
             // txt_Existencia
             // 
@@ -294,7 +297,7 @@
             this.dtgv_Producto.RowHeadersVisible = false;
             this.dtgv_Producto.RowHeadersWidth = 51;
             this.dtgv_Producto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_Producto.Size = new System.Drawing.Size(330, 303);
+            this.dtgv_Producto.Size = new System.Drawing.Size(611, 303);
             this.dtgv_Producto.TabIndex = 17;
             this.dtgv_Producto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Producto_CellClick);
             // 
@@ -304,9 +307,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(15, 313);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 17);
+            this.label8.Size = new System.Drawing.Size(106, 17);
             this.label8.TabIndex = 22;
-            this.label8.Text = "ID Proveedor";
+            this.label8.Text = "RUC proveedor";
             // 
             // txt_ID_Proveedor
             // 
@@ -327,7 +330,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(499, 432);
+            this.btn_Registrar.Location = new System.Drawing.Point(794, 432);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(118, 32);
             this.btn_Registrar.TabIndex = 21;
@@ -343,7 +346,7 @@
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
-            this.btn_Cancelar.Location = new System.Drawing.Point(334, 432);
+            this.btn_Cancelar.Location = new System.Drawing.Point(670, 432);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
             this.btn_Cancelar.TabIndex = 20;
@@ -360,7 +363,7 @@
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
             this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
-            this.btn_Remover.Location = new System.Drawing.Point(513, 370);
+            this.btn_Remover.Location = new System.Drawing.Point(794, 371);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(118, 32);
             this.btn_Remover.TabIndex = 19;
@@ -437,12 +440,37 @@
             this.btn_Buscar.UseVisualStyleBackColor = false;
             this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
+            // btn_Bproducto
+            // 
+            this.btn_Bproducto.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Bproducto.FlatAppearance.BorderSize = 0;
+            this.btn_Bproducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Bproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bproducto.ForeColor = System.Drawing.Color.White;
+            this.btn_Bproducto.Image = global::POS_FG.Properties.Resources.lupa;
+            this.btn_Bproducto.Location = new System.Drawing.Point(266, 60);
+            this.btn_Bproducto.Name = "btn_Bproducto";
+            this.btn_Bproducto.Size = new System.Drawing.Size(29, 23);
+            this.btn_Bproducto.TabIndex = 43;
+            this.btn_Bproducto.UseVisualStyleBackColor = false;
+            this.btn_Bproducto.Click += new System.EventHandler(this.btn_Bproducto_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(393, 371);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 81);
+            this.dataGridView1.TabIndex = 44;
+            // 
             // v_IProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(676, 489);
+            this.ClientSize = new System.Drawing.Size(924, 489);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btn_Bproducto);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.dtp_fechafacturacompra);
             this.Controls.Add(this.label10);
@@ -483,6 +511,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Producto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,5 +552,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtp_fechafacturacompra;
         private System.Windows.Forms.Button btn_Buscar;
+        private System.Windows.Forms.Button btn_Bproducto;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

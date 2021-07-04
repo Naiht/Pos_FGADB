@@ -178,6 +178,12 @@
     <Compile Include="v_VGastos.Designer.cs">
       <DependentUpon>v_VGastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_vproductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_vproductos.Designer.cs">
+      <DependentUpon>v_vproductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_vproveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_VGastos.resx">
       <DependentUpon>v_VGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_vproductos.resx">
+      <DependentUpon>v_vproductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_vproveedor.resx">
       <DependentUpon>v_vproveedor.cs</DependentUpon>

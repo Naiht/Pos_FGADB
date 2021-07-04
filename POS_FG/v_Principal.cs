@@ -104,5 +104,19 @@ namespace POS_FG
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            v_vproductos ventana = new v_vproductos();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            v_vproveedor ventana = new v_vproveedor();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }

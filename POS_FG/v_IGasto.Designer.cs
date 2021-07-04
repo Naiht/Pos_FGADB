@@ -62,7 +62,7 @@
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
             this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
-            this.pan_Sup.Size = new System.Drawing.Size(742, 37);
+            this.pan_Sup.Size = new System.Drawing.Size(651, 37);
             this.pan_Sup.TabIndex = 0;
             this.pan_Sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_Sup_MouseDown);
             // 
@@ -83,7 +83,7 @@
             // 
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
-            this.pb_Minimizar.Location = new System.Drawing.Point(674, 2);
+            this.pb_Minimizar.Location = new System.Drawing.Point(583, 2);
             this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
@@ -96,7 +96,7 @@
             // 
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
-            this.pb_Cerrar.Location = new System.Drawing.Point(710, 2);
+            this.pb_Cerrar.Location = new System.Drawing.Point(619, 2);
             this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
@@ -112,34 +112,34 @@
             this.panel1.Location = new System.Drawing.Point(0, 37);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(4, 408);
+            this.panel1.Size = new System.Drawing.Size(4, 291);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(734, 37);
+            this.panel2.Location = new System.Drawing.Point(643, 37);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(8, 408);
+            this.panel2.Size = new System.Drawing.Size(8, 291);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(4, 441);
+            this.panel3.Location = new System.Drawing.Point(4, 324);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(730, 4);
+            this.panel3.Size = new System.Drawing.Size(639, 4);
             this.panel3.TabIndex = 2;
             // 
             // dtgv_gastos
             // 
             this.dtgv_gastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_gastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_gastos.Location = new System.Drawing.Point(50, 235);
+            this.dtgv_gastos.Location = new System.Drawing.Point(22, 151);
             this.dtgv_gastos.Name = "dtgv_gastos";
             this.dtgv_gastos.ReadOnly = true;
             this.dtgv_gastos.Size = new System.Drawing.Size(345, 154);
@@ -150,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 103);
+            this.label1.Location = new System.Drawing.Point(19, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 4;
@@ -159,7 +159,7 @@
             // txt_descripcion
             // 
             this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_descripcion.Location = new System.Drawing.Point(145, 102);
+            this.txt_descripcion.Location = new System.Drawing.Point(111, 56);
             this.txt_descripcion.MaxLength = 50;
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(292, 23);
@@ -170,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 150);
+            this.label2.Location = new System.Drawing.Point(19, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 6;
@@ -179,7 +179,7 @@
             // txt_total
             // 
             this.txt_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_total.Location = new System.Drawing.Point(145, 147);
+            this.txt_total.Location = new System.Drawing.Point(111, 101);
             this.txt_total.Name = "txt_total";
             this.txt_total.Size = new System.Drawing.Size(100, 23);
             this.txt_total.TabIndex = 7;
@@ -187,7 +187,7 @@
             // 
             // dtp_fecha
             // 
-            this.dtp_fecha.Location = new System.Drawing.Point(401, 150);
+            this.dtp_fecha.Location = new System.Drawing.Point(367, 104);
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(200, 20);
             this.dtp_fecha.TabIndex = 8;
@@ -196,7 +196,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(348, 150);
+            this.label3.Location = new System.Drawing.Point(314, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 17);
             this.label3.TabIndex = 9;
@@ -211,7 +211,7 @@
             this.btn_Agregar.ForeColor = System.Drawing.Color.White;
             this.btn_Agregar.Image = global::POS_FG.Properties.Resources.boton_agregar_2;
             this.btn_Agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Agregar.Location = new System.Drawing.Point(455, 197);
+            this.btn_Agregar.Location = new System.Drawing.Point(387, 151);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(118, 32);
             this.btn_Agregar.TabIndex = 19;
@@ -228,7 +228,7 @@
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
             this.btn_Registrar.Image = global::POS_FG.Properties.Resources.boton_marcado;
             this.btn_Registrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Registrar.Location = new System.Drawing.Point(579, 395);
+            this.btn_Registrar.Location = new System.Drawing.Point(517, 273);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(118, 32);
             this.btn_Registrar.TabIndex = 22;
@@ -244,7 +244,7 @@
             this.btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remover.ForeColor = System.Drawing.Color.White;
             this.btn_Remover.Image = global::POS_FG.Properties.Resources.eliminar__1_;
-            this.btn_Remover.Location = new System.Drawing.Point(579, 197);
+            this.btn_Remover.Location = new System.Drawing.Point(511, 151);
             this.btn_Remover.Name = "btn_Remover";
             this.btn_Remover.Size = new System.Drawing.Size(118, 32);
             this.btn_Remover.TabIndex = 23;
@@ -261,7 +261,7 @@
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_Cancelar.Image = global::POS_FG.Properties.Resources.cerrar_el_simbolo_de_la_cruz_en_un_circulo;
-            this.btn_Cancelar.Location = new System.Drawing.Point(455, 395);
+            this.btn_Cancelar.Location = new System.Drawing.Point(393, 273);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(118, 32);
             this.btn_Cancelar.TabIndex = 29;
@@ -275,7 +275,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(742, 445);
+            this.ClientSize = new System.Drawing.Size(651, 328);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Remover);
             this.Controls.Add(this.btn_Registrar);
