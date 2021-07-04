@@ -462,6 +462,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 81);
             this.dataGridView1.TabIndex = 44;
+            this.dataGridView1.Visible = false;
             // 
             // v_IProducto
             // 
