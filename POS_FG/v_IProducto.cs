@@ -71,14 +71,194 @@ namespace POS_FG
 
         private void btn_Agregar_Click(object sender, EventArgs e)//agrega un producto al datagridview para preparar el ingreso del producto, proveedor y suministro 
         {
+            int x = 0;
+            int xx = 0;
+
             if (validar.validarfrm(this) == false)
             {
+                DataTable dt;
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC = '" + txt_ID_Proveedor.Text + "'");
+                if (dt.Rows.Count > 0)
+                {
+                    if (int.Parse(txt_Precio_Venta.Text) > float.Parse(txt_Precio_Compra.Text))
+                    {
+                        if(int.Parse(txt_Inv_Max.Text) > int.Parse(txt_Inv_min.Text))
+                        {
+                            if (int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_min.Text))
+                            {
+                                if (int.Parse(txt_Existencia.Text) > int.Parse(txt_Inv_Max.Text))
+                                {
+                                    DialogResult aviso = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                    if (aviso == DialogResult.Yes)
+                                    {
+                                        for (int i = 0; i < dtgv_Producto.Rows.Count; i++)//comprueba si el producto ingresado ya existe 
+                                        {
+                                            if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                            {
+                                                x = 1;
+                                                xx = i;//para tener la fila en la que se encuentra el producto
+                                            }
+                                        }
+                                        if (x == 1)//si x=1 el producto ya existe muestra el mensaje para confirmar la nueva cantidad a registrar
+                                        {
+                                            DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
+                                            if (repetido == DialogResult.Yes)//si el usuario acepta acualizar la cantidad del producto 
+                                            {
+                                                if (int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()))//se compruueba que esta no sea mayor al inventario maximo 
+                                                {
+                                                    DialogResult aviso2 = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                                    if (aviso2 == DialogResult.Yes)// perminte decidir si se agregara o no la nueva cantidad
+                                                    {
+                                                        dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else// si el producto no existe se agrega todo lainformacin al dtgv
+                                        {
+                                            dt = sql.tablas("productos", "select * from productos where IDProducto = '" + txt_ID_Producto.Text + "'");//busca si el producto ya existe en la base de datos para mostrar un mensaja en caso que se pase del inventario maximo
+                                            if (dt.Rows.Count > 0)
+                                            {
+                                                dataGridView1.DataSource = dt;
+                                                if (int.Parse(dataGridView1.Rows[0].Cells[5].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dataGridView1.Rows[0].Cells[3].Value.ToString()))
+                                                {
+                                                    MessageBox.Show("esta sobrepasando el inventario maximo");
+                                                }
 
+                                            }
+
+                                            dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                            txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                            txt_ID_Proveedor.Enabled = false;
+                                            txt_numfactura.Enabled = false;
+                                            dtp_fechafacturacompra.Enabled = false;
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                    {
+                                        if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                        {
+                                            x = 1;
+                                            xx = i;
+                                        }
+                                    }
+                                    if (x == 1)
+                                    {
+                                        DialogResult repetido = MessageBox.Show("El ID o el nombre del producto coincide con uno ingresado previamente, ¿quires actualizar la cantidad existente de ese producto?", "", MessageBoxButtons.YesNo);
+                                        if (repetido == DialogResult.Yes)
+                                        {
+                                            if (int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()))
+                                            {
+                                                DialogResult aviso3 = MessageBox.Show("Esta sobrepasando el inventario maximo para este producto ¿quiere registrarlo? ", "AVISO", MessageBoxButtons.YesNo);
+                                                if (aviso3 == DialogResult.Yes)
+                                                {
+                                                    dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        dt = sql.tablas("productos", "select * from productos where IDProducto = '" + txt_ID_Producto.Text + "'");
+                                        if (dt.Rows.Count > 0)
+                                        {
+                                            dataGridView1.DataSource = dt;
+                                            if (int.Parse(dataGridView1.Rows[0].Cells[5].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dataGridView1.Rows[0].Cells[3].Value.ToString()))
+                                            {
+                                                MessageBox.Show("esta sobrepasando el inventario maximo");
+                                            }
+                                        }
+                                        dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                        txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                        txt_ID_Proveedor.Enabled = false;
+                                        txt_numfactura.Enabled = false;
+                                        dtp_fechafacturacompra.Enabled = false;
+
+                                    }
+
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < dtgv_Producto.Rows.Count; i++)
+                                {
+                                    if (txt_ID_Producto.Text == dtgv_Producto.Rows[i].Cells[0].Value.ToString() || txt_NomProducto.Text == dtgv_Producto.Rows[i].Cells[1].Value.ToString())
+                                    {
+                                        x = 1;
+                                        xx = i;
+                                    }
+                                }
+                                if (x == 1)
+                                {
+                                    //se actualiza la cantidad del producto ya ingresado en el dtgv
+                                    dtgv_Producto.Rows[xx].Cells[4].Value = int.Parse(dtgv_Producto.Rows[xx].Cells[4].Value.ToString()) + int.Parse(txt_Existencia.Text);
+                                }
+                                else
+                                {
+                                    //se mostrar un mensaje diciendo si querie ingresar menos producto del inventario minimo validad de acuerdo a la existencia en la bd y el dgtv de producto a registrar
+                                    dt = sql.tablas("productos", "select * from productos where IDProducto = '" + txt_ID_Producto.Text + "'");//busca si el producto ya existe en la base de datos para mostrar un mensaja en caso que se pase del inventario maximo
+                                    if (dt.Rows.Count > 0)
+                                    {
+                                        dataGridView1.DataSource = dt;
+                                        if (int.Parse(dataGridView1.Rows[0].Cells[5].Value.ToString()) + int.Parse(txt_Existencia.Text) > int.Parse(dataGridView1.Rows[0].Cells[3].Value.ToString()))
+                                        {
+                                            MessageBox.Show("esta sobrepasando el inventario maximo");
+                                        }
+                                        dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                            txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                        txt_ID_Proveedor.Enabled = false;
+                                        txt_numfactura.Enabled = false;
+                                        dtp_fechafacturacompra.Enabled = false;
+                                    }
+                                    else
+                                    {
+                                        DialogResult resultado = MessageBox.Show("El inventario minimo ingresado es menor a la compra quieres registrarlo", "", MessageBoxButtons.YesNo);
+                                        if (resultado == DialogResult.Yes)
+                                        {
+                                            dtgv_Producto.Rows.Add(txt_ID_Producto.Text, txt_NomProducto.Text, txt_Inv_Max.Text, txt_Inv_min.Text, txt_Existencia.Text, txt_Precio_Compra.Text,
+                                            txt_Precio_Venta.Text, txt_ID_Proveedor.Text, txt_numfactura.Text, String.Format("{0: MM-dd-yyyy}", dtp_fechafacturacompra.Value));
+                                            txt_ID_Proveedor.Enabled = false;
+                                            txt_numfactura.Enabled = false;
+                                            dtp_fechafacturacompra.Enabled = false;
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El inventario minimo no puede ser mayor al inventario maximo", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio de venta no puede ser menor al precio de compra", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    v_iProveedor ventana = new v_iProveedor();
+                    ventana.ShowDialog();
+                }
             }
             else
             {
                 MessageBox.Show("No puede dejar ningun campo vacío", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            btn_Registrar.Enabled = true;
+            txt_ID_Producto.Clear();
+            txt_NomProducto.Clear();
+            txt_Inv_Max.Clear();
+            txt_Inv_min.Clear();
+            txt_Existencia.Clear();
+            txt_Precio_Compra.Clear();
+            txt_Precio_Venta.Clear();
+            dataGridView1.DataSource = null;
         }        
 
     
@@ -91,7 +271,7 @@ namespace POS_FG
             dtgv_Producto.Columns.Add("nombre", "Nombre");//1
             dtgv_Producto.Columns.Add("invmax", "Inventario Max");//2
             dtgv_Producto.Columns.Add("invmin", "Inventario Min");//3
-            dtgv_Producto.Columns.Add("existencia", "Existencia");//4
+            dtgv_Producto.Columns.Add("existencia", "Compra");//4
             dtgv_Producto.Columns.Add("pcompra", "Precio Compra");//5
             dtgv_Producto.Columns.Add("pventa", "Precio Venta");//6
             dtgv_Producto.Columns.Add("idprov", "ID Proveedor");//7
