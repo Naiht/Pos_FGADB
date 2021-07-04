@@ -249,6 +249,7 @@
             this.dtgv_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_Factura.Size = new System.Drawing.Size(473, 319);
             this.dtgv_Factura.TabIndex = 6;
+            this.dtgv_Factura.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Factura_CellDoubleClick);
             // 
             // groupBox1
             // 

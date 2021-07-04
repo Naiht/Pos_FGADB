@@ -43,6 +43,7 @@ namespace POS_FG
         public string nombrec {get; set;}
         public string cedulacli { get; set; }
         public float monto { get; set; }
+        public int idcredito { get; set; }
         public v_VentasCli()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace POS_FG
 
 
             DataTable dt;
-            dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, telefono, estadocredito from credito where estadocredito = 1");
+            dt = sql.tablas("credito", "Select nombrecliente, cedulacliente, monto, direccioncliente, telefono, estadocredito, IDcredito from credito where estadocredito = 1");
             if (dt.Rows.Count > 0)
             {
                 if (funcion == false)
@@ -81,6 +82,7 @@ namespace POS_FG
                     dtgv_Clientes.Columns[2].HeaderText = "Monto";
                     dtgv_Clientes.Columns[3].HeaderText = "Dirección";
                     dtgv_Clientes.Columns[4].HeaderText = "Telefono";
+                    dtgv_Clientes.Columns[5].HeaderText = "ID";
 
                     dtgv_Clientes.Columns.Remove("estadocredito");
                 }
@@ -112,7 +114,7 @@ namespace POS_FG
                     nombrec = dtgv_Clientes.CurrentRow.Cells[0].Value.ToString();
                     cedulacli = dtgv_Clientes.CurrentRow.Cells[1].Value.ToString();
                     monto = float.Parse(dtgv_Clientes.CurrentRow.Cells[2].Value.ToString());
-
+                    idcredito = int.Parse(dtgv_Clientes.CurrentRow.Cells[5].Value.ToString());
                     this.Close();
                 }
                 else {

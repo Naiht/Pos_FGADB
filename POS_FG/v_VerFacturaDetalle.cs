@@ -69,11 +69,21 @@ namespace POS_FG
                 dtgv_FacturaD.Columns[1].HeaderText = "Cantidad";
                 dtgv_FacturaD.Columns[2].HeaderText = "Precio";
 
-                dtgv_FacturaD.Rows[dtgv_FacturaD.RowCount - 1].Cells[0].Value = "Total";
+                DataRow total2 = dt.NewRow();
+                total2["nombreproducto"] = "Total";
+                total2["P_venta"] = "" + dtgv_FacturaD.Rows[0].Cells[3].Value.ToString();
+                dt.Rows.Add(total2);
+
+                dtgv_FacturaD.Columns[3].Visible = false;
             }
 
 
             //dtgv_FacturaD.Rows[dtgv_FacturaD.RowCount - 1].Cells[2].Value = "" + dtgv_FacturaD.Rows[0].Cells[3].Value.ToString();
+        }
+
+        private void v_VerFacturaDetalle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

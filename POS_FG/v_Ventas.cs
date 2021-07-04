@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
 
 namespace POS_FG
 {
@@ -90,6 +91,7 @@ namespace POS_FG
 
         private float monto = 0;
         private string cedula = "";
+        private int idcredito = 0;
         private void btn_BsCliente_Click(object sender, EventArgs e)
         {
             v_VentasCli mensaje = new v_VentasCli();
@@ -99,6 +101,7 @@ namespace POS_FG
                 txt_NomCliente.Text = mensaje.nombrec;
                 cedula = mensaje.cedulacli;
                 monto = mensaje.monto;
+                idcredito = mensaje.idcredito;
             }
         }
 
@@ -114,18 +117,23 @@ namespace POS_FG
         {
 
             fila = dtgv_ProductosV.CurrentRow.Index;//Variable que guarda la fila seleccionada
-            dtgv_Factura.Rows.Insert(0, dtgv_ProductosV.Rows[fila].Cells[0].Value, dtgv_ProductosV.Rows[fila].Cells[1].Value, dtgv_ProductosV.Rows[fila].Cells[2].Value);
-
-            total = float.Parse(dtgv_ProductosV.Rows[fila].Cells[2].Value.ToString()) + total;//Variable que almacena el total de venta
-            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = "" + total;
+            dtgv_Factura.Rows.Insert(0, dtgv_ProductosV.Rows[fila].Cells[0].Value, dtgv_ProductosV.Rows[fila].Cells[1].Value,"1",dtgv_ProductosV.Rows[fila].Cells[2].Value);
+            float vp = float.Parse(dtgv_ProductosV.Rows[fila].Cells[2].Value.ToString());
+            total +=  vp;//Variable que almacena el total de venta
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[3].Value = "" + total;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)
         {
             if (dtgv_Factura.Rows.Count > 1)
             {
-                total = total - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString());//Variable que almacena el total de venta
-                dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = "" + total;
+                //total = total - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString());//Variable que almacena el total de vent
+                float multi = 0;
+                int temp = 0;
+                temp = int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString());
+                multi = temp * float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+                total -= multi;
+                dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[3].Value = "" + total;
                 dtgv_Factura.Rows.Remove(dtgv_Factura.CurrentRow);
             }
             else {
@@ -140,28 +148,23 @@ namespace POS_FG
                 DialogResult venta = MessageBox.Show("¿Es correcta la venta?", "", MessageBoxButtons.YesNo);
 
                 //Informacion de la factura a la base de datos ki
-                if (venta == DialogResult.Yes)
-                {
-                    if (chb_Credito.Checked) {
+                if (venta == DialogResult.Yes){ 
+
+                    if (chb_Credito.Checked == false)
+                    {
+                        sql.multiple("insert into factura (monto,fecha) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "')");
+                        ventas();
+                    }
+                    else if (chb_Credito.Checked == true && txt_NomCliente.Text != "")
+                    {
                         credito();
-                    }
-
-                    sql.multiple("insert into factura (monto,fecha) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "')");
-
-
-                    for (int i = 0; i < dtgv_Factura.Rows.Count - 1; i++)
-                    {
-                        sql.multiple("insert into detalle (IDproducto,IDfactura,cantidadcompra) values " +
-                            "('" + dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "',"+nfactura()+",2)");
-                    }
-
-                    dtgv_Factura.Rows.Clear();
-
-                    dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[0].Value = "Total";
-
-                    if (chb_Credito.Checked)
-                    {
                         limpventac();
+                        sql.multiple("insert into factura (monto,fecha,cliente) values (" + total + ",'" + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "', '" + txt_NomCliente.Text + "')");
+                        ventas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione un cliente para realizar la venta al credito","Seleccione un cliente",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
 
                 }
@@ -170,12 +173,33 @@ namespace POS_FG
             {
                 MessageBox.Show("Para realizar una venta primero tiene que ingresar productos", "No hay productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
-        private void credito() { 
-        
+
+        private void ventas() {
+            
+            for (int i = 0; i < dtgv_Factura.Rows.Count - 1; i++)
+            {
+                sql.multiple("insert into detalle (IDproducto,IDfactura,cantidadcompra) values " +
+                    "('" + dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "'," + nfactura() + ","+dtgv_Factura.Rows[i].Cells[2].Value.ToString() +")");
+            }
+
+            dtgv_Factura.Rows.Clear();
+
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[0].Value = "Total";
+
+            total = 0;
+            dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[2].Value = "" + total;
+        }
+
+        private void credito() {
+            monto = monto + total;
+            sql.multiple("Execute SpActMonto @monto = "+monto+", @cedula = N'"+cedula+"'");
+            
+            for (int i = 0; i < dtgv_Factura.Rows.Count - 1; i++)
+            {
+                sql.multiple("exec SpInsertarDetCreditoV @idc = "+idcredito+" ,@idprod = N'"+ dtgv_Factura.Rows[i].Cells[0].Value.ToString() + "' ,@cantidad = " + dtgv_Factura.Rows[i].Cells[2].Value.ToString());
+            }
         }
 
         private String nfactura() {
@@ -213,6 +237,7 @@ namespace POS_FG
         {
             dtgv_Factura.Columns.Add("", "Codigo");
             dtgv_Factura.Columns.Add("", "Nombre");
+            dtgv_Factura.Columns.Add("", "Cantidad");
             dtgv_Factura.Columns.Add("", "Precio");
 
             dtgv_Factura.ReadOnly = true;
@@ -249,6 +274,45 @@ namespace POS_FG
                 dtgv_ProductosV.Columns[0].HeaderText = "Codigo";
                 dtgv_ProductosV.Columns[1].HeaderText = "Nombre";
                 dtgv_ProductosV.Columns[2].HeaderText = "Precio";
+            }
+
+        }
+
+        private void dtgv_Factura_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string input = Interaction.InputBox("Ingrese la cantidad que vende del articulo", "Cantidad","0", this.Width/2, this.Height/2);
+            try {
+                if (int.Parse(input) > 0)
+                {
+
+                    float multi = 0;
+                    multi = float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString()) * float.Parse(input);
+
+                    if (int.Parse(input) > int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()))
+                    {
+                        total += multi - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+
+                    }
+                    else
+                    {
+                        int temp = 0;
+                        temp = int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()) - int.Parse(input);
+                        multi = temp * float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+                        total -= multi;
+                    }
+
+                    dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value = input;
+                    dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[3].Value = "" + total;
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad tiene que ser superior a 0", "Error en la cantidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Solo se permite el ingreso de numeros","Error en la cantidad",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
 
         }

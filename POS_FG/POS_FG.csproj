@@ -71,6 +71,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="v_PagoCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="v_PagoCredito.Designer.cs">
+      <DependentUpon>v_PagoCredito.cs</DependentUpon>
+    </Compile>
     <Compile Include="v_VerFacturaDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="v_ModiCliente.resx">
       <DependentUpon>v_ModiCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="v_PagoCredito.resx">
+      <DependentUpon>v_PagoCredito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="v_Principal.resx">
       <DependentUpon>v_Principal.cs</DependentUpon>

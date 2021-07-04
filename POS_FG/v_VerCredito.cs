@@ -84,6 +84,8 @@ namespace POS_FG
                 dtgv_Creditos.Columns[4].HeaderText = "Fecha limite";
                 dtgv_Creditos.Columns[5].HeaderText = "Telefono";
                 dtgv_Creditos.Columns[6].HeaderText = "Activo/No Activo";
+                
+                dtgv_Creditos.Columns[6].Visible = false;
             }
         }
 
@@ -107,5 +109,30 @@ namespace POS_FG
             btn_Limpiar.Enabled = false;
         }
 
+        private void dtgv_Creditos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_CedCliente.Text = dtgv_Creditos.Rows[dtgv_Creditos.CurrentRow.Index].Cells[1].Value.ToString();
+            txt_NomCliente.Text = dtgv_Creditos.Rows[dtgv_Creditos.CurrentRow.Index].Cells[0].Value.ToString();
+            txt_Monto.Text = dtgv_Creditos.Rows[dtgv_Creditos.CurrentRow.Index].Cells[2].Value.ToString();
+        }
+
+        private void btn_Finalizar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Es correcto el pago?","Confirmacion",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            
+            if (resultado == DialogResult.Yes)
+            {
+                float monto = 0;
+                monto = float.Parse(txt_Monto.Text);
+                monto -= float.Parse(txt_CantPaga.Text);
+                sql.multiple("Execute SpActMonto @monto = " + monto + ", @cedula = N'" + txt_CedCliente.Text + "'");
+
+                consultaglobal(true, "");
+                txt_Monto.Clear();
+                txt_CedCliente.Clear();
+                txt_NomCliente.Clear();
+                txt_CantPaga.Clear();
+             }
+        }
     }
 }
