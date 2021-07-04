@@ -52,8 +52,7 @@ namespace POS_FG
         }
         sqlcon2 sql = new sqlcon2();
 
-
-        
+        public string RUC {get; set; }
 
         private void consulta(bool normal, string id)
         {
@@ -64,11 +63,15 @@ namespace POS_FG
             }
             else
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC ='" + id + "'");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC LIKE '%" + id + "%'");
             }
             if (dt.Rows.Count > 0)
             {
                 dtgv_proveedores.DataSource = dt;
+                dtgv_proveedores.Columns[0].HeaderText = "RUC";
+                dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+                dtgv_proveedores.Columns[1].Width = 200;
+                dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
             }
         }
 
@@ -86,6 +89,9 @@ namespace POS_FG
             if (dt.Rows.Count > 0)
             {
                 dtgv_proveedores.DataSource = dt;
+                dtgv_proveedores.Columns[0].HeaderText = "RUC";
+                dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+                dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
             }
         }
 
@@ -126,7 +132,10 @@ namespace POS_FG
 
         private void dtgv_proveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            DialogResult = DialogResult.OK;
 
+            RUC = dtgv_proveedores.CurrentRow.Cells[0].Value.ToString();
+            this.Close();
         }
     }
 }

@@ -62,7 +62,7 @@
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(626, 37);
             this.pan_Sup.TabIndex = 0;
@@ -86,7 +86,7 @@
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
             this.pb_Minimizar.Location = new System.Drawing.Point(558, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +99,7 @@
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
             this.pb_Cerrar.Location = new System.Drawing.Point(594, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 374);
             this.panel1.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(618, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(8, 374);
             this.panel2.TabIndex = 2;
@@ -132,7 +132,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 407);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(614, 4);
             this.panel3.TabIndex = 2;
@@ -140,18 +140,12 @@
             // dtgv_suministro
             // 
             this.dtgv_suministro.AllowUserToResizeRows = false;
-            this.dtgv_suministro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_suministro.Location = new System.Drawing.Point(44, 140);
-            this.dtgv_suministro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtgv_suministro.Name = "dtgv_suministro";
-            this.dtgv_suministro.RowHeadersWidth = 51;
-            this.dtgv_suministro.Size = new System.Drawing.Size(885, 369);
             this.dtgv_suministro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_suministro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_suministro.Location = new System.Drawing.Point(313, 198);
+            this.dtgv_suministro.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_suministro.Name = "dtgv_suministro";
-            this.dtgv_suministro.Size = new System.Drawing.Size(332, 233);
-
+            this.dtgv_suministro.RowHeadersVisible = false;
             this.dtgv_suministro.RowHeadersWidth = 51;
             this.dtgv_suministro.Size = new System.Drawing.Size(268, 189);
             this.dtgv_suministro.TabIndex = 3;
@@ -176,12 +170,6 @@
             this.btn_Buscar.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
             this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Buscar.Location = new System.Drawing.Point(777, 78);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-
-            this.btn_Buscar.Location = new System.Drawing.Point(485, 146);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
-
             this.btn_Buscar.Location = new System.Drawing.Point(411, 132);
             this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
@@ -195,7 +183,7 @@
             // 
             this.txt_numfactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_numfactura.Location = new System.Drawing.Point(195, 65);
-            this.txt_numfactura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_numfactura.Margin = new System.Windows.Forms.Padding(2);
             this.txt_numfactura.Name = "txt_numfactura";
             this.txt_numfactura.Size = new System.Drawing.Size(203, 26);
             this.txt_numfactura.TabIndex = 11;
@@ -206,8 +194,9 @@
             this.dtgv_facturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_facturas.Location = new System.Drawing.Point(38, 198);
-            this.dtgv_facturas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_facturas.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_facturas.Name = "dtgv_facturas";
+            this.dtgv_facturas.RowHeadersVisible = false;
             this.dtgv_facturas.Size = new System.Drawing.Size(268, 189);
             this.dtgv_facturas.TabIndex = 3;
             this.dtgv_facturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_facturas_CellClick);
@@ -237,7 +226,7 @@
             // dtp_ffinal
             // 
             this.dtp_ffinal.Location = new System.Drawing.Point(195, 134);
-            this.dtp_ffinal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_ffinal.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_ffinal.Name = "dtp_ffinal";
             this.dtp_ffinal.Size = new System.Drawing.Size(151, 20);
             this.dtp_ffinal.TabIndex = 19;
@@ -246,7 +235,7 @@
             // 
             this.dtp_finicial.CustomFormat = "MM/DD/AAAA";
             this.dtp_finicial.Location = new System.Drawing.Point(195, 100);
-            this.dtp_finicial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_finicial.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_finicial.Name = "dtp_finicial";
             this.dtp_finicial.Size = new System.Drawing.Size(151, 20);
             this.dtp_finicial.TabIndex = 18;
@@ -296,14 +285,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
-
-
-            this.ClientSize = new System.Drawing.Size(989, 548);
-
-            this.ClientSize = new System.Drawing.Size(742, 445);
-
             this.ClientSize = new System.Drawing.Size(626, 411);
-
             this.Controls.Add(this.rb_todo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -311,7 +293,6 @@
             this.Controls.Add(this.dtp_finicial);
             this.Controls.Add(this.rb_numfactura);
             this.Controls.Add(this.rb_Rango);
-
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.txt_numfactura);
@@ -322,7 +303,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_VSuministro";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_VSuministro_Load);
