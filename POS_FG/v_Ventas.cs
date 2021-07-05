@@ -57,13 +57,15 @@ namespace POS_FG
 
 
 
-            dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta from productos");
+            dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta,existencias from productos");
             if (dt.Rows.Count > 0)
             {
                 dtgv_ProductosV.DataSource = dt;
                 dtgv_ProductosV.Columns[0].HeaderText = "Codigo";
                 dtgv_ProductosV.Columns[1].HeaderText = "Nombre";
                 dtgv_ProductosV.Columns[2].HeaderText = "Precio";
+
+                //dtgv_ProductosV.Columns[3].Visible = false;
             }
         }
 
@@ -281,34 +283,57 @@ namespace POS_FG
         private void dtgv_Factura_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string input = Interaction.InputBox("Ingrese la cantidad que vende del articulo", "Cantidad","0", this.Width/2, this.Height/2);
+            
             try {
                 if (int.Parse(input) > 0)
                 {
+                    //Si la cantidad que se ingresa de producto es superior a la existencia
+                    if (int.Parse(input) < int.Parse(dtgv_ProductosV.Rows[dtgv_ProductosV.CurrentRow.Index].Cells[3].Value.ToString())){
+                        
+                        float multi = 0;
 
-                    float multi = 0;
-                    multi = float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString()) * float.Parse(input);
+                        //Si el valor del inputbox es mayor que la cantidad en la factura
+                        if (int.Parse(input) > int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()))
+                        {
+                            //Multiplica el nuevo valor por el precio del producto para calcular el total
+                            multi = float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString()) * float.Parse(input);
 
-                    if (int.Parse(input) > int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()))
-                    {
-                        total += multi - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+                            //Se resta la existencia en el datagridview de productos para luego hacer la actualizacion
+                            dtgv_ProductosV.Rows[dtgv_ProductosV.CurrentRow.Index].Cells[3].Value = int.Parse(dtgv_ProductosV.Rows[dtgv_ProductosV.CurrentRow.Index].Cells[3].Value.ToString()) - int.Parse(input);
+
+                            total += multi - float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+                            //Suma el resultado
+
+                        }
+                        else
+                        {
+                            int temp = 0;//Variable temporal para guardar la cantidad que se le va a remover a la factura
+                                         //Se almacena el resutlado de la resta de la cantidad en el inputbox con la cantidad de la factura
+                            temp = int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()) - int.Parse(input);
+                            //Se resta la existencia en el datagridview de productos para luego hacer la actualizacion
+                            dtgv_ProductosV.Rows[dtgv_ProductosV.CurrentRow.Index].Cells[3].Value = int.Parse(dtgv_ProductosV.Rows[dtgv_ProductosV.CurrentRow.Index].Cells[3].Value.ToString()) + temp;
+
+                            //Se multiplica el nuevo precio de ese conjunto
+                            multi = temp * float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
+                            //Se le resta el resultado al total
+                            total -= multi;
+                        }
+                        // Se agrega la nueva cantidad a la factura
+                        dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value = input;
+                        //Se agrega el nuevo valor a total
+                        dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[3].Value = "" + total;
 
                     }
-                    else
-                    {
-                        int temp = 0;
-                        temp = int.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value.ToString()) - int.Parse(input);
-                        multi = temp * float.Parse(dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[3].Value.ToString());
-                        total -= multi;
+                    else {
+                        MessageBox.Show("No Hay suficiente producto","Error en la cantidad",MessageBoxButtons.OK);
                     }
 
-                    dtgv_Factura.Rows[dtgv_Factura.CurrentRow.Index].Cells[2].Value = input;
-                    dtgv_Factura.Rows[dtgv_Factura.RowCount - 1].Cells[3].Value = "" + total;
                 }
                 else
                 {
                     MessageBox.Show("La cantidad tiene que ser superior a 0", "Error en la cantidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+                
             }
             catch (Exception z)
             {
