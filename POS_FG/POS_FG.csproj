@@ -205,6 +205,7 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="rpProductos.rdlc" />
     <EmbeddedResource Include="Ventana Base.resx">
       <DependentUpon>Ventana Base.cs</DependentUpon>
@@ -277,6 +278,7 @@
       <DependentUpon>v_VSuministro.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\v_Ventas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -348,6 +350,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imprimir.png" />
+    <None Include="Resources\usuario %283%291.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

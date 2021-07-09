@@ -128,5 +128,12 @@ namespace POS_FG
 
             this.Close();
         }
+
+        private void btn_Informe_Click(object sender, EventArgs e)
+        {
+
+            v_RepProductos rep = new v_RepProductos();
+            rep.ShowDialog();
+        }
     }
 }

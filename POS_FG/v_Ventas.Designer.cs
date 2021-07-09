@@ -42,7 +42,6 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.txt_B = new System.Windows.Forms.TextBox();
             this.dtgv_ProductosV = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.dtgv_Factura = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chb_Credito = new System.Windows.Forms.CheckBox();
@@ -225,16 +224,6 @@
             this.dtgv_ProductosV.TabIndex = 0;
             this.dtgv_ProductosV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_ProductosV_CellDoubleClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(142, 650);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Reportes Prueba";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dtgv_Factura
             // 
             this.dtgv_Factura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -378,7 +367,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(928, 761);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtgv_Factura);
@@ -435,6 +423,5 @@
         private System.Windows.Forms.Button btn_BsCliente;
         private System.Windows.Forms.TextBox txt_NomCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
     }
 }

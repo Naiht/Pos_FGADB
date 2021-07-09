@@ -36,7 +36,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgv_FacturaD = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_BsCliente = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_FacturaD)).BeginInit();
@@ -126,24 +126,26 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.DimGray;
             this.button1.Image = global::POS_FG.Properties.Resources.imprimir;
-            this.button1.Location = new System.Drawing.Point(409, 66);
+            this.button1.Location = new System.Drawing.Point(468, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 30);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // btn_BsCliente
+            // btn_Eliminar
             // 
-            this.btn_BsCliente.BackColor = System.Drawing.Color.DimGray;
-            this.btn_BsCliente.FlatAppearance.BorderSize = 0;
-            this.btn_BsCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BsCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_BsCliente.Image = global::POS_FG.Properties.Resources.lupa;
-            this.btn_BsCliente.Location = new System.Drawing.Point(468, 66);
-            this.btn_BsCliente.Name = "btn_BsCliente";
-            this.btn_BsCliente.Size = new System.Drawing.Size(53, 30);
-            this.btn_BsCliente.TabIndex = 17;
-            this.btn_BsCliente.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_Eliminar.Image = global::POS_FG.Properties.Resources.eliminar__1_;
+            this.btn_Eliminar.Location = new System.Drawing.Point(409, 65);
+            this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(52, 30);
+            this.btn_Eliminar.TabIndex = 30;
+            this.btn_Eliminar.UseVisualStyleBackColor = false;
             // 
             // v_VerFacturaDetalle
             // 
@@ -151,8 +153,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(545, 517);
+            this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_BsCliente);
             this.Controls.Add(this.dtgv_FacturaD);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -179,7 +181,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtgv_FacturaD;
-        private System.Windows.Forms.Button btn_BsCliente;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Eliminar;
     }
 }

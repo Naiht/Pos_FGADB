@@ -56,7 +56,7 @@ namespace POS_FG
             deffac();
 
 
-
+            
             dt = sql.tablas("productos", "select IDProducto,nombreproducto,P_venta,existencias from productos");
             if (dt.Rows.Count > 0)
             {
@@ -65,7 +65,7 @@ namespace POS_FG
                 dtgv_ProductosV.Columns[1].HeaderText = "Nombre";
                 dtgv_ProductosV.Columns[2].HeaderText = "Precio";
 
-                //dtgv_ProductosV.Columns[3].Visible = false;
+                dtgv_ProductosV.Columns[3].Visible = false;
             }
         }
 
@@ -109,8 +109,6 @@ namespace POS_FG
 
         private void button1_Click(object sender, EventArgs e)
         {
-            v_RepProductos rep = new v_RepProductos();
-            rep.ShowDialog();
         }
 
         int fila;

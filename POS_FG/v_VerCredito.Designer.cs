@@ -49,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_CantPaga = new System.Windows.Forms.TextBox();
             this.btn_Finalizar = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
             this.pan_Sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cerrar)).BeginInit();
@@ -297,12 +298,28 @@
             this.btn_Finalizar.UseVisualStyleBackColor = false;
             this.btn_Finalizar.Click += new System.EventHandler(this.btn_Finalizar_Click);
             // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_Eliminar.Image = global::POS_FG.Properties.Resources.eliminar__1_;
+            this.btn_Eliminar.Location = new System.Drawing.Point(785, 77);
+            this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(52, 30);
+            this.btn_Eliminar.TabIndex = 38;
+            this.btn_Eliminar.UseVisualStyleBackColor = false;
+            // 
             // v_VerCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(864, 604);
+            this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Finalizar);
             this.Controls.Add(this.txt_CantPaga);
             this.Controls.Add(this.label5);
@@ -358,5 +375,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_CantPaga;
         private System.Windows.Forms.Button btn_Finalizar;
+        private System.Windows.Forms.Button btn_Eliminar;
     }
 }

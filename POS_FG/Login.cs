@@ -49,6 +49,14 @@ namespace POS_FG
         public Login()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;         
+        }
+
+        private void btn_Finalizar_Click(object sender, EventArgs e)
+        {
+            v_Principal principal = new v_Principal();
+            principal.Show();
+            this.Visible = false;
         }
     }
 }
