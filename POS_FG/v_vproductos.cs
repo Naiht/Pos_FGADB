@@ -182,38 +182,48 @@ namespace POS_FG
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sql.multiple("UPDATE productos SET active = 1 WHERE IDProducto = '" + dtgv_Productos.Rows[fila].Cells[0].Value.ToString() + "'");
-            btn_Eliminar.Enabled = false;
-            dtgv_Productos.DataSource = null;
-            DataTable dt;
-            dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 0");
-            dtgv_Productos.DataSource = dt;
-            dtgv_Productos.DataSource = dt;
-            dtgv_Productos.Columns[0].HeaderText = "Codigo";
-            dtgv_Productos.Columns[1].HeaderText = "Nombre";
-            dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
-            dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
-            dtgv_Productos.Columns[4].HeaderText = "Existencias";
-            dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
-            dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere activar este producto?", "", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                sql.multiple("UPDATE productos SET active = 1 WHERE IDProducto = '" + dtgv_Productos.Rows[fila].Cells[0].Value.ToString() + "'");
+                btn_Eliminar.Enabled = false;
+                dtgv_Productos.DataSource = null;
+                DataTable dt;
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 0");
+                dtgv_Productos.DataSource = dt;
+                dtgv_Productos.DataSource = dt;
+                dtgv_Productos.Columns[0].HeaderText = "Codigo";
+                dtgv_Productos.Columns[1].HeaderText = "Nombre";
+                dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
+                dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
+                dtgv_Productos.Columns[4].HeaderText = "Existencias";
+                dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
+                dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+            }
+            
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            sql.multiple("UPDATE productos SET active = 0 WHERE IDProducto = '" + dtgv_Productos.Rows[fila].Cells[0].Value.ToString() + "'");
-            btn_Eliminar.Enabled = false;
-            dtgv_Productos.DataSource = null;
-            DataTable dt;
-            dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 1");
-            dtgv_Productos.DataSource = dt;
-            dtgv_Productos.DataSource = dt;
-            dtgv_Productos.Columns[0].HeaderText = "Codigo";
-            dtgv_Productos.Columns[1].HeaderText = "Nombre";
-            dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
-            dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
-            dtgv_Productos.Columns[4].HeaderText = "Existencias";
-            dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
-            dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere desactivar este producto?", "", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                sql.multiple("UPDATE productos SET active = 0 WHERE IDProducto = '" + dtgv_Productos.Rows[fila].Cells[0].Value.ToString() + "'");
+                btn_Eliminar.Enabled = false;
+                dtgv_Productos.DataSource = null;
+                DataTable dt;
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 1");
+                dtgv_Productos.DataSource = dt;
+                dtgv_Productos.DataSource = dt;
+                dtgv_Productos.Columns[0].HeaderText = "Codigo";
+                dtgv_Productos.Columns[1].HeaderText = "Nombre";
+                dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
+                dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
+                dtgv_Productos.Columns[4].HeaderText = "Existencias";
+                dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
+                dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+            }
+           
         }
     }
 }

@@ -166,6 +166,7 @@ namespace POS_FG
 
             button1.Visible = false;
             btn_Eliminar.Visible = true;
+            btn_Eliminar.Enabled = false;
 
             consulta(true, "",1);
 
@@ -182,17 +183,22 @@ namespace POS_FG
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            sql.multiple("UPDATE proveedor SET active = 0 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
-            btn_Eliminar.Enabled = false;
-            dtgv_proveedores.DataSource = null;
-            DataTable dt;
-            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 1");
-            dtgv_proveedores.DataSource = dt;
-            dtgv_proveedores.Columns[0].HeaderText = "RUC";
-            dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
-            dtgv_proveedores.Columns[1].Width = 200;
-            dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
-            dtgv_proveedores.Columns[2].Visible = false;
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere desactivar este proveedor?", "", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                sql.multiple("UPDATE proveedor SET active = 0 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
+                btn_Eliminar.Enabled = false;
+                dtgv_proveedores.DataSource = null;
+                DataTable dt;
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 1");
+                dtgv_proveedores.DataSource = dt;
+                dtgv_proveedores.Columns[0].HeaderText = "RUC";
+                dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+                dtgv_proveedores.Columns[1].Width = 200;
+                dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+                dtgv_proveedores.Columns[2].Visible = false;
+            }
+           
         }
 
         int fila;
@@ -206,17 +212,22 @@ namespace POS_FG
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sql.multiple("UPDATE proveedor SET active = 1 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
-            button1.Enabled = false;
-            dtgv_proveedores.DataSource = null;
-            DataTable dt;
-            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 0");
-            dtgv_proveedores.DataSource = dt;
-            dtgv_proveedores.Columns[0].HeaderText = "RUC";
-            dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
-            dtgv_proveedores.Columns[1].Width = 200;
-            dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
-            dtgv_proveedores.Columns[2].Visible = false;
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que quiere activar este proveedor?", "", MessageBoxButtons.YesNo);
+            if(resultado == DialogResult.Yes)
+            {
+                sql.multiple("UPDATE proveedor SET active = 1 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
+                button1.Enabled = false;
+                dtgv_proveedores.DataSource = null;
+                DataTable dt;
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 0");
+                dtgv_proveedores.DataSource = dt;
+                dtgv_proveedores.Columns[0].HeaderText = "RUC";
+                dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+                dtgv_proveedores.Columns[1].Width = 200;
+                dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+                dtgv_proveedores.Columns[2].Visible = false;
+            }
+            
         }
     }
 }
