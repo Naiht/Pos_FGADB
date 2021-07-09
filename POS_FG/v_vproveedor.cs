@@ -54,16 +54,18 @@ namespace POS_FG
 
         public string RUC {get; set; }
 
-        private void consulta(bool normal, string id)
+
+        
+        private void consulta(bool normal, string id,int estado)
         {
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = "+estado);
             }
             else
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC LIKE '%" + id + "%'");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE RUC LIKE '%" + id + "%' AND active = "+estado);
             }
             if (dt.Rows.Count > 0)
             {
@@ -72,49 +74,83 @@ namespace POS_FG
                 dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
                 dtgv_proveedores.Columns[1].Width = 200;
                 dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+                dtgv_proveedores.Columns[2].Visible = false;
             }
         }
 
-        private void consulta2(bool normal, string nombre)
+        private void consulta2(bool normal, string nombre,int estado)
         {
             DataTable dt;
             if (normal)
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = "+estado);
             }
             else
             {
-                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE nombreproveedor like '%" + nombre + "%'");
+                dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE nombreproveedor like '%" + nombre + "%' AND active = "+estado);
             }
             if (dt.Rows.Count > 0)
             {
                 dtgv_proveedores.DataSource = dt;
                 dtgv_proveedores.Columns[0].HeaderText = "RUC";
                 dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+                dtgv_proveedores.Columns[1].Width = 200;
                 dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+                dtgv_proveedores.Columns[2].Visible = false;
             }
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            if (txt_Busqueda.Text != "")
+            if (comboBox1.SelectedItem.ToString() == "Activos")
             {
-                if (rb_id.Checked)
+                btn_Eliminar.Visible = true;
+                btn_Eliminar.Enabled = false;
+                button1.Visible = false;
+                if (txt_Busqueda.Text != "")
                 {
-                    consulta(false, txt_Busqueda.Text);
+                    if (rb_id.Checked)
+                    {
+                        consulta(false, txt_Busqueda.Text, 1);
+                    }
+                    else
+                    {
+                        if (rb_nombre.Checked)
+                        {
+                            consulta2(false, txt_Busqueda.Text, 1);
+                        }
+                    }
                 }
                 else
                 {
-                    if (rb_nombre.Checked)
-                    {
-                        consulta2(false, txt_Busqueda.Text);
-                    }
+                    consulta(true, "", 1);
                 }
             }
             else
             {
-                consulta(true, "");
+                button1.Visible = true;
+                button1.Enabled = false;
+                btn_Eliminar.Visible = false;
+                if (txt_Busqueda.Text != "")
+                {
+                    if (rb_id.Checked)
+                    {
+                        consulta(false, txt_Busqueda.Text, 0);
+                    }
+                    else
+                    {
+                        if (rb_nombre.Checked)
+                        {
+                            consulta2(false, txt_Busqueda.Text, 0);
+                        }
+                    }
+                }
+                else
+                {
+                    consulta(true, "", 0);
+                }
             }
+            
         }
 
         private void v_vproveedor_Load(object sender, EventArgs e)
@@ -125,7 +161,13 @@ namespace POS_FG
 
             rb_nombre.Checked = true;
 
-            consulta(true, "");
+            comboBox1.SelectedIndex = 0;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            button1.Visible = false;
+            btn_Eliminar.Visible = true;
+
+            consulta(true, "",1);
 
 
         }
@@ -136,6 +178,45 @@ namespace POS_FG
 
             RUC = dtgv_proveedores.CurrentRow.Cells[0].Value.ToString();
             this.Close();
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            sql.multiple("UPDATE proveedor SET active = 0 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
+            btn_Eliminar.Enabled = false;
+            dtgv_proveedores.DataSource = null;
+            DataTable dt;
+            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 1");
+            dtgv_proveedores.DataSource = dt;
+            dtgv_proveedores.Columns[0].HeaderText = "RUC";
+            dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+            dtgv_proveedores.Columns[1].Width = 200;
+            dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+            dtgv_proveedores.Columns[2].Visible = false;
+        }
+
+        int fila;
+        private void dtgv_proveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = 0;
+            fila = int.Parse(dtgv_proveedores.CurrentCell.RowIndex.ToString());
+            btn_Eliminar.Enabled = true;
+            button1.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sql.multiple("UPDATE proveedor SET active = 1 WHERE RUC = '" + dtgv_proveedores.Rows[fila].Cells[0].Value.ToString() + "'");
+            button1.Enabled = false;
+            dtgv_proveedores.DataSource = null;
+            DataTable dt;
+            dt = sql.tablas("proveedor", "SELECT RUC,nombreproveedor,active FROM proveedor WHERE active = 0");
+            dtgv_proveedores.DataSource = dt;
+            dtgv_proveedores.Columns[0].HeaderText = "RUC";
+            dtgv_proveedores.Columns[1].HeaderText = "NOMBRE";
+            dtgv_proveedores.Columns[1].Width = 200;
+            dtgv_proveedores.Columns[2].HeaderText = "ACTIVO";
+            dtgv_proveedores.Columns[2].Visible = false;
         }
     }
 }
