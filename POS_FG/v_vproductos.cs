@@ -71,18 +71,7 @@ namespace POS_FG
 
             rb_Nombre.Checked = true;
 
-            dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 1");
-            if (dt.Rows.Count > 0)
-            {
-                dtgv_Productos.DataSource = dt;
-                dtgv_Productos.Columns[0].HeaderText = "Codigo";
-                dtgv_Productos.Columns[1].HeaderText = "Nombre";
-                dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
-                dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
-                dtgv_Productos.Columns[4].HeaderText = "Existencias";
-                dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
-                dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
-            }
+           
             
             comboBox1.SelectedIndex = 0;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -224,6 +213,46 @@ namespace POS_FG
                 dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
             }
            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Activos")
+            {
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 1");
+                if (dt.Rows.Count > 0)
+                {
+                    dtgv_Productos.DataSource = dt;
+                    dtgv_Productos.Columns[0].HeaderText = "Codigo";
+                    dtgv_Productos.Columns[1].HeaderText = "Nombre";
+                    dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
+                    dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
+                    dtgv_Productos.Columns[4].HeaderText = "Existencias";
+                    dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
+                    dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+                }
+                btn_Eliminar.Visible = true;
+                btn_Eliminar.Enabled = false;
+                button1.Visible = false;
+            }
+            else
+            {
+                dt = sql.tablas("productos", "select IDProducto,nombreproducto,inventario_max,inventario_min,existencias,P_venta, P_compra from productos WHERE active = 0");
+                if (dt.Rows.Count > 0)
+                {
+                    dtgv_Productos.DataSource = dt;
+                    dtgv_Productos.Columns[0].HeaderText = "Codigo";
+                    dtgv_Productos.Columns[1].HeaderText = "Nombre";
+                    dtgv_Productos.Columns[2].HeaderText = "Inventario Maximo";
+                    dtgv_Productos.Columns[3].HeaderText = "Inventario Minimo";
+                    dtgv_Productos.Columns[4].HeaderText = "Existencias";
+                    dtgv_Productos.Columns[5].HeaderText = "Precio Venta";
+                    dtgv_Productos.Columns[6].HeaderText = "Precio Compra";
+                }
+                button1.Visible = true;
+                button1.Enabled = false;
+                btn_Eliminar.Visible = false;
+            }
         }
     }
 }

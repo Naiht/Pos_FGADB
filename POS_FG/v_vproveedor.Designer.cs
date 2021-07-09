@@ -59,7 +59,7 @@ namespace POS_FG
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(484, 37);
             this.pan_Sup.TabIndex = 0;
@@ -83,7 +83,7 @@ namespace POS_FG
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
             this.pb_Minimizar.Location = new System.Drawing.Point(416, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -96,7 +96,7 @@ namespace POS_FG
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
             this.pb_Cerrar.Location = new System.Drawing.Point(452, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -109,7 +109,7 @@ namespace POS_FG
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 395);
             this.panel1.TabIndex = 1;
@@ -119,7 +119,7 @@ namespace POS_FG
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(480, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4, 395);
             this.panel2.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace POS_FG
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 428);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(476, 4);
             this.panel3.TabIndex = 2;
@@ -243,6 +243,7 @@ namespace POS_FG
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(108, 21);
             this.comboBox1.TabIndex = 46;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // v_vproveedor
             // 
@@ -264,7 +265,7 @@ namespace POS_FG
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_vproveedor";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_vproveedor_Load);

@@ -168,7 +168,7 @@ namespace POS_FG
             btn_Eliminar.Visible = true;
             btn_Eliminar.Enabled = false;
 
-            consulta(true, "",1);
+            
 
 
         }
@@ -228,6 +228,24 @@ namespace POS_FG
                 dtgv_proveedores.Columns[2].Visible = false;
             }
             
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Activos")
+            {
+                consulta(true, "", 1);
+                btn_Eliminar.Visible = true;
+                btn_Eliminar.Enabled = false;
+                button1.Visible = false;
+            }
+            else
+            {
+                consulta(true, "", 0);
+                button1.Visible = true;
+                button1.Enabled = false;
+                btn_Eliminar.Visible = false;
+            }
         }
     }
 }

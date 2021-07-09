@@ -60,7 +60,7 @@ namespace POS_FG
             this.pan_Sup.Controls.Add(this.pb_Cerrar);
             this.pan_Sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_Sup.Location = new System.Drawing.Point(0, 0);
-            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pan_Sup.Margin = new System.Windows.Forms.Padding(2);
             this.pan_Sup.Name = "pan_Sup";
             this.pan_Sup.Size = new System.Drawing.Size(909, 37);
             this.pan_Sup.TabIndex = 0;
@@ -84,7 +84,7 @@ namespace POS_FG
             this.pb_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Minimizar.Image = global::POS_FG.Properties.Resources.minimizar;
             this.pb_Minimizar.Location = new System.Drawing.Point(841, 2);
-            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Minimizar.Name = "pb_Minimizar";
             this.pb_Minimizar.Size = new System.Drawing.Size(23, 28);
             this.pb_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +97,7 @@ namespace POS_FG
             this.pb_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_Cerrar.Image = global::POS_FG.Properties.Resources.letra_x;
             this.pb_Cerrar.Location = new System.Drawing.Point(877, 2);
-            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Cerrar.Name = "pb_Cerrar";
             this.pb_Cerrar.Size = new System.Drawing.Size(23, 28);
             this.pb_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,7 +110,7 @@ namespace POS_FG
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(4, 545);
             this.panel1.TabIndex = 1;
@@ -120,7 +120,7 @@ namespace POS_FG
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(901, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(8, 545);
             this.panel2.TabIndex = 2;
@@ -130,7 +130,7 @@ namespace POS_FG
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 578);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(897, 4);
             this.panel3.TabIndex = 2;
@@ -151,7 +151,7 @@ namespace POS_FG
             this.rb_Nombre.AutoSize = true;
             this.rb_Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rb_Nombre.Location = new System.Drawing.Point(371, 83);
-            this.rb_Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_Nombre.Margin = new System.Windows.Forms.Padding(2);
             this.rb_Nombre.Name = "rb_Nombre";
             this.rb_Nombre.Size = new System.Drawing.Size(76, 21);
             this.rb_Nombre.TabIndex = 10;
@@ -164,7 +164,7 @@ namespace POS_FG
             this.rb_Id.AutoSize = true;
             this.rb_Id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rb_Id.Location = new System.Drawing.Point(456, 83);
-            this.rb_Id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_Id.Margin = new System.Windows.Forms.Padding(2);
             this.rb_Id.Name = "rb_Id";
             this.rb_Id.Size = new System.Drawing.Size(37, 21);
             this.rb_Id.TabIndex = 9;
@@ -180,7 +180,7 @@ namespace POS_FG
             this.btn_Buscar.ForeColor = System.Drawing.Color.DimGray;
             this.btn_Buscar.Image = global::POS_FG.Properties.Resources.lupa;
             this.btn_Buscar.Location = new System.Drawing.Point(525, 49);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(30, 32);
             this.btn_Buscar.TabIndex = 8;
@@ -191,7 +191,7 @@ namespace POS_FG
             // 
             this.txt_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_Buscar.Location = new System.Drawing.Point(348, 53);
-            this.txt_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Buscar.Name = "txt_Buscar";
             this.txt_Buscar.Size = new System.Drawing.Size(174, 26);
             this.txt_Buscar.TabIndex = 7;
@@ -202,7 +202,7 @@ namespace POS_FG
             this.dtgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Productos.Location = new System.Drawing.Point(8, 107);
-            this.dtgv_Productos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_Productos.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_Productos.MultiSelect = false;
             this.dtgv_Productos.Name = "dtgv_Productos";
             this.dtgv_Productos.RowHeadersVisible = false;
@@ -222,7 +222,7 @@ namespace POS_FG
             this.btn_Informe.ForeColor = System.Drawing.Color.DimGray;
             this.btn_Informe.Image = global::POS_FG.Properties.Resources.imprimir;
             this.btn_Informe.Location = new System.Drawing.Point(856, 71);
-            this.btn_Informe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Informe.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Informe.Name = "btn_Informe";
             this.btn_Informe.Size = new System.Drawing.Size(40, 31);
             this.btn_Informe.TabIndex = 19;
@@ -254,6 +254,7 @@ namespace POS_FG
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(108, 21);
             this.comboBox1.TabIndex = 47;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -291,7 +292,7 @@ namespace POS_FG
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pan_Sup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "v_vproductos";
             this.Text = "v_Ventas";
             this.Load += new System.EventHandler(this.v_vproductos_Load);
